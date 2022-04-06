@@ -1,0 +1,33 @@
+{
+    "translation": {
+      "principal":{
+        "ola": "Ola",
+        "add": "Adicionar"
+      },
+      "loginForm":{
+        "login": "Entrar",
+        "email": "Email",
+        "password": "Palavra-Chave",
+        "fingerPrint": "Usar Impressão Digital",
+        "closeModal": "Fechar Modal"
+      },
+      "confAccess":{
+        "confAccess": "Configurar Acesso",
+        "changePin" : "Alterar Pin",
+        "name": "Nome",
+        "pin": "Pin",
+        "repeatPin": "Repetir Pin",
+        "confirm": "Confirmar"
+      },
+      "pinPage":{
+        "verification": "Verificação Requerida",
+        "4digits": "Insira o código de 4 dígitos",
+        "wrong": "Código errado inserido"
+      },
+      "toast":{
+        "validName": "Insira um nome válido",
+        "validPin": "Insira pins iguais",
+        "validEmail": "Insira um email válido"
+      }
+    }
+}

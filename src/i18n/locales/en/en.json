@@ -1,0 +1,33 @@
+{
+  "translation": {
+    "principal":{
+      "ola": "Hello",
+      "add": "Add"
+    },
+    "loginForm":{
+      "login": "LogIn",
+      "email": "Email Address",
+      "password": "Password",
+      "fingerPrint": "Use Finger Print",
+      "closeModal": "Close Modal"
+    },
+    "confAccess":{
+      "confAccess": "Configure Access",
+      "changePin" : "Change Pin",
+      "name": "Name",
+      "pin": "Pin",
+      "repeatPin": "Repeat Pin",
+      "confirm": "Confirm"
+    },
+    "pinPage":{
+      "verification": "Verification Required",
+      "4digits": "Enter your 4 digit verification code",
+      "wrong": "Wrong code entered"
+    },
+    "toast":{
+      "validName": "Insert a valid name",
+      "validPin": "Insert the same pin twice",
+      "validEmail": "Insert a valid email address"
+    }
+  }
+}
