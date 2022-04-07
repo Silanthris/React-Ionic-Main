@@ -15,11 +15,13 @@
 # Java class files
 *.class
 
+
 # Generated files
 bin/
 gen/
 out/
 release/
+node_modules/
 
 # Gradle files
 .gradle/

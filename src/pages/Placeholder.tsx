@@ -1,35 +1,67 @@
-import {
-  IonButton,
-  IonButtons,
-  IonCard,
-  IonCardContent,
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonHeader,
-  IonPage,
-  IonRow,
-  IonTitle,
-  IonToolbar,
-  useIonViewWillEnter,
-} from "@ionic/react";
+import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 
-import React, { useState } from "react";
-import { queryAllUsers, getUserById, deleteUserById } from "../dataservice";
-import { CurrentUser } from "../components/CurrentUser";
-import { UserList } from "../components/UserList";
-import { useHistory } from "react-router";
-import Login from "../components/Login";
-import { AnyRecord } from "dns";
+import '../components/util/css/Page.css';
+import { Link } from 'react-router-dom'
+import { getJson, getBigJson } from "../components/util/json"
+import { useEffect, useState } from 'react';
+
+
+import Cmr from "../components/Cmr"
+import CmrList from '../components/CmrList';
 
 const Placeholder: React.FC = () => {
+
+  const [cmrCheck, setCmrCheck] = useState(false);
+
+  const jsonItem = getJson();
+  const bigJsonItem = getBigJson();
+
+
+
+ 
+
+
+  const words = bigJsonItem[0].loadingDate.split('T');
+  console.log(words);
+
+
+  console.log(bigJsonItem)
+  console.log(jsonItem)
+
   return (
     <IonPage>
-      <IonContent fullscreen className="ion-padding ">
-        LOGGED
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent fullscreen>
+
+        {cmrCheck ? (
+          <Cmr />
+        ) : (
+          <div>
+            <CmrList setCmrCheck={setCmrCheck} />
+          </div>
+        )}
+
+
+
+
       </IonContent>
+
+      <IonFooter className="ion-no-border">
+        <IonToolbar>
+          <IonTitle>List</IonTitle>
+        </IonToolbar>
+      </IonFooter>
     </IonPage>
   );
 };
 
 export default Placeholder;
+
+
