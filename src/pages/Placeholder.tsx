@@ -1,4 +1,4 @@
-import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 
 import '../components/util/css/Page.css';
 import { Link } from 'react-router-dom'
@@ -17,8 +17,13 @@ const Placeholder: React.FC = () => {
   const bigJsonItem = getBigJson();
 
 
+  const CmrClick = () => {
 
- 
+    setCmrCheck(true)
+
+  };
+
+
 
 
   const words = bigJsonItem[0].loadingDate.split('T');
@@ -33,18 +38,21 @@ const Placeholder: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonMenuButton />
+            <IonButton color="danger" onClick={() => {setCmrCheck(false)}}> Hol </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen>
 
+
+
         {cmrCheck ? (
           <Cmr />
+
         ) : (
           <div>
-            <CmrList setCmrCheck={setCmrCheck} />
+            <CmrList CmrClick={CmrClick} />
           </div>
         )}
 

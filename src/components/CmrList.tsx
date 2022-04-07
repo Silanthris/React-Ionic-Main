@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom'
 import { getJson, getBigJson } from "../components/util/json"
 import { useEffect, useState } from 'react';
 
-const CmrList: React.FC = ( {setCmrCheck} : any ) => {
+
+type Props = {
+    CmrClick: any
+  }
+
+const CmrList: React.FC<Props> = ( {CmrClick}  ) => {
 
 
     const jsonItem = getJson();
     const bigJsonItem = getBigJson();
 
 
-    const CmrClick = () => {
-
-        setCmrCheck(true)
-    
-      };
     
 
     const words = bigJsonItem[0].loadingDate.split('T');
@@ -33,7 +33,7 @@ const CmrList: React.FC = ( {setCmrCheck} : any ) => {
                 {bigJsonItem.map((json) => (
 
 
-                    <IonCard onClick={setCmrCheck(true)} routerLink='/Pdf'>
+                    <IonCard onClick={() => {CmrClick();}}>
                         <IonCardHeader>
                             <IonCardSubtitle> CMR:  {json.carrierBookingReference} </IonCardSubtitle>
                             <IonCardTitle>{json.createdBy.entity.name}</IonCardTitle>
