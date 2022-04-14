@@ -15,11 +15,20 @@ import { useHistory } from "react-router-dom";
 import ConfAcesso from "../components/ConfAcesso";
 import { ConfType } from "../Enums/Enums";
 import { useTranslation } from "react-i18next";
+import { isTemplateLiteralToken } from "typescript";
 
-const Register: React.FC<any> = ( { resetPin = false, id }) => {
+const Register: React.FC<any> = ({ resetPin = false, id }) => {
   const [showToast, setShowToast] = useState(false);
+
+  const [token, setToken] = useState<string>("");
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+
+  const [emailData, setEmailData] = useState<string>("");
+  const [passwordData, setPasswordData] = useState<string>("");
+
   const [validado, setValidado] = useState(false);
   const { t } = useTranslation();
 
@@ -31,29 +40,105 @@ const Register: React.FC<any> = ( { resetPin = false, id }) => {
       );
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+  const loginApi = (email: any, password: any) => {
+
+
+    fetch('https://try.bizcargo.com/oauth/token', {
+      headers: { 'Content-type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
+      body: new URLSearchParams({
+        'username': emailData,
+        'password': passwordData,
+        'grant_type': 'password',
+        'scope': 'read write',
+        'client_secret': 'mySecretOAuthSecret',
+        'client_id': 'lswapp'
+      })
+    })
+      .then(r => r.json())
+      .then((response) => {
+        if (response.access_token) {
+
+          setToken(response.access_token)
+
+        }
+      }).catch((err) => {
+        alert('Login Errado');
+      });
+
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     const email = data.get("email");
     const password = data.get("password");
 
-    console.log(email);
+
     if (validateEmail(email)) {
+
+      setPasswordData(password!.toString())
+      setEmailData(email!.toString())
       setShowToast(false);
-      setValidado(true);
-      setPassword(password!.toString());
-      setEmail(email!.toString());
+
+      console.log(emailData)
+      console.log(passwordData)
+
+      await loginApi(emailData, passwordData)
+
+      console.log("token")
+      console.log(token)
+      console.log("token")
+
+      /*
+            fetch('https://try.bizcargo.com/oauth/token', {
+              headers: { 'Content-type': 'application/x-www-form-urlencoded' },
+              method: 'POST',
+              body: new URLSearchParams({
+                'username': emailData,
+                'password': passwordData,
+                'grant_type': 'password',
+                'scope': 'read write',
+                'client_secret': 'mySecretOAuthSecret',
+                'client_id': 'lswapp'
+              })
+            })
+              .then(r => r.json())
+              .then((response) => {
+                if (response.access_token) {
+      
+                  setToken(response.access_token)
+                  console.log("token")
+                  console.log(token)
+                  console.log("token")
+                }
+              }).catch((err) => {
+                alert('Login Errado');
+              });
+      
+              */
+
     } else {
+
       setShowToast(true);
+
     }
+
+
+    if (token) {
+      setValidado(true)
+    }
+
+
   };
 
   return (
     <IonPage>
       <IonContent>
         {validado ? (
-          <ConfAcesso id={id} email={email} password={password} confType={resetPin ? ConfType.updatePin : ConfType.create } />
+          <ConfAcesso id={id} token={token} email={email} password={password} confType={resetPin ? ConfType.updatePin : ConfType.create} />
         ) : (
           <div style={{ paddingLeft: "40px", paddingRight: "40px" }}>
             <CssBaseline />
@@ -67,7 +152,7 @@ const Register: React.FC<any> = ( { resetPin = false, id }) => {
             >
               <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
               <Typography component="h1" variant="h5">
-              {t('loginForm.login')}
+                {t('loginForm.login')}
               </Typography>
               <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                 <TextField
@@ -95,7 +180,7 @@ const Register: React.FC<any> = ( { resetPin = false, id }) => {
                   label={t('loginForm.fingerPrint')}
                 />
                 <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                {t('loginForm.login')}
+                  {t('loginForm.login')}
                 </Button>
               </Box>
             </Box>
@@ -105,7 +190,7 @@ const Register: React.FC<any> = ( { resetPin = false, id }) => {
       <IonToast
         isOpen={showToast}
         onDidDismiss={() => setShowToast(false)}
-        message= {t('toast.validEmail')}
+        message={t('toast.validEmail')}
         duration={2000}
         position="top"
         buttons={[

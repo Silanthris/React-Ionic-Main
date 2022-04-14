@@ -38,16 +38,22 @@ type Props = {
   setConfCheck: any,
   confType: ConfType,
   id: any,
+  token: any
 }
 
 
-const ConfAcesso = ({ email="", password="", setConfCheck, confType, id }: any) => {
+const ConfAcesso = ({ email="", password="", setConfCheck, confType, id, token }: any) => {
   let history = useHistory();
   const [name, setName] = useState<any>("");
   const [showToast, setShowToast] = useState(false);
   const [showToast2, setShowToast2] = useState(false);
+  
+  console.log("yasuo")
+  console.log("yasuo")
+  console.log(token)
+  console.log("yasuo")
+  console.log("yasuo")
 
-  const [token, setToken] = useState<string>("Ola");
   const [pin, setPin] = useState<string>("");
   const [repetirPin, setRepetirPin] = useState<string>("Repetir Pin");
   const [focusedPin, setFocus] = useState<string>("Pin");
