@@ -19,6 +19,7 @@ import { createUser, getUserById } from "../dataservice";
 
 const EditUser: React.FC<any> = () => {
   const { id } = useParams<any>();
+  
   const [currentUser, setCurrentUser] = useState<any>(null);
 
   const [name, setName] = useState<any>(null);

@@ -42,12 +42,16 @@ type Props = {
 }
 
 
-const ConfAcesso = ({ email="", password="", setConfCheck, confType, id, token }: any) => {
+const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, token }: any) => {
+
+
   let history = useHistory();
+
   const [name, setName] = useState<any>("");
+  
   const [showToast, setShowToast] = useState(false);
   const [showToast2, setShowToast2] = useState(false);
-  
+
   console.log("yasuo")
   console.log("yasuo")
   console.log(token)
@@ -118,7 +122,7 @@ const ConfAcesso = ({ email="", password="", setConfCheck, confType, id, token }
             await updateUserById(id, { name, pin });
 
           }
-          history.goBack();
+          window.location.replace("/")
 
         } else {
           setShowToast(true);
@@ -151,30 +155,30 @@ const ConfAcesso = ({ email="", password="", setConfCheck, confType, id, token }
 
 
 
-        {confType === ConfType.updatePin ? (
+          {confType === ConfType.updatePin ? (
 
-<h5 className="ion-text-left">{t('confAccess.changePin')}</h5>
+            <h5 className="ion-text-left">{t('confAccess.changePin')}</h5>
 
-) : (
+          ) : (
 
-<h5 className="ion-text-left">{t('confAccess.confAccess')}</h5>
+            <h5 className="ion-text-left">{t('confAccess.confAccess')}</h5>
 
-)}
+          )}
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          {confType != ConfType.updatePin && (
+            {confType != ConfType.updatePin && (
 
-                                <TextField
-                                  margin="normal"
-                                  required
-                                  fullWidth
-                                  id="name"
-                                  label={t('confAccess.name')}
-                                  name="name"
-                                  autoComplete="name"
-                                  autoFocus
-                                />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                label={t('confAccess.name')}
+                name="name"
+                autoComplete="name"
+                autoFocus
+              />
 
-                                )}
+            )}
             <IonRow color="primary" justify-content-center>
               <IonCol size="6" className="ion-margin-top">
                 <div className="ion-text-center ion-margin-top">
@@ -193,7 +197,7 @@ const ConfAcesso = ({ email="", password="", setConfCheck, confType, id, token }
                     />
                   </div>
                   <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                  {t('confAccess.confirm')}
+                    {t('confAccess.confirm')}
                   </Button>
                 </div>
               </IonCol>

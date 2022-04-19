@@ -5,410 +5,417 @@ import logo from '../pages/blk2.png';
 import { getJson, getBigJson } from "./util/json"
 
 
-const bigJsonItem = getBigJson();
+
+type Props = {
+    userId: any
+}
 
 
-const Cmr: React.FC = () => {
+const Cmr: React.FC<Props> = ({ userId }) => {
+
+
+    const bigJsonItem = getBigJson();
+
     return (
-        
 
-            <IonContent>
 
+        <IonContent>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Consignor</IonCardTitle>
-                    </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].parties[0].entityName}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Consignor</IonCardTitle>
+                </IonCardHeader>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Consignee</IonCardTitle>
-                    </IonCardHeader>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].parties[0].entityName}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12">{bigJsonItem[0].parties[1].entityName}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Delivery Place</IonCardTitle>
-                    </IonCardHeader>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Consignee</IonCardTitle>
+                </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].destination}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Loading Date</IonCardTitle>
-                    </IonCardHeader>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12">{bigJsonItem[0].parties[1].entityName}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Delivery Place</IonCardTitle>
+                </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].deliveryDate}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].destination}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Loading Date</IonCardTitle>
+                </IonCardHeader>
 
-                <IonCard >
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].deliveryDate}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="6"> Marks:</IonCol>
-                                <IonCol size="6">
+            <IonCard >
 
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="6"> Marks:</IonCol>
+                            <IonCol size="6">
 
-                                    {bigJsonItem[0].cargo.map((json) => (
 
+                                {bigJsonItem[0].cargo.map((json) => (
 
-                                        json.marksAndNumbers
 
+                                    json.marksAndNumbers
 
-                                    ))}
 
+                                ))}
 
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Number of ...:</IonCol>
-                                <IonCol size="6"> {bigJsonItem[0].cargo.length}</IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Method of Packing:</IonCol>
-                                <IonCol size="6">
 
+                            </IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol size="6"> Number of ...:</IonCol>
+                            <IonCol size="6"> {bigJsonItem[0].cargo.length}</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol size="6"> Method of Packing:</IonCol>
+                            <IonCol size="6">
 
-                                    {bigJsonItem[0].cargo.map((json) => (
 
+                                {bigJsonItem[0].cargo.map((json) => (
 
-                                        json.methodOfPacking
 
+                                    json.methodOfPacking
 
-                                    ))}
 
+                                ))}
 
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Nature of Goods:</IonCol>
-                                <IonCol size="6">
 
+                            </IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol size="6"> Nature of Goods:</IonCol>
+                            <IonCol size="6">
 
-                                    {bigJsonItem[0].cargo.map((json) => (
 
+                                {bigJsonItem[0].cargo.map((json) => (
 
-                                        json.natureOfGoods
 
+                                    json.natureOfGoods
 
-                                    ))}
 
+                                ))}
 
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Stat Nr:</IonCol>
-                                <IonCol size="6"> {bigJsonItem[0].deliveryDate}</IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Gross Weight:</IonCol>
-                                <IonCol size="6">
 
+                            </IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol size="6"> Stat Nr:</IonCol>
+                            <IonCol size="6"> {bigJsonItem[0].deliveryDate}</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol size="6"> Gross Weight:</IonCol>
+                            <IonCol size="6">
 
-                                    {bigJsonItem[0].cargo.map((json) => (
 
+                                {bigJsonItem[0].cargo.map((json) => (
 
-                                        json.grossWeight
 
+                                    json.grossWeight
 
-                                    ))}
 
+                                ))}
 
-                                </IonCol>
-                            </IonRow>
 
-                            <IonRow>
-                                <IonCol size="6">Gross Volume:</IonCol>
-                                <IonCol size="6">
+                            </IonCol>
+                        </IonRow>
 
+                        <IonRow>
+                            <IonCol size="6">Gross Volume:</IonCol>
+                            <IonCol size="6">
 
-                                    {bigJsonItem[0].cargo.map((json) => (
 
+                                {bigJsonItem[0].cargo.map((json) => (
 
-                                        json.grossVolume
 
+                                    json.grossVolume
 
-                                    ))}
 
+                                ))}
 
-                                </IonCol>
-                            </IonRow>
 
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                            </IonCol>
+                        </IonRow>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Driver's Instruction</IonCardTitle>
-                    </IonCardHeader>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].deliveryDate}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Driver's Instruction</IonCardTitle>
+                </IonCardHeader>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Instruction for payment</IonCardTitle>
-                    </IonCardHeader>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].deliveryDate}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].deliveryDate}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Instruction for payment</IonCardTitle>
+                </IonCardHeader>
 
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].deliveryDate}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Cash on Delivery</IonCardTitle>
-                    </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].deliveryDate}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Cash on Delivery</IonCardTitle>
+                </IonCardHeader>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Carrier Info</IonCardTitle>
-                    </IonCardHeader>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].deliveryDate}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Carrier Info</IonCardTitle>
+                </IonCardHeader>
 
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Sucessive Carriers</IonCardTitle>
-                    </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Sucessive Carriers</IonCardTitle>
+                </IonCardHeader>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Carriers Observations</IonCardTitle>
-                    </IonCardHeader>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Carriers Observations</IonCardTitle>
+                </IonCardHeader>
 
-                <IonCard >
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="6">To be paid by:</IonCol>
-                                <IonCol size="6">
+            <IonCard >
 
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="6">To be paid by:</IonCol>
+                            <IonCol size="6">
 
-                                    {bigJsonItem[0].cargo.map((json) => (
 
+                                {bigJsonItem[0].cargo.map((json) => (
 
-                                        json.marksAndNumbers
 
+                                    json.marksAndNumbers
 
-                                    ))}
 
+                                ))}
 
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Sender:</IonCol>
-                                <IonCol size="6"> {bigJsonItem[0].cargo.length}</IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Currency:</IonCol>
-                                <IonCol size="6">
+
+                            </IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol size="6"> Sender:</IonCol>
+                            <IonCol size="6"> {bigJsonItem[0].cargo.length}</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol size="6"> Currency:</IonCol>
+                            <IonCol size="6">
 
 
                                 {bigJsonItem[0].currency.code}
 
 
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6">Consignee:</IonCol>
-                                <IonCol size="6">
+                            </IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol size="6">Consignee:</IonCol>
+                            <IonCol size="6">
 
 
-                                    {bigJsonItem[0].cargo.map((json) => (
+                                {bigJsonItem[0].cargo.map((json) => (
 
 
-                                        json.natureOfGoods
+                                    json.natureOfGoods
 
 
-                                    ))}
+                                ))}
 
 
-                                </IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Special Agreements</IonCardTitle>
-                    </IonCardHeader>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Special Agreements</IonCardTitle>
+                </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Estabilished in:</IonCardTitle>
-                    </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Estabilished in:</IonCardTitle>
+                </IonCardHeader>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Signature Sender</IonCardTitle>
-                    </IonCardHeader>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Signature Sender</IonCardTitle>
+                </IonCardHeader>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Signature Carrier</IonCardTitle>
-                    </IonCardHeader>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Signature Carrier</IonCardTitle>
+                </IonCardHeader>
 
-                
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Goods Received</IonCardTitle>
-                    </IonCardHeader>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Registration</IonCardTitle>
-                    </IonCardHeader>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Goods Received</IonCardTitle>
+                </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Type:</IonCardTitle>
-                    </IonCardHeader>
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Registration</IonCardTitle>
+                </IonCardHeader>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
 
-            </IonContent>
-        
+            <IonCard >
+                <IonCardHeader>
+                    <IonCardTitle>Type:</IonCardTitle>
+                </IonCardHeader>
+
+                <IonCardContent>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size="12"> {bigJsonItem[0].drivers}</IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCardContent>
+            </IonCard>
+
+        </IonContent>
+
     );
 };
 

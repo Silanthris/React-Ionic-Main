@@ -7,10 +7,12 @@ import { useEffect, useState } from 'react';
 
 
 type Props = {
-    CmrClick: any
+    CmrClick: any,
+    userId: any
   }
 
-const CmrList: React.FC<Props> = ( {CmrClick}  ) => {
+
+const CmrList: React.FC<Props> = ( {CmrClick, userId}  ) => {
 
 
     const jsonItem = getJson();

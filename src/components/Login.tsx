@@ -22,11 +22,12 @@ import Keypad from "./keypad/Keypad";
 import { useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 // import { Plugins } from "@capacitor/core";
-import {ConfType, EnumTask} from '../Enums/Enums'
+import { ConfType, EnumTask } from '../Enums/Enums'
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Register from "../pages/Register";
 import ConfAcesso from "./ConfAcesso";
+import { idText } from "typescript";
 
 type Props = {
   pin: any,
@@ -38,9 +39,10 @@ type Props = {
 }
 
 const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUser, enumTask }) => {
+
   let history = useHistory();
 
-  const correctCode = { ...pin};
+  const correctCode = { ...pin };
 
   const [showToast, setShowToast] = useState(false);
   const [keypadValues, setKeypadValues] = useState<any>(["", "", "", ""]);
@@ -106,8 +108,19 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
         setLoginCheck(false);
 
+
         if (enumTask === EnumTask.login) {
-          history.push("/placeholder");
+
+          
+          history.push({
+            pathname: '/placeholder',
+            search: "?query=id",
+            state: { id: id }
+          })
+          
+
+         //  history.push("/placeholder")
+
         }
 
         if (enumTask === EnumTask.edit) {
@@ -146,37 +159,37 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
   return (
     <IonPage>
-      <IonContent> 
-      {validado ? (
+      <IonContent>
+        {validado ? (
           <ConfAcesso confType={ConfType.updatePin} />
         ) : (
           <div>
-        <IonGrid className="ion-text-center ">
-          <IonRow style={{ paddingTop: "32%" }}>
-            <IonCol size="12">
-              <div
-                onClick={() => {
-                  //   loginWithFinger();
-                }}
-              >
-                <IonImg src="/assets/impDig.png" className={styles.logo} />
-              </div>
-              <h1>{t('pinPage.verification')}</h1>
-              <p>{t('pinPage.4digits')}</p>
-            </IonCol>
-          </IonRow>
-          <KeypadInputs incorrect={incorrect} correct={correct} values={keypadValues} activeIndex={activeIndex} />
-          {incorrect && <p className={styles.incorrect}>{t('pinPage.wrong')}</p>}
-          <Keypad
-            handleRemove={handleRemove}
-            handleClick={handleClick}
-            handleAlert={handleAlert}
-            activeIndex={activeIndex}
-            amount={keypadValues.length}
-            correct={correct}
-          />
-        </IonGrid>
-        </div>
+            <IonGrid className="ion-text-center ">
+              <IonRow style={{ paddingTop: "32%" }}>
+                <IonCol size="12">
+                  <div
+                    onClick={() => {
+                      //   loginWithFinger();
+                    }}
+                  >
+                    <IonImg src="/assets/impDig.png" className={styles.logo} />
+                  </div>
+                  <h1>{t('pinPage.verification')}</h1>
+                  <p>{t('pinPage.4digits')}</p>
+                </IonCol>
+              </IonRow>
+              <KeypadInputs incorrect={incorrect} correct={correct} values={keypadValues} activeIndex={activeIndex} />
+              {incorrect && <p className={styles.incorrect}>{t('pinPage.wrong')}</p>}
+              <Keypad
+                handleRemove={handleRemove}
+                handleClick={handleClick}
+                handleAlert={handleAlert}
+                activeIndex={activeIndex}
+                amount={keypadValues.length}
+                correct={correct}
+              />
+            </IonGrid>
+          </div>
         )}
         <IonToast
           isOpen={showToast}
@@ -200,13 +213,17 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
           <Register id={id} resetPin={true} />
 
           <IonButton onClick={() => setShowModal(false)}>
-          {t('login.closeModal')}
+            {t('login.closeModal')}
           </IonButton>
         </IonModal>
-        
+
       </IonContent>
     </IonPage>
   );
 };
 
 export default Login;
+function useNavigate() {
+  throw new Error("Function not implemented.");
+}
+

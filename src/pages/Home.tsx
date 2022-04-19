@@ -19,6 +19,7 @@ import { EnumType } from "typescript";
 import ConfAcesso from "../components/ConfAcesso";
 
 const Home: React.FC = () => {
+
   const [queryResults, setQueryResults] = useState<any>(null);
   const [currentUser, setCurrentUser] = useState<any>(null);
 
@@ -57,8 +58,6 @@ const Home: React.FC = () => {
 
 
   };
-
-
 
   const deleteUser = async () => {
 
