@@ -7,12 +7,11 @@ import { useEffect, useState } from 'react';
 
 
 type Props = {
-    CmrClick: any,
-    userId: any
+    CmrClick: any
   }
 
 
-const CmrList: React.FC<Props> = ( {CmrClick, userId}  ) => {
+const CmrList: React.FC<Props> = ( {CmrClick}  ) => {
 
 
     const jsonItem = getJson();
@@ -22,11 +21,8 @@ const CmrList: React.FC<Props> = ( {CmrClick, userId}  ) => {
     
 
     const words = bigJsonItem[0].loadingDate.split('T');
-    console.log(words);
 
 
-    console.log(bigJsonItem)
-    console.log(jsonItem)
 
     return (
 

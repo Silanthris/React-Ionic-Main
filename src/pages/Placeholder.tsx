@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Cmr from "../components/Cmr"
 import CmrList from '../components/CmrList';
 import { constructOutline } from 'ionicons/icons';
+import { getUserById } from '../dataservice';
 
 
 
@@ -20,20 +21,60 @@ const Placeholder: React.FC = () => {
 
   const [cmrCheck, setCmrCheck] = useState(false);
 
-  const [userId, setUserId] = useState<any>("false");
+  const [userToken, setUserToken] = useState<any>();
 
-  setUserId(location.state.id)
-
-  console.log("=========")
-  console.log(location.state.id)
-  console.log("=========")
+  const [cmrData, setCmrData] = useState<any>();
 
   const jsonItem = getJson();
   const bigJsonItem = getBigJson();
 
 
+  useEffect(() => {
+    getUserById(location.state.id).then((c: any) => {
+      const user = c.values[0];
+      console.log("Tentou111");
+      console.log(user)
+     // setUserToken(user.token);
 
-  
+
+      fetch('https://try.bizcargo.com/api/cmr/cmr-documents?active=true&completed=false&daysFilter=0&page=0&size=10&sort=created_date,DESC&template=false', {
+        headers: {
+          'Authorization': 'Bearer ' + user.token,
+          'Accept': 'application/json',
+          'Content-type': 'application/json'
+        },
+        method: 'GET'
+      })
+        .then(r => r.json())
+        .then((response) => {
+          if (response) {
+
+            setCmrData(response)
+            console.log("Tentou222");
+            console.log(cmrData)
+
+          }
+        }).catch((err) => {
+          alert('Login Errado');
+        });
+
+
+
+    });
+
+  }, []);
+
+
+  const cmrListApi = () => {
+
+    console.log("Tentou");
+    console.log(userToken);
+    console.log("Tentou");
+
+
+  };
+
+
 
 
   const CmrClick = () => {
@@ -47,15 +88,12 @@ const Placeholder: React.FC = () => {
   console.log(words);
 
 
-  console.log(bigJsonItem)
-  console.log(jsonItem)
-
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonButton color="danger" onClick={() => {setCmrCheck(false)}}> Hol </IonButton>
+            <IonButton color="danger" onClick={() => { setCmrCheck(false) }}> Hol </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
@@ -65,11 +103,11 @@ const Placeholder: React.FC = () => {
 
 
         {cmrCheck ? (
-          <Cmr userId={userId} />
+          <Cmr />
 
         ) : (
           <div>
-            <CmrList userId={userId} CmrClick={CmrClick} />
+            <CmrList CmrClick={CmrClick} />
           </div>
         )}
 

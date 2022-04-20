@@ -48,8 +48,8 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
       headers: { 'Content-type': 'application/x-www-form-urlencoded' },
       method: 'POST',
       body: new URLSearchParams({
-        'username': emailData,
-        'password': passwordData,
+        'username': email,
+        'password': password,
         'grant_type': 'password',
         'scope': 'read write',
         'client_secret': 'mySecretOAuthSecret',
@@ -92,33 +92,6 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
       console.log(token)
       console.log("token")
 
-      /*
-            fetch('https://try.bizcargo.com/oauth/token', {
-              headers: { 'Content-type': 'application/x-www-form-urlencoded' },
-              method: 'POST',
-              body: new URLSearchParams({
-                'username': emailData,
-                'password': passwordData,
-                'grant_type': 'password',
-                'scope': 'read write',
-                'client_secret': 'mySecretOAuthSecret',
-                'client_id': 'lswapp'
-              })
-            })
-              .then(r => r.json())
-              .then((response) => {
-                if (response.access_token) {
-      
-                  setToken(response.access_token)
-                  console.log("token")
-                  console.log(token)
-                  console.log("token")
-                }
-              }).catch((err) => {
-                alert('Login Errado');
-              });
-      
-              */
 
     } else {
 

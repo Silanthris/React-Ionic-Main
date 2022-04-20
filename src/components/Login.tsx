@@ -119,7 +119,7 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
           })
           
 
-         //  history.push("/placeholder")
+        //   history.push("/placeholder")
 
         }
 

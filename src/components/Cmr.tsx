@@ -7,11 +7,11 @@ import { getJson, getBigJson } from "./util/json"
 
 
 type Props = {
-    userId: any
+    
 }
 
 
-const Cmr: React.FC<Props> = ({ userId }) => {
+const Cmr: React.FC<Props> = ({  }) => {
 
 
     const bigJsonItem = getBigJson();
