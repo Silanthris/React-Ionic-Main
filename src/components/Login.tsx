@@ -111,6 +111,11 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
         if (enumTask === EnumTask.login) {
 
+
+
+
+          
+
           
           history.push({
             pathname: '/placeholder',

@@ -38,11 +38,12 @@ type Props = {
   setConfCheck: any,
   confType: ConfType,
   id: any,
-  token: any
+  token: any,
+  refreshToken: any
 }
 
 
-const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, token }: any) => {
+const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, token, refreshToken }: any) => {
 
 
   let history = useHistory();
@@ -51,12 +52,6 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
   
   const [showToast, setShowToast] = useState(false);
   const [showToast2, setShowToast2] = useState(false);
-
-  console.log("yasuo")
-  console.log("yasuo")
-  console.log(token)
-  console.log("yasuo")
-  console.log("yasuo")
 
   const [pin, setPin] = useState<string>("");
   const [repetirPin, setRepetirPin] = useState<string>("Repetir Pin");
@@ -116,7 +111,7 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
 
           if (confType === ConfType.create) {
 
-            await createUser({ name, password, email, pin, token });
+            await createUser({ name, password, email, pin, token, refreshToken });
           } else {
             setConfCheck(false)
             await updateUserById(id, { name, pin });

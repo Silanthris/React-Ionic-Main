@@ -10,6 +10,7 @@ import Cmr from "../components/Cmr"
 import CmrList from '../components/CmrList';
 import { constructOutline } from 'ionicons/icons';
 import { getUserById } from '../dataservice';
+import { use } from 'i18next';
 
 
 
@@ -22,18 +23,31 @@ const Placeholder: React.FC = () => {
   const [cmrCheck, setCmrCheck] = useState(false);
 
   const [userToken, setUserToken] = useState<any>();
+  const [cmrCode2, setCmrCode2] = useState<any>();
 
-  const [cmrData, setCmrData] = useState<any>();
+
+  const [userId, setUserId] = useState<any>();
+
+  const [cmrData, setCmrData] = useState<Array<Object>>([]);
 
   const jsonItem = getJson();
   const bigJsonItem = getBigJson();
 
 
+
+
   useEffect(() => {
+
+    /*
+
     getUserById(location.state.id).then((c: any) => {
       const user = c.values[0];
+
+      console.log("Tentou11123333");
+      console.log(c.values)
       console.log("Tentou111");
       console.log(user)
+      console.log(user.token)
      // setUserToken(user.token);
 
 
@@ -45,47 +59,43 @@ const Placeholder: React.FC = () => {
         },
         method: 'GET'
       })
-        .then(r => r.json())
+        .then(response => response.json())
         .then((response) => {
           if (response) {
-
-            setCmrData(response)
+            console.log("responseee");
+            console.log(response)
             console.log("Tentou222");
+            console.log(response.content)
+            setCmrData(response.content)
+            console.log("Tentoucccccc222");
             console.log(cmrData)
+           
+            
 
           }
         }).catch((err) => {
           alert('Login Errado');
         });
-
-
+        console.log("Tentoucccccc222");
+        console.log(cmrData)
 
     });
+
+*/
 
   }, []);
 
 
-  const cmrListApi = () => {
+  const CmrClick = (cmrCode: any) => {
 
-    console.log("Tentou");
-    console.log(userToken);
-    console.log("Tentou");
-
-
-  };
-
-
-
-
-  const CmrClick = () => {
-
+    setCmrCode2(cmrCode)
     setCmrCheck(true)
 
   };
 
+ // console.log(cmrData)
 
   const words = bigJsonItem[0].loadingDate.split('T');
-  console.log(words);
 
 
   return (
@@ -100,14 +110,16 @@ const Placeholder: React.FC = () => {
 
       <IonContent fullscreen>
 
+        
+
 
 
         {cmrCheck ? (
-          <Cmr />
+          <Cmr id={location.state.id} cmrCode={cmrCode2}  />
 
         ) : (
           <div>
-            <CmrList CmrClick={CmrClick} />
+            <CmrList id={location.state.id} cmrData={cmrData} CmrClick={CmrClick} />
           </div>
         )}
 

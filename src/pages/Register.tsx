@@ -21,6 +21,8 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
   const [showToast, setShowToast] = useState(false);
 
   const [token, setToken] = useState<string>("");
+  const [refToken, setRefToken] = useState<string>("");
+
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -61,6 +63,8 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
         if (response.access_token) {
 
           setToken(response.access_token)
+          console.log("tokens")
+          setRefToken(response.refresh_token)
 
         }
       }).catch((err) => {
@@ -111,7 +115,7 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
     <IonPage>
       <IonContent>
         {validado ? (
-          <ConfAcesso id={id} token={token} email={email} password={password} confType={resetPin ? ConfType.updatePin : ConfType.create} />
+          <ConfAcesso id={id} token={token} refreshToken={refToken} email={email} password={password} confType={resetPin ? ConfType.updatePin : ConfType.create} />
         ) : (
           <div style={{ paddingLeft: "40px", paddingRight: "40px" }}>
             <CssBaseline />
