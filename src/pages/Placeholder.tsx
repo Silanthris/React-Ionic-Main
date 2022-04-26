@@ -130,7 +130,6 @@ const Placeholder: React.FC = () => {
 
       <IonFooter className="ion-no-border">
         <IonToolbar>
-          <IonTitle>List</IonTitle>
         </IonToolbar>
       </IonFooter>
     </IonPage>

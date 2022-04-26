@@ -32,11 +32,6 @@ const CmrList: React.FC<Props> = ({ CmrClick, id, cmrData }) => {
         getUserById(id).then((c: any) => {
             const user = c.values[0];
 
-            console.log("Tentou11123333");
-            console.log(c.values)
-            console.log("Tentou111");
-            console.log(user)
-            console.log(user.token)
             // setUserToken(user.token);
 
 
@@ -51,10 +46,8 @@ const CmrList: React.FC<Props> = ({ CmrClick, id, cmrData }) => {
                 .then(response => response.json())
                 .then((response) => {
                     if (response) {
-                        console.log("responseee");
-                        console.log(response)
-                        const atuamae = response.content
-                        setCmrData2(atuamae)
+                        const temp = response.content
+                        setCmrData2(temp)
 
                     }
                 }).catch((err) => {
@@ -69,10 +62,7 @@ const CmrList: React.FC<Props> = ({ CmrClick, id, cmrData }) => {
 
 
     const words = bigJsonItem[0].loadingDate.split('T');
-    console.log("inaaaaaaaaaaaaaaa");
-    console.log(cmrData2)
 
-    console.log(bigJsonItem)
 
     return (
 

@@ -64,7 +64,11 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
 
     }, []);
 
+    console.log("yasuo")
+
     console.log(cmrData2)
+
+    console.log(cmrData2.parties)
 
     // {cmrData2.parties[1].entityName}
 
@@ -83,7 +87,7 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                 <IonCardContent>
                     <IonGrid>
                         <IonRow>
-                            <IonCol size="12"> </IonCol>
+                            <IonCol size="12">  </IonCol>
                         </IonRow>
                     </IonGrid>
                 </IonCardContent>
@@ -137,16 +141,6 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                         <IonRow>
                             <IonCol size="6"> Marks:</IonCol>
                             <IonCol size="6">
-
-
-                                
-
-
-                                   
-
-
-                                
-
 
                             </IonCol>
                         </IonRow>
@@ -300,7 +294,7 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                             <IonCol size="6"> {cmrData2.cargo}</IonCol>
                         </IonRow>
                         <IonRow>
-                            <IonCol size="6"> Currency: {cmrData2.Currency.code}</IonCol>
+                            <IonCol size="6"> Currency:</IonCol>
                             <IonCol size="6">
 
 
