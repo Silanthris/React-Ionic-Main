@@ -1,7 +1,8 @@
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonRouterOutlet } from "@ionic/react";
+import { IonApp, IonRouterOutlet, IonSplitPane } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Home from "./pages/Home";
+import Menu from './components/menu/Menu';
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -30,31 +31,63 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
+
       <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-          <Route exact path="/edit-user/:id">
-            <EditUser />
-          </Route>
-          <Route exact path="/create-user">
-            <EditUser />
-          </Route>
-          <Route exact path="/register">
-            <Register />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-          <Route exact path="/placeholder">
-            <Placeholder />
-          </Route>
-        </IonRouterOutlet>
+
+        <IonSplitPane contentId="main">
+
+          <Menu />
+
+
+          <IonRouterOutlet id="main">
+
+
+
+            <Route path="/cmr/:name" exact={true}>
+              <Placeholder />
+            </Route>
+
+
+
+
+
+            <Route exact path="/home">
+              <Home />
+            </Route>
+
+
+
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+
+            <Route exact path="/edit-user/:id">
+              <EditUser />
+            </Route>
+
+            <Route exact path="/create-user">
+              <EditUser />
+            </Route>
+
+            <Route exact path="/register">
+              <Register />
+            </Route>
+
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+
+            <Route exact path="/placeholder">
+              <Placeholder />
+            </Route>
+
+          </IonRouterOutlet>
+
+
+        </IonSplitPane>
+
       </IonReactRouter>
+
     </IonApp>
   );
 };

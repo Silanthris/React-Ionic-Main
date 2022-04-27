@@ -70,7 +70,19 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
 
     console.log(cmrData2.parties)
 
+
+
+
+
+    useEffect(() => {
+        if (cmrData2.parties) {
+            console.log(cmrData2.parties[0]);
+        }
+
+    }, [cmrData2])
+
     // {cmrData2.parties[1].entityName}
+
 
 
     return (
@@ -79,19 +91,35 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
         <IonContent>
 
 
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Consignor</IonCardTitle>
-                </IonCardHeader>
 
-                <IonCardContent>
-                    <IonGrid>
-                        <IonRow>
-                            <IonCol size="12">  </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardContent>
-            </IonCard>
+
+            {cmrData2.parties &&
+
+                <>
+
+                    {cmrData2.parties.map((json23: any ) => (
+
+                        <IonCard >
+                            <IonCardHeader>
+                                <IonCardTitle>Consignor</IonCardTitle>
+                            </IonCardHeader>
+
+                            <IonCardContent>
+                                <IonGrid>
+                                    <IonRow>
+                                        <IonCol size="12"> {json23.entityName}   </IonCol>
+                                    </IonRow>
+                                </IonGrid>
+                            </IonCardContent>
+                        </IonCard>
+
+                    ))}
+
+
+                </>
+
+            }
+
 
             <IonCard >
                 <IonCardHeader>
@@ -107,6 +135,10 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                     </IonGrid>
                 </IonCardContent>
             </IonCard>
+
+
+
+
             <IonCard >
                 <IonCardHeader>
                     <IonCardTitle>Delivery Place</IonCardTitle>
@@ -170,7 +202,7 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                             <IonCol size="6">
 
 
-                             
+
 
                             </IonCol>
                         </IonRow>
@@ -180,7 +212,7 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                             <IonCol size="6">
 
 
-                               
+
 
 
                             </IonCol>
@@ -285,7 +317,7 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                             <IonCol size="6">
 
 
-                             
+
 
                             </IonCol>
                         </IonRow>
@@ -298,7 +330,7 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                             <IonCol size="6">
 
 
-                              
+
 
                             </IonCol>
                         </IonRow>
@@ -307,7 +339,7 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                             <IonCol size="6">
 
 
-                          
+
 
 
                             </IonCol>
