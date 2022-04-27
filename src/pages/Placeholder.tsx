@@ -31,32 +31,20 @@ const Placeholder: React.FC = () => {
   const [cmrCode2, setCmrCode2] = useState<any>();
 
 
-  const [userId, setUserId] = useState<any>();
-
   const [cmrData, setCmrData] = useState<Array<Object>>([]);
-
-  const jsonItem = getJson();
-  const bigJsonItem = getBigJson();
-
-
 
 
   const CmrClick = (cmrCode: any) => {
 
-    setCmrCode2(cmrCode)
-    setCmrCheck(true)
+    console.log("yasuo")
 
     history.push({
-      pathname: '/placeholder',
+      pathname: '/cmr',
       search: "?query=id",
-      state: { id: location.state.id, cmrCode: cmrCode2 }
+      state: { id: location.state.id, cmrCode: cmrCode }
     })
 
   };
-
-  // console.log(cmrData)
-
-  const words = bigJsonItem[0].loadingDate.split('T');
 
 
   return (
@@ -73,21 +61,6 @@ const Placeholder: React.FC = () => {
           </IonButtons>
 
 
-          {cmrCheck ? (
-
-            <IonButtons slot="end">
-              <IonMenuButton autoHide={false} />
-            </IonButtons>
-
-          ) : (
-            <>
-
-            </>
-          )}
-
-
-
-
         </IonToolbar>
 
       </IonHeader>
@@ -95,19 +68,10 @@ const Placeholder: React.FC = () => {
       <IonContent fullscreen>
 
 
-
-
-        {cmrCheck ? (
-          <Cmr id={location.state.id} cmrCode={cmrCode2} />
-
-        ) : (
           <div>
             <CmrList id={location.state.id} cmrData={cmrData} CmrClick={CmrClick} />
           </div>
-        )}
-
-
-
+        
 
       </IonContent>
 

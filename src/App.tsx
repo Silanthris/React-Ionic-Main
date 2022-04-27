@@ -2,7 +2,6 @@ import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, IonSplitPane } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Home from "./pages/Home";
-import Menu from './components/menu/Menu';
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -25,6 +24,7 @@ import EditUser from "./pages/EditUser";
 import { initdb } from "./dataservice";
 import Register from "./pages/Register";
 import Placeholder from "./pages/Placeholder";
+import Cmr from "./pages/Cmr"
 
 const App: React.FC = () => {
   initdb().catch(() => window.alert("ERROR INITIALIZING"));
@@ -34,28 +34,15 @@ const App: React.FC = () => {
 
       <IonReactRouter>
 
-        <IonSplitPane contentId="main">
 
-          <Menu />
+          
 
 
           <IonRouterOutlet id="main">
 
-
-
-            <Route path="/cmr/:name" exact={true}>
-              <Placeholder />
-            </Route>
-
-
-
-
-
             <Route exact path="/home">
               <Home />
             </Route>
-
-
 
             <Route exact path="/">
               <Redirect to="/home" />
@@ -81,10 +68,12 @@ const App: React.FC = () => {
               <Placeholder />
             </Route>
 
+            <Route exact path="/cmr">
+              <Cmr />
+            </Route>
+
           </IonRouterOutlet>
 
-
-        </IonSplitPane>
 
       </IonReactRouter>
 

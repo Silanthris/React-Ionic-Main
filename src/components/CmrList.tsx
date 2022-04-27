@@ -99,35 +99,6 @@ const CmrList: React.FC<Props> = ({ CmrClick, id, cmrData }) => {
             ))}
 
 
-
-            {bigJsonItem.map((json) => (
-
-
-                <IonCard onClick={() => { CmrClick(); }}>
-                    <IonCardHeader>
-                        <IonCardSubtitle> CMR:  {json.carrierBookingReference} </IonCardSubtitle>
-                        <IonCardTitle>{json.createdBy.entity.name}</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol className="ion-align-self-center" size="12"> Loading: {words[0]} {words[1]}</IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol className="ion-align-self-center" size="12">Origin:  {json.origin}  </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol className="ion-align-self-center" size="12">Destination: {json.destination}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-
-                    </IonCardContent>
-                </IonCard>
-
-            ))}
-
         </IonContent>
     );
 };
