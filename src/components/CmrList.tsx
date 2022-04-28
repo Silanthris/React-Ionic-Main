@@ -68,7 +68,7 @@ const CmrList: React.FC<Props> = ({ CmrClick, id }) => {
 
                 <IonCard onClick={() => { CmrClick(json2.code); }}>
                     <IonCardHeader>
-                        <IonCardSubtitle> CMR:  {json2.carrierBookingReference} </IonCardSubtitle>
+                        <IonCardSubtitle> CMR: {json2.carrierBookingReference} </IonCardSubtitle>
                         <IonCardTitle>{json2.createdBy}</IonCardTitle>
                     </IonCardHeader>
 

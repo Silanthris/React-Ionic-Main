@@ -11,7 +11,6 @@ import CmrList from '../components/CmrList';
 import { constructOutline } from 'ionicons/icons';
 import { getUserById } from '../dataservice';
 import { use } from 'i18next';
-
 import { useSelector, useDispatch } from 'react-redux'
 
 import { incrementByAmount } from "../components/redux/slices/counterSlice"
@@ -41,21 +40,19 @@ const List: React.FC = () => {
 
   const CmrClick = (cmrCode: any) => {
 
-    setCmrCode2(cmrCode)
-    setCmrCheck(true)
+    console.log("cmr")
+    console.log(cmrCode)
 
     history.push({
+
       pathname: '/file',
-      search: "?query=id",
-      state: { id: location.state.id, cmrCode: cmrCode2 }
+      state: { id: location.state.id, cmrCode: cmrCode }
+
     })
 
+    
+
   };
-
-  // console.log(cmrData)
-
-  const words = bigJsonItem[0].loadingDate.split('T');
-
 
   return (
     <IonPage>

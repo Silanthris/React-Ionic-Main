@@ -24,9 +24,17 @@ const File: React.FC = () => {
 
     const cmrData3 = useSelector((state: any) => state.counter.value)
 
-
     const location = useLocation<any>();
-    
+
+    console.log("file cmrcode")
+
+    console.log(location.state.cmrCode)
+
+    console.log("file id")
+
+    console.log(location.state.id)
+   
+
     let history = useHistory();
 
     const [cmrCheck, setCmrCheck] = useState(false);
@@ -53,13 +61,6 @@ const File: React.FC = () => {
             <IonHeader>
 
                 <IonToolbar>
-
-                    <IonButtons slot="start">
-                        <IonButton color="danger" onClick={() => { setCmrCheck(false) }}>
-                            <IonIcon name="heart"></IonIcon>
-                            Yasuo
-                        </IonButton>
-                    </IonButtons>
 
                         <IonButtons slot="end">
                             <IonMenuButton autoHide={false} />
