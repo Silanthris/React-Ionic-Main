@@ -7,26 +7,25 @@ import { useEffect, useState } from 'react';
 import { getUserById } from '../dataservice';
 
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import { incrementByAmount } from "../components/redux/slices/counterSlice"
+
+
 type Props = {
     CmrClick: any,
-    id: any,
-    cmrData: any
+    id: any
 }
 
 
-const CmrList: React.FC<Props> = ({ CmrClick, id, cmrData }) => {
+const CmrList: React.FC<Props> = ({ CmrClick, id }) => {
 
 
     const [cmrData2, setCmrData2] = useState<Array<any>>([]);
 
 
-
-
-    const jsonItem = getJson();
-    const bigJsonItem = getBigJson();
-
-
     useEffect(() => {
+
 
 
         getUserById(id).then((c: any) => {
@@ -48,7 +47,6 @@ const CmrList: React.FC<Props> = ({ CmrClick, id, cmrData }) => {
                     if (response) {
                         const temp = response.content
                         setCmrData2(temp)
-
                     }
                 }).catch((err) => {
                     alert('Login Errado');
@@ -61,14 +59,9 @@ const CmrList: React.FC<Props> = ({ CmrClick, id, cmrData }) => {
     }, []);
 
 
-    const words = bigJsonItem[0].loadingDate.split('T');
-
-
     return (
 
         <IonContent fullscreen>
-
-
 
             {cmrData2.map((json2) => (
 
@@ -90,36 +83,6 @@ const CmrList: React.FC<Props> = ({ CmrClick, id, cmrData }) => {
                             </IonRow>
                             <IonRow>
                                 <IonCol className="ion-align-self-center" size="12">Destination: {json2.destination}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-
-                    </IonCardContent>
-                </IonCard>
-
-            ))}
-
-
-
-            {bigJsonItem.map((json) => (
-
-
-                <IonCard onClick={() => { CmrClick(); }}>
-                    <IonCardHeader>
-                        <IonCardSubtitle> CMR:  {json.carrierBookingReference} </IonCardSubtitle>
-                        <IonCardTitle>{json.createdBy.entity.name}</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol className="ion-align-self-center" size="12"> Loading: {words[0]} {words[1]}</IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol className="ion-align-self-center" size="12">Origin:  {json.origin}  </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol className="ion-align-self-center" size="12">Destination: {json.destination}</IonCol>
                             </IonRow>
                         </IonGrid>
 

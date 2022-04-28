@@ -24,7 +24,8 @@ import "@ionic/react/css/display.css";
 import EditUser from "./pages/EditUser";
 import { initdb } from "./dataservice";
 import Register from "./pages/Register";
-import Placeholder from "./pages/Placeholder";
+import List from "./pages/List";
+import File from "./pages/File"
 
 const App: React.FC = () => {
   initdb().catch(() => window.alert("ERROR INITIALIZING"));
@@ -44,7 +45,7 @@ const App: React.FC = () => {
 
 
             <Route path="/cmr/:name" exact={true}>
-              <Placeholder />
+              <List />
             </Route>
 
 
@@ -77,8 +78,12 @@ const App: React.FC = () => {
               <Redirect to="/home" />
             </Route>
 
-            <Route exact path="/placeholder">
-              <Placeholder />
+            <Route exact path="/list">
+              <List />
+            </Route>
+
+            <Route exact path="/file">
+              <File />
             </Route>
 
           </IonRouterOutlet>

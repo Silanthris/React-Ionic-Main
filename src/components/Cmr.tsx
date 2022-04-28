@@ -6,6 +6,9 @@ import { getJson, getBigJson } from "./util/json"
 import { getUserById } from "../dataservice";
 
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import { incrementByAmount } from "../components/redux/slices/counterSlice"
 
 type Props = {
     id: any,
@@ -15,13 +18,14 @@ type Props = {
 
 const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
 
-    const [cmrData2, setCmrData2] = useState<any>([]);
+    const dispatch = useDispatch()
 
-    const bigJsonItem = getBigJson();
+    const [cmrData2, setCmrData2] = useState<any>([]);
 
     console.log("cmrCode")
     console.log(cmrCode)
 
+    console.log(id)
 
     useEffect(() => {
 
@@ -52,6 +56,7 @@ const Cmr: React.FC<Props> = ({ id, cmrCode }) => {
                         console.log(response)
                         const atuamae = response
                         setCmrData2(atuamae)
+                        dispatch(incrementByAmount(atuamae))
 
                     }
                 }).catch((err) => {
