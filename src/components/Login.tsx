@@ -29,6 +29,12 @@ import Register from "../pages/Register";
 import ConfAcesso from "./ConfAcesso";
 import { idText } from "typescript";
 
+
+
+import { useSelector, useDispatch } from 'react-redux'
+
+import { changeId } from "../components/redux/slices/idSlice"
+
 type Props = {
   pin: any,
   id: any,
@@ -43,6 +49,8 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
   let history = useHistory();
 
   const correctCode = { ...pin };
+
+  const dispatch = useDispatch()
 
   const [showToast, setShowToast] = useState(false);
   const [keypadValues, setKeypadValues] = useState<any>(["", "", "", ""]);
@@ -110,12 +118,14 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
 
         if (enumTask === EnumTask.login) {
+
+          dispatch(changeId(id))
+
           history.push({
-            pathname: '/list',
-            search: "?query=id",
-            state: { id: id }
+            pathname: '/list'
           })
           
+
 
         //   history.push("/placeholder")
 

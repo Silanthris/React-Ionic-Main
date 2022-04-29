@@ -6,6 +6,7 @@ import { getJson, getBigJson } from "../components/util/json"
 import { useEffect, useState } from 'react';
 import { getUserById } from '../dataservice';
 
+import "../components/util/css/List.css"
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -13,12 +14,13 @@ import { incrementByAmount } from "../components/redux/slices/counterSlice"
 
 
 type Props = {
-    CmrClick: any,
-    id: any
+    CmrClick: any
 }
 
 
-const CmrList: React.FC<Props> = ({ CmrClick, id }) => {
+const CmrList: React.FC<Props> = ({ CmrClick }) => {
+
+    const idUser = useSelector((state: any) => state.id.value)
 
 
     const [cmrData2, setCmrData2] = useState<Array<any>>([]);
@@ -28,7 +30,7 @@ const CmrList: React.FC<Props> = ({ CmrClick, id }) => {
 
 
 
-        getUserById(id).then((c: any) => {
+        getUserById(idUser).then((c: any) => {
             const user = c.values[0];
 
             // setUserToken(user.token);
@@ -65,15 +67,34 @@ const CmrList: React.FC<Props> = ({ CmrClick, id }) => {
 
             {cmrData2.map((json2) => (
 
+                <>
+    
+            <div className="card">
+                <div className="card-header">
+                    
+                </div>
+                <div className="card-body">
+                    <span className="tag tag-teal">CMR: {json2.carrierBookingReference}</span>
+                    <h4>
+                        Why is the Tesla Cybertruck designed the way it
+                        is?
+                    </h4>
+                    <p>
+                        An exploration into the truck's polarising design
+                    </p>
+                </div>
+            </div>
 
-                <IonCard onClick={() => { CmrClick(json2.code); }}>
+            
+
+
+                <IonCard className="card" onClick={() => { CmrClick(json2.code); }}>
                     <IonCardHeader>
-                        <IonCardSubtitle> CMR: {json2.carrierBookingReference} </IonCardSubtitle>
-                        <IonCardTitle>{json2.createdBy}</IonCardTitle>
+                    <span className="tag tag-teal">CMR: {json2.carrierBookingReference}</span>
                     </IonCardHeader>
 
-                    <IonCardContent>
-
+                    <IonCardContent >
+                        <IonCardTitle>{json2.createdBy}</IonCardTitle>
                         <IonGrid>
                             <IonRow>
                                 <IonCol className="ion-align-self-center" size="12"> Loading: </IonCol>
@@ -88,10 +109,11 @@ const CmrList: React.FC<Props> = ({ CmrClick, id }) => {
 
                     </IonCardContent>
                 </IonCard>
-
+                </>
             ))}
 
         </IonContent>
+        
     );
 };
 

@@ -6,13 +6,8 @@ import logo from '../pages/blk2.png';
 
 
 
-type Props = {
-    id: any,
-    cmrCode: any
-}
 
-
-const Principal: React.FC<Props> = ({ id, cmrCode }) => {
+const Principal: React.FC = () => {
 
 
     return (

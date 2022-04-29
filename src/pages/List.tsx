@@ -13,13 +13,19 @@ import { getUserById } from '../dataservice';
 import { use } from 'i18next';
 import { useSelector, useDispatch } from 'react-redux'
 
-import { incrementByAmount } from "../components/redux/slices/counterSlice"
+import { changeCode } from "../components/redux/slices/codeSlice"
 
 
 const List: React.FC = () => {
 
-  const cmrData3 = useSelector((state : any) => state.counter.value)
 
+
+  const idUser = useSelector((state: any) => state.id.value)
+
+  console.log("id redux")
+  console.log(idUser)
+
+  const dispatch = useDispatch()
 
   const location = useLocation<any>();
   let history = useHistory();
@@ -35,22 +41,17 @@ const List: React.FC = () => {
   const jsonItem = getJson();
   const bigJsonItem = getBigJson();
 
-
-
-
   const CmrClick = (cmrCode: any) => {
 
-    console.log("cmr")
-    console.log(cmrCode)
+    dispatch(changeCode(cmrCode))
 
     history.push({
 
       pathname: '/file',
-      state: { id: location.state.id, cmrCode: cmrCode }
+      state: { cmrCode: cmrCode }
 
     })
 
-    
 
   };
 
@@ -60,17 +61,6 @@ const List: React.FC = () => {
 
         <IonToolbar>
 
-          <IonButtons slot="start">
-            <IonButton color="danger" onClick={() => { setCmrCheck(false) }}>
-              <IonIcon name="heart"></IonIcon>
-              Yasuo
-            </IonButton>
-          </IonButtons>
-
-
-
-
-
         </IonToolbar>
 
       </IonHeader>
@@ -78,7 +68,7 @@ const List: React.FC = () => {
       <IonContent fullscreen>
 
           <div>
-            <CmrList id={location.state.id} CmrClick={CmrClick} />
+            <CmrList CmrClick={CmrClick} />
           </div>
 
       </IonContent>

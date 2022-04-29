@@ -44,11 +44,9 @@ const App: React.FC = () => {
 
 
 
-            <Route path="/cmr/:name" exact={true}>
-              <List />
+            <Route path="/cmr/:name" >
+              <File />
             </Route>
-
-
 
 
 

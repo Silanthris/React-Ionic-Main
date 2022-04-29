@@ -22,6 +22,12 @@ import {
   
   const appPages: AppPage[] = [
     {
+      title: 'All',
+      url: '/cmr/entire',
+      iosIcon: archiveOutline,
+      mdIcon: archiveSharp
+    },
+    {
       title: 'Principal',
       url: '/cmr/principal',
       iosIcon: mailOutline,
