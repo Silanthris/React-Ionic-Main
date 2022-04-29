@@ -21,11 +21,11 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import EditUser from "./pages/EditUser";
 import { initdb } from "./dataservice";
 import Register from "./pages/Register";
 import List from "./pages/List";
 import File from "./pages/File"
+import Router from "./components/Router"
 
 const App: React.FC = () => {
   initdb().catch(() => window.alert("ERROR INITIALIZING"));
@@ -39,53 +39,23 @@ const App: React.FC = () => {
 
           <Menu />
 
-
           <IonRouterOutlet id="main">
-
-
-
-            <Route path="/cmr/:name" >
-              <File />
-            </Route>
-
-
-
-            <Route exact path="/home">
-              <Home />
-            </Route>
-
-
 
             <Route exact path="/">
               <Redirect to="/home" />
             </Route>
 
-            <Route exact path="/edit-user/:id">
-              <EditUser />
-            </Route>
-
-            <Route exact path="/create-user">
-              <EditUser />
+            <Route exact path="/home">
+              <Home />
             </Route>
 
             <Route exact path="/register">
               <Register />
             </Route>
 
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
-
-            <Route exact path="/list">
-              <List />
-            </Route>
-
-            <Route exact path="/file">
-              <File />
-            </Route>
+            <Route path="/cmr" component={Router}></Route>
 
           </IonRouterOutlet>
-
 
         </IonSplitPane>
 
