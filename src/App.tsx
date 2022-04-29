@@ -31,13 +31,10 @@ const App: React.FC = () => {
   initdb().catch(() => window.alert("ERROR INITIALIZING"));
 
   return (
-    <IonApp>
 
       <IonReactRouter>
 
         <IonSplitPane contentId="main">
-
-          <Menu />
 
           <IonRouterOutlet id="main">
 
@@ -61,7 +58,6 @@ const App: React.FC = () => {
 
       </IonReactRouter>
 
-    </IonApp>
   );
 };
 

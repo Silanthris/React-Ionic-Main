@@ -20,6 +20,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { incrementByAmount } from "../components/redux/slices/counterSlice"
 
 import { menuChoice } from '../Enums/Enums'
+import React from 'react';
 
 
 
@@ -109,7 +110,7 @@ const File: React.FC = () => {
 
 
     return (
-        <IonPage>
+        <React.Fragment>
             <IonHeader>
 
                 <IonToolbar>
@@ -152,7 +153,7 @@ const File: React.FC = () => {
 
 
 
-        </IonPage>
+        </React.Fragment>
     );
 };
 

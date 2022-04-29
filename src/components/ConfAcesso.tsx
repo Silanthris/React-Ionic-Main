@@ -22,6 +22,7 @@ import { useTranslation } from "react-i18next";
 import { ListItemSecondaryActionClassKey } from "@material-ui/core";
 import { useHistory } from 'react-router-dom';
 import { Router } from "workbox-routing";
+import React from "react";
 
 const inputStyle = {
   height: "28px",
@@ -143,7 +144,7 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
   };
 
   return (
-    <IonPage>
+    <React.Fragment>
       <div style={{ paddingTop: "35%" }} />
       <IonContent className="ion-padding">
         <IonGrid className="ion-padding">
@@ -343,7 +344,7 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
           },
         ]}
       />
-    </IonPage>
+    </React.Fragment>
   );
 };
 

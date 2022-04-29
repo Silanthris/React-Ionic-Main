@@ -112,7 +112,7 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
   };
 
   return (
-    <IonPage>
+    <React.Fragment>
       <IonContent>
         {validado ? (
           <ConfAcesso id={id} token={token} refreshToken={refToken} email={email} password={password} confType={resetPin ? ConfType.updatePin : ConfType.create} />
@@ -180,7 +180,7 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
           },
         ]}
       />
-    </IonPage>
+    </React.Fragment>
   );
 };
 

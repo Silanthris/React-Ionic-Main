@@ -14,6 +14,7 @@ import { use } from 'i18next';
 import { useSelector, useDispatch } from 'react-redux'
 
 import { changeCode } from "../components/redux/slices/codeSlice"
+import React from 'react';
 
 
 const List: React.FC = () => {
@@ -56,7 +57,7 @@ const List: React.FC = () => {
   };
 
   return (
-    <IonPage>
+    <React.Fragment>
       <IonHeader>
 
         <IonToolbar>
@@ -73,7 +74,7 @@ const List: React.FC = () => {
 
       </IonContent>
 
-    </IonPage>
+    </React.Fragment>
   );
 };
 

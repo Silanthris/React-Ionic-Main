@@ -27,8 +27,7 @@ import "@ionic/react/css/display.css";
 const Router: React.FC = () => {
 
     return (
-        <IonApp>
-
+       
             <IonReactRouter>
 
                 <IonSplitPane contentId="main">
@@ -41,11 +40,15 @@ const Router: React.FC = () => {
                             <File />
                         </Route>
 
-                        <Route exact path="cmr/list">
+                        <Route exact path="/cmr">
+                            <Redirect to="/cmr/list" />
+                        </Route>
+
+                        <Route exact path="/cmr/list">
                             <List />
                         </Route>
 
-                        <Route exact path="cmr/file">
+                        <Route path="/cmr/file">
                             <File />
                         </Route>
 
@@ -55,7 +58,6 @@ const Router: React.FC = () => {
 
             </IonReactRouter>
 
-        </IonApp>
     );
 };
 

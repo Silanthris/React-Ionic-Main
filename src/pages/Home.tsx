@@ -70,7 +70,7 @@ const Home: React.FC = () => {
    };
 
   return (
-    <IonPage>
+    <React.Fragment>
       <IonContent fullscreen className="ion-padding">
         {loginCheck ? (
           <Login pin={pin} id={id} setLoginCheck={setLoginCheck} deleteUser={deleteUser} setConfCheck={setConfCheck} enumTask={loginTask} />
@@ -96,7 +96,7 @@ const Home: React.FC = () => {
           <ConfAcesso id={id} setConfCheck={setConfCheck} confType={ConfType.update} />
         }
       </IonContent>
-    </IonPage>
+    </React.Fragment>
   );
 };
 
