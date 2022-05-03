@@ -122,7 +122,7 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
           dispatch(changeId(id))
 
           history.push({
-            pathname: '/list'
+            pathname: '/cmr/list'
           })
           
 

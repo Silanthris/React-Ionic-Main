@@ -20,7 +20,6 @@ export const initdb = async () => {
       1
     );
 
-
     await createTables();
 
     return database;

@@ -69,25 +69,6 @@ const CmrList: React.FC<Props> = ({ CmrClick }) => {
 
                 <>
     
-            <div className="card">
-                <div className="card-header">
-                    
-                </div>
-                <div className="card-body">
-                    <span className="tag tag-teal">CMR: {json2.carrierBookingReference}</span>
-                    <h4>
-                        Why is the Tesla Cybertruck designed the way it
-                        is?
-                    </h4>
-                    <p>
-                        An exploration into the truck's polarising design
-                    </p>
-                </div>
-            </div>
-
-            
-
-
                 <IonCard className="card" onClick={() => { CmrClick(json2.code); }}>
                     <IonCardHeader>
                     <span className="tag tag-teal">CMR: {json2.carrierBookingReference}</span>

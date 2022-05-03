@@ -5,13 +5,18 @@ import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
 import { getJson, getBigJson } from "../components/util/json"
 import { useEffect, useState } from 'react';
 
+import MitmyNidLogo from "../components/images/MMN_V_RGB.png";
+
 import Cargo from "../components/Cmr/Cargo"
 import Principal from "../components/Cmr/Principal"
 import Cmr from "../components/Cmr"
+import Instructions from '../components/Cmr/Instructions';
+import Carrier from '../components/Cmr/Carrier';
 
 import { constructOutline } from 'ionicons/icons';
 
 import { getUserById } from '../dataservice';
+
 
 import { use } from 'i18next';
 
@@ -33,41 +38,42 @@ const File: React.FC = () => {
 
     const [menuUrl, setMenuUrl] = useState<menuChoice>(menuChoice.all);
 
-    const { name } = useParams<{ name: string; }>();
+    const { name } = useParams<any>();
 
     const [cmrData2, setCmrData2] = useState<any>([]);
 
     const location = useLocation<any>();
 
-    console.log("url lcoation")
-
     console.log(name)
-
-
 
     const dispatch = useDispatch()
 
-    
+
     useEffect(() => {
+
+        console.log(name)
 
         switch (name) {
             case 'principal':
-                console.log("principal")
                 setMenuUrl(menuChoice.principal)
                 break;
             case 'cargo':
-                console.log("cargo")
                 setMenuUrl(menuChoice.cargo)
                 break;
+            case 'instructions':
+                setMenuUrl(menuChoice.instructions)
+                break;
+            case 'carrier':
+                setMenuUrl(menuChoice.instructions)
+                break;
             case 'entire':
-                console.log("entire")
                 setMenuUrl(menuChoice.all)
                 break;
             default:
                 setMenuUrl(menuChoice.all)
         }
 
-    }, [name]);
+    }, []);
 
 
     useEffect(() => {
@@ -114,6 +120,8 @@ const File: React.FC = () => {
 
                 <IonToolbar>
 
+                    <img style={{ width: 40 }} src={MitmyNidLogo} />
+
                     <IonButtons slot="end">
                         <IonMenuButton autoHide={false} />
                     </IonButtons>
@@ -133,7 +141,7 @@ const File: React.FC = () => {
 
                 {menuUrl === menuChoice.cargo && (
                     <>
-                         <Cargo />
+                        <Cargo />
 
                     </>
                 )}
@@ -141,6 +149,20 @@ const File: React.FC = () => {
                 {menuUrl === menuChoice.principal && (
                     <>
                         <Principal />
+
+                    </>
+                )}
+
+                {menuUrl === menuChoice.instructions && (
+                    <>
+                        <Instructions />
+
+                    </>
+                )}
+
+                {menuUrl === menuChoice.carrier && (
+                    <>
+                        <Carrier />
 
                     </>
                 )}

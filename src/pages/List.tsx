@@ -47,7 +47,7 @@ const List: React.FC = () => {
 
     history.push({
 
-      pathname: '/file',
+      pathname: '/cmr/file/entire',
       state: { cmrCode: cmrCode }
 
     })

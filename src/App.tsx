@@ -27,71 +27,49 @@ import Register from "./pages/Register";
 import List from "./pages/List";
 import File from "./pages/File"
 
+
+import Router from "./components/Router";
+
 const App: React.FC = () => {
   initdb().catch(() => window.alert("ERROR INITIALIZING"));
 
   return (
     <IonApp>
 
-      <IonReactRouter>
+    <IonReactRouter>
 
-        <IonSplitPane contentId="main">
+      <IonSplitPane contentId="main">
 
-          <Menu />
-
-
-          <IonRouterOutlet id="main">
+        <Menu />
 
 
+        <IonRouterOutlet id="main">
 
-            <Route path="/cmr/:name" >
-              <File />
-            </Route>
+          <Route exact path="/home">
+            <Home />
+          </Route>
 
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
 
+          <Route exact path="/register">
+            <Register />
+          </Route>
 
-            <Route exact path="/home">
-              <Home />
-            </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
 
+          <Route path="/cmr" component={Router} />
 
+        </IonRouterOutlet>
 
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
+      </IonSplitPane>
 
-            <Route exact path="/edit-user/:id">
-              <EditUser />
-            </Route>
+    </IonReactRouter>
 
-            <Route exact path="/create-user">
-              <EditUser />
-            </Route>
-
-            <Route exact path="/register">
-              <Register />
-            </Route>
-
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
-
-            <Route exact path="/list">
-              <List />
-            </Route>
-
-            <Route exact path="/file">
-              <File />
-            </Route>
-
-          </IonRouterOutlet>
-
-
-        </IonSplitPane>
-
-      </IonReactRouter>
-
-    </IonApp>
+  </IonApp>
   );
 };
 
