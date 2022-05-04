@@ -31,9 +31,6 @@ const Router: React.FC = () => {
 
         <IonReactRouter>
 
- 
- 
-
                 <Route path="/cmr">
                     <Redirect to="/cmr/list" />
                 </Route>
@@ -45,8 +42,6 @@ const Router: React.FC = () => {
                 <Route path="/cmr/file/:name" >
                     <File />
                 </Route>
-
-          
 
         </IonReactRouter>
 

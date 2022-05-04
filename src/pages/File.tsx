@@ -17,7 +17,6 @@ import { constructOutline } from 'ionicons/icons';
 
 import { getUserById } from '../dataservice';
 
-
 import { use } from 'i18next';
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -25,8 +24,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { incrementByAmount } from "../components/redux/slices/counterSlice"
 
 import { menuChoice } from '../Enums/Enums'
-
-
+import { changeChoice } from '../components/redux/slices/menuchoiceSlice';
 
 const File: React.FC = () => {
 
@@ -35,6 +33,8 @@ const File: React.FC = () => {
     const idUser = useSelector((state: any) => state.id.value)
 
     const cmrCode = useSelector((state: any) => state.code.value)
+
+    const menuChoice = useSelector((state: any) => state.choice.value)
 
     const [menuUrl, setMenuUrl] = useState<menuChoice>(menuChoice.all);
 
@@ -51,7 +51,7 @@ const File: React.FC = () => {
 
     useEffect(() => {
 
-        console.log(name)
+        
 
         switch (name) {
             case 'principal':
@@ -73,7 +73,7 @@ const File: React.FC = () => {
                 setMenuUrl(menuChoice.all)
         }
 
-    }, []);
+    }, [name]);
 
 
     useEffect(() => {

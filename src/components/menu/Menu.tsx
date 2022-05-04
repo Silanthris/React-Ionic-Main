@@ -21,10 +21,16 @@ interface AppPage {
   title: string;
 }
 
+import { useSelector, useDispatch } from 'react-redux'
+import { changeChoice } from '../redux/slices/menuchoiceSlice';
 
 
 const Menu: React.FC = () => {
   const location = useLocation();
+
+  /*
+             
+             */
 
 
   const entire = useState<String>("entire");
@@ -32,12 +38,12 @@ const Menu: React.FC = () => {
   const cargo = useState<String>("cargo");
   const instructions = useState<String>("instructions");
   const carrier = useState<String>("carrier");
-
+  const dispatch = useDispatch()
 
   const appPages: AppPage[] = [
     {
       title: 'All',
-      url: `/cmr/file/${entire[0]}`,
+      url: `/cmr/file/entire`,
       iosIcon: archiveOutline,
       mdIcon: archiveSharp
     },
@@ -69,21 +75,41 @@ const Menu: React.FC = () => {
   ];
 
 
+  const menus = async (menu: any) => {
+
+   
+
+
+  };
+
+
   return (
     <IonMenu contentId="main" swipe-gesture="false" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>CMR</IonListHeader>
+
+
+
           {appPages.map((appPage, index) => {
             return (
-              <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
-                  <IonLabel>{appPage.title}</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
+
+              <>
+                <IonMenuToggle key={index} autoHide={false} onChange={() => console.log(index)} >
+                  <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                    <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
+                    <IonLabel  >{appPage.title}</IonLabel>
+                  </IonItem>
+                </IonMenuToggle>
+
+              </>
             );
+
           })}
+
+
+
+
         </IonList>
       </IonContent>
     </IonMenu>
@@ -91,3 +117,4 @@ const Menu: React.FC = () => {
 };
 
 export default Menu;
+
