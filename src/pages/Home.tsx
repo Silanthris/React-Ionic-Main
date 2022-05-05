@@ -71,7 +71,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen className="ion-padding">
+      <IonContent fullscreen>
         {loginCheck ? (
           <Login pin={pin} id={id} setLoginCheck={setLoginCheck} deleteUser={deleteUser} setConfCheck={setConfCheck} enumTask={loginTask} />
         ) : (

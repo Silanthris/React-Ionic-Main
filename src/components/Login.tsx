@@ -66,7 +66,6 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
   const { t } = useTranslation();
 
   const handleClick = (index: number, value: string) => {
-    console.log(keypadValues);
 
     const tempValues = [...keypadValues];
     tempValues[index] = parseInt(value);
@@ -76,7 +75,6 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
   };
 
   const handleAlert = (index: number, value: string) => {
-    console.log(keypadValues);
 
     setConfCheck(false)
     setShowModal(true)
@@ -219,10 +217,7 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
         <IonModal isOpen={showModal}>
 
           <Register id={id} resetPin={true} />
-
-          <IonButton onClick={() => setShowModal(false)}>
-            {t('login.closeModal')}
-          </IonButton>
+          
         </IonModal>
 
       </IonContent>

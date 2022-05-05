@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuButton, IonPage, IonRow, IonSlide, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
 
 import '../components/util/css/Page.css';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
@@ -51,7 +51,7 @@ const File: React.FC = () => {
 
     useEffect(() => {
 
-        
+
 
         switch (name) {
             case 'principal':
@@ -113,6 +113,11 @@ const File: React.FC = () => {
 
     }, []);
 
+    const slideOpts = {
+        initialSlide: 1,
+        speed: 400
+    };
+
 
     return (
         <IonPage>
@@ -132,40 +137,28 @@ const File: React.FC = () => {
 
             <IonContent fullscreen>
 
-                {menuUrl === menuChoice.all && (
-                    <>
-                        <Cmr />
+                <IonSlides pager={true} options={slideOpts}>
 
-                    </>
-                )}
+                    <IonSlide>
+                        <div style={{ display: 'block' }}>
+                            <Cmr />
+                        </div>
 
-                {menuUrl === menuChoice.cargo && (
-                    <>
+                    </IonSlide>
+                    <IonSlide>
                         <Cargo />
-
-                    </>
-                )}
-
-                {menuUrl === menuChoice.principal && (
-                    <>
+                    </IonSlide>
+                    <IonSlide>
                         <Principal />
-
-                    </>
-                )}
-
-                {menuUrl === menuChoice.instructions && (
-                    <>
+                    </IonSlide>
+                    <IonSlide>
                         <Instructions />
-
-                    </>
-                )}
-
-                {menuUrl === menuChoice.carrier && (
-                    <>
+                    </IonSlide>
+                    <IonSlide>
                         <Carrier />
+                    </IonSlide>
 
-                    </>
-                )}
+                </IonSlides>
 
 
             </IonContent>

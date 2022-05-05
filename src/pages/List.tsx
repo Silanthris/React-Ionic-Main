@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuButton, IonPage, IonRow, IonSlide, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
 
 import '../components/util/css/Page.css';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
@@ -55,6 +55,7 @@ const List: React.FC = () => {
 
   };
 
+
   return (
     <IonPage>
       <IonHeader>
@@ -67,9 +68,9 @@ const List: React.FC = () => {
 
       <IonContent fullscreen>
 
-          <div>
-            <CmrList CmrClick={CmrClick} />
-          </div>
+        <div>
+          <CmrList CmrClick={CmrClick} />
+        </div>
 
       </IonContent>
 

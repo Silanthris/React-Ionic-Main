@@ -4,9 +4,10 @@
   "private": true,
   "dependencies": {
     "@capacitor-community/sqlite": "^2.9.9",
-    "@capacitor/android": "^2.4.6",
-    "@capacitor/core": "2.4.6",
+    "@capacitor/android": "^3.5.0",
+    "@capacitor/core": "^3.5.0",
     "@capacitor/ios": "^2.4.6",
+    "@capacitor/storage": "^1.2.5",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@ionic/react": "^5.5.0",
@@ -72,7 +73,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.4.6",
+    "@capacitor/cli": "^3.5.0",
     "@ionic/lab": "3.2.11"
   },
   "description": "An Ionic project"

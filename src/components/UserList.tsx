@@ -17,6 +17,8 @@ import React, { useEffect, useState } from "react";
 import { add, build, personAdd, trash, wifi } from "ionicons/icons";
 import { personCircle, settingsOutline } from "ionicons/icons";
 import { useTranslation } from "react-i18next";
+import image from "../components/images/banner_login.svg"
+
 /**
  *
  * @param param0
@@ -41,23 +43,7 @@ export const UserList: React.FC<any> = ({ users, userClicked, onDelete, onEdit }
 
   return (
     <div>
-      <div style={{ position: "relative", textAlign: "center", color: "white;", width: "100%" }}>
-        <img style={{ width: "120%" }} src="https://vistapointe.net/images/people-wallpaper-7.jpg" alt="avatar" />
-        <h1
-          style={{
-            background: "lightgray",
-            borderRadius: "7px",
-            opacity: "0.75",
-            position: "absolute",
-            left: "5px",
-            bottom: "0px",
-            paddingLeft: "5px",
-            paddingRight: "5px",
-          }}
-        >
-          {t('principal.ola')}
-        </h1>
-      </div>
+        <img style={{ width: "100%" }} src={image} alt="avatar" />
       <IonGrid>
         <IonRow></IonRow>
         <IonRow>

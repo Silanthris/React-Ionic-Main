@@ -21,9 +21,6 @@ interface AppPage {
   title: string;
 }
 
-import { useSelector, useDispatch } from 'react-redux'
-import { changeChoice } from '../redux/slices/menuchoiceSlice';
-
 
 const Menu: React.FC = () => {
   const location = useLocation();
@@ -38,7 +35,6 @@ const Menu: React.FC = () => {
   const cargo = useState<String>("cargo");
   const instructions = useState<String>("instructions");
   const carrier = useState<String>("carrier");
-  const dispatch = useDispatch()
 
   const appPages: AppPage[] = [
     {
@@ -74,15 +70,6 @@ const Menu: React.FC = () => {
 
   ];
 
-
-  const menus = async (menu: any) => {
-
-   
-
-
-  };
-
-
   return (
     <IonMenu contentId="main" swipe-gesture="false" type="overlay">
       <IonContent>
@@ -97,7 +84,7 @@ const Menu: React.FC = () => {
               <>
                 <IonMenuToggle key={index} autoHide={false} onChange={() => console.log(index)} >
                   <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                    <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
+                    <IonIcon  slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
                     <IonLabel  >{appPage.title}</IonLabel>
                   </IonItem>
                 </IonMenuToggle>
