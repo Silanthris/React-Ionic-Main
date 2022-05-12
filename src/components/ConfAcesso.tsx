@@ -152,11 +152,11 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
 
           {confType === ConfType.updatePin ? (
 
-            <h5 className="ion-text-left">{t('confAccess.changePin')}</h5>
+            <h5 className="ion-text-left">{t<any>('confAccess.changePin')}</h5>
 
           ) : (
 
-            <h5 className="ion-text-left">{t('confAccess.confAccess')}</h5>
+            <h5 className="ion-text-left">{t<any>('confAccess.confAccess')}</h5>
 
           )}
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -167,7 +167,7 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
                 required
                 fullWidth
                 id="name"
-                label={t('confAccess.name')}
+                label={t<any>('confAccess.name')}
                 name="name"
                 autoComplete="name"
                 autoFocus
@@ -192,7 +192,7 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
                     />
                   </div>
                   <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                    {t('confAccess.confirm')}
+                    {t<any>('confAccess.confirm')}
                   </Button>
                 </div>
               </IonCol>

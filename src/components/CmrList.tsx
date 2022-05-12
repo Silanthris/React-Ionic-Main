@@ -63,38 +63,61 @@ const CmrList: React.FC<Props> = ({ CmrClick }) => {
 
     return (
 
-        <IonContent fullscreen>
+
+        <>
 
             {cmrData2.map((json2) => (
 
                 <>
-    
-                <IonCard className="card" onClick={() => { CmrClick(json2.code); }}>
-                    <IonCardHeader>
-                    <span className="tag tag-teal">CMR: {json2.carrierBookingReference}</span>
-                    </IonCardHeader>
 
-                    <IonCardContent >
-                        <IonCardTitle>{json2.createdBy}</IonCardTitle>
-                        <IonGrid>
+
+                    <IonCard onClick={() => { CmrClick(json2.code); }} className="card" style={{ '--background': 'white', 'height': '145px' }}>
+
+                        <IonGrid style={{ 'padding': '0px' }} >
+
                             <IonRow>
-                                <IonCol className="ion-align-self-center" size="12"> Loading: </IonCol>
+
+                                <IonCol size='4' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'center' }}>
+                                    CMR {json2.carrierBookingReference}
+                                </IonCol>
+
+                                <IonCol size='8'>
+
+                                </IonCol>
+
                             </IonRow>
-                            <IonRow>
-                                <IonCol className="ion-align-self-center" size="12">Origin:  {json2.origin}  </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol className="ion-align-self-center" size="12">Destination: {json2.destination}</IonCol>
-                            </IonRow>
+
+
                         </IonGrid>
 
-                    </IonCardContent>
-                </IonCard>
+                        <IonCardContent style={{ 'padding': '0px' }} >
+                            <IonCardTitle style={{ 'color': 'black', 'text-align': 'left', 'padding-left': '20px', 'font-family': 'arial', 'fontStyle': 'italic', 'fontSize': '15px', 'padding-top': '5px' }} >Empresa Imperativa LDA</IonCardTitle>
+                            <IonGrid>
+                                <IonRow>
+                                    <IonCol className="ion-align-self-center" style={{ 'color': 'lightgrey', 'padding': '0px', 'fontFamily': 'arial', 'padding-left': '10px' }} size="4"> Loading </IonCol>
+                                    <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '10px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                                </IonRow>
+                                <IonRow>
+                                    <IonCol className="ion-align-self-center" style={{ 'color': 'lightgrey', 'padding': '0px', 'fontFamily': 'arial', 'padding-left': '10px' }} size="4"> Origin  </IonCol>
+                                    <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '10px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> {json2.origin} </IonCol>
+                                </IonRow>
+                                <IonRow>
+                                    <IonCol className="ion-align-self-center" style={{ 'color': 'lightgrey', 'padding': '0px', 'fontFamily': 'arial', 'padding-left': '10px' }} size="4"> Delviery </IonCol>
+                                    <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '10px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/05 18:00 </IonCol>
+                                </IonRow>
+                                <IonRow>
+                                    <IonCol className="ion-align-self-center" style={{ 'color': 'lightgrey', 'padding': '0px', 'fontFamily': 'arial', 'padding-left': '10px' }} size="4"> Destination </IonCol>
+                                    <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '10px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> {json2.destination} </IonCol>
+                                </IonRow>
+                            </IonGrid>
+
+                        </IonCardContent>
+                    </IonCard>
                 </>
             ))}
 
-        </IonContent>
-        
+        </>
+
     );
 };
 

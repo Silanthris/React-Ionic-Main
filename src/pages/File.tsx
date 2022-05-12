@@ -17,6 +17,26 @@ import { constructOutline } from 'ionicons/icons';
 
 import { getUserById } from '../dataservice';
 
+
+import { ReactComponent as BizCargo } from '../components/images/BizCargo.svg';
+
+import { ReactComponent as IconHome } from '../components/images/icon_home.svg';
+
+import { ReactComponent as IconSearch } from '../components/images/icon_search.svg';
+
+import { ReactComponent as IconDocs } from '../components/images/icon_view_docs.svg';
+
+import { ReactComponent as IconDocument } from '../components/images/icon_list_docs.svg';
+
+import { ReactComponent as IconMore } from '../components/images/icon_more.svg';
+
+import { ReactComponent as IconSair } from '../components/images/icon_sair.svg';
+
+
+import { ReactComponent as IconPdf } from '../components/images/icon_view_pdf.svg';
+
+import { ReactComponent as IconScroll } from '../components/images/icon_view_scroll.svg';
+
 import { use } from 'i18next';
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -25,6 +45,7 @@ import { incrementByAmount } from "../components/redux/slices/counterSlice"
 
 import { menuChoice } from '../Enums/Enums'
 import { changeChoice } from '../components/redux/slices/menuchoiceSlice';
+import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 
 const File: React.FC = () => {
 
@@ -114,28 +135,63 @@ const File: React.FC = () => {
     }, []);
 
     const slideOpts = {
-        initialSlide: 1,
+        initialSlide: 0,
         speed: 400
     };
 
 
     return (
         <IonPage>
-            <IonHeader>
 
-                <IonToolbar>
+            <IonHeader >
 
-                    <img style={{ width: 40 }} src={MitmyNidLogo} />
+                <IonToolbar style={{ '--background': 'rgb(29,146,191)' }} >
 
-                    <IonButtons slot="end">
-                        <IonMenuButton autoHide={false} />
-                    </IonButtons>
+
+                    <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingTop: "10px" }} />
+
 
                 </IonToolbar>
 
             </IonHeader>
 
-            <IonContent fullscreen>
+            <IonContent style={{ '--ion-background-color': 'rgb(245,245,246)' }}>
+
+
+                <IonRow style={{ 'display': 'flex' }}>
+
+
+                    <IonCol size='6' style={{ height: '50px' }} >
+
+                        <h5 style={{ 'color': 'grey', 'margin': '5px' }}> CMR  <br />  <i style={{ 'color': 'grey', 'fontSize': '10px', 'top': '0px', 'verticalAlign': 'top' }}> Que a morte me leve </i>  </h5>
+                        <br />
+
+
+                    </IonCol>
+
+                    <IonCol size='3' style={{ height: '50px' }}  >
+
+                        <div style={{ background: 'rgb(29,146,191)', height: '50px', width: '50px' }}  >
+
+                            <IconPdf style={{ height: '50px', width: '50px' }} />
+
+                        </div>
+
+                    </IonCol>
+
+                    <IonCol size='3' style={{ height: '50px' }} >
+
+                        <div style={{ background: 'rgb(29,146,191)', height: '50px', width: '50px' }}  >
+
+                            <IconScroll style={{ height: '50px', width: '50px' }} />
+
+                        </div>
+
+                    </IonCol>
+
+
+                </IonRow>
+
 
                 <IonSlides pager={true} options={slideOpts}>
 
@@ -164,6 +220,23 @@ const File: React.FC = () => {
             </IonContent>
 
 
+            <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0" }}  >
+                <BottomNavigation
+
+                    style={{ background: 'rgb(229,229,229)' }}
+
+                >
+                    <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
+
+                    <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
+
+                    <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
+
+                    <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
+
+
+                </BottomNavigation>
+            </Box>
 
 
 

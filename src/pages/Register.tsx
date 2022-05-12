@@ -129,7 +129,7 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
             >
               <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
               <Typography component="h1" variant="h5">
-                {t('loginForm.login')}
+                {t<string>('loginForm.login')}
               </Typography>
               <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                 <TextField
@@ -137,7 +137,7 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
                   required
                   fullWidth
                   id="email"
-                  label={t('loginForm.email')}
+                  label={t<string>('loginForm.email')}
                   name="email"
                   autoComplete="email"
                   autoFocus
@@ -147,17 +147,17 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
                   required
                   fullWidth
                   name="password"
-                  label={t('loginForm.password')}
+                  label={t<string>('loginForm.password')}
                   type="password"
                   id="password"
                   autoComplete="current-password"
                 />
                 <FormControlLabel
                   control={<Checkbox value="fingerprint" color="primary" />}
-                  label={t('loginForm.fingerPrint')}
+                  label={t<string>('loginForm.fingerPrint')}
                 />
                 <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                  {t('loginForm.login')}
+                  {t<string>('loginForm.login')}
                 </Button>
               </Box>
             </Box>

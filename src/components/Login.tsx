@@ -16,7 +16,7 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { arrowForwardOutline } from "ionicons/icons";
-import styles from "../pages/Login.module.css";
+import styles from "../components/styles/Login.module.css";
 import KeypadInputs from "./keypad/KeypadInputs";
 import Keypad from "./keypad/Keypad";
 import { useEffect, useRef, useState } from "react";
@@ -31,9 +31,11 @@ import { idText } from "typescript";
 
 
 
+
+
 import { useSelector, useDispatch } from 'react-redux'
 
-import { changeId } from "../components/redux/slices/idSlice"
+import { changeId } from "./redux/slices/idSlice"
 
 type Props = {
   pin: any,
@@ -180,12 +182,12 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
                   >
                     <IonImg src="/assets/impDig.png" className={styles.logo} />
                   </div>
-                  <h1>{t('pinPage.verification')}</h1>
-                  <p>{t('pinPage.4digits')}</p>
+                  <h1>{t<string>('pinPage.verification')}</h1>
+                  <p></p>
                 </IonCol>
               </IonRow>
               <KeypadInputs incorrect={incorrect} correct={correct} values={keypadValues} activeIndex={activeIndex} />
-              {incorrect && <p className={styles.incorrect}>{t('pinPage.wrong')}</p>}
+              {incorrect && <p className={styles.incorrect}>{t<string>('pinPage.wrong')}</p>}
               <Keypad
                 handleRemove={handleRemove}
                 handleClick={handleClick}

@@ -9,6 +9,7 @@ import logo from '../pages/blk2.png';
 import { useSelector, useDispatch } from 'react-redux'
 
 import { incrementByAmount } from "../redux/slices/counterSlice"
+import { Box } from "@mui/material";
 
 
 const Cargo: React.FC = () => {
@@ -22,100 +23,103 @@ const Cargo: React.FC = () => {
 
         <>
 
-
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Marks</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                    <IonGrid>
-                        <IonRow color="primary"  >
-                            <IonCol size="6"> {cmrData.Marks} </IonCol>
-                            <IonCol size="6">  </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardContent>
-            </IonCard>
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Number of Packages:</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                    <IonGrid>
-                        <IonRow color="primary"  >
-                            <IonCol size="6"> {cmrData.Marks} </IonCol>
-                            <IonCol size="6">  </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardContent>
-            </IonCard>
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Method of Packing:</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                    <IonGrid>
-                        <IonRow color="primary"  >
-                            <IonCol size="6"> {cmrData.Marks} </IonCol>
-                            <IonCol size="6">  </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardContent>
-            </IonCard>
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Nature of Goods:</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                    <IonGrid>
-                        <IonRow color="primary"  >
-                            <IonCol size="6"> {cmrData.Marks} </IonCol>
-                            <IonCol size="6">  </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardContent>
-            </IonCard>
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Stat Nr:</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                    <IonGrid>
-                        <IonRow color="primary"  >
-                            <IonCol size="6"> {cmrData.Marks} </IonCol>
-                            <IonCol size="6">  </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardContent>
-            </IonCard>
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Gross Weight:</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                    <IonGrid>
-                        <IonRow color="primary"  >
-                            <IonCol size="6"> {cmrData.Marks} </IonCol>
-                            <IonCol size="6">  </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardContent>
-            </IonCard>
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Gross Volume:</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                    <IonGrid>
-                        <IonRow color="primary"  >
-                            <IonCol size="6"> {cmrData.Marks} </IonCol>
-                            <IonCol size="6">  </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardContent>
-            </IonCard>
+            <Box>
 
 
+
+                <IonCard >
+                    <IonCardHeader>
+                        <IonCardTitle>Marks</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        <IonGrid>
+                            <IonRow color="primary"  >
+                                <IonCol size="6"> {cmrData.Marks} </IonCol>
+                                <IonCol size="6">  </IonCol>
+                            </IonRow>
+                        </IonGrid>
+                    </IonCardContent>
+                </IonCard>
+                <IonCard >
+                    <IonCardHeader>
+                        <IonCardTitle>Number of Packages:</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        <IonGrid>
+                            <IonRow color="primary"  >
+                                <IonCol size="6"> {cmrData.Marks} </IonCol>
+                                <IonCol size="6">  </IonCol>
+                            </IonRow>
+                        </IonGrid>
+                    </IonCardContent>
+                </IonCard>
+                <IonCard >
+                    <IonCardHeader>
+                        <IonCardTitle>Method of Packing:</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        <IonGrid>
+                            <IonRow color="primary"  >
+                                <IonCol size="6"> {cmrData.Marks} </IonCol>
+                                <IonCol size="6">  </IonCol>
+                            </IonRow>
+                        </IonGrid>
+                    </IonCardContent>
+                </IonCard>
+                <IonCard >
+                    <IonCardHeader>
+                        <IonCardTitle>Nature of Goods:</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        <IonGrid>
+                            <IonRow color="primary"  >
+                                <IonCol size="6"> {cmrData.Marks} </IonCol>
+                                <IonCol size="6">  </IonCol>
+                            </IonRow>
+                        </IonGrid>
+                    </IonCardContent>
+                </IonCard>
+                <IonCard >
+                    <IonCardHeader>
+                        <IonCardTitle>Stat Nr:</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        <IonGrid>
+                            <IonRow color="primary"  >
+                                <IonCol size="6"> {cmrData.Marks} </IonCol>
+                                <IonCol size="6">  </IonCol>
+                            </IonRow>
+                        </IonGrid>
+                    </IonCardContent>
+                </IonCard>
+                <IonCard >
+                    <IonCardHeader>
+                        <IonCardTitle>Gross Weight:</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        <IonGrid>
+                            <IonRow color="primary"  >
+                                <IonCol size="6"> {cmrData.Marks} </IonCol>
+                                <IonCol size="6">  </IonCol>
+                            </IonRow>
+                        </IonGrid>
+                    </IonCardContent>
+                </IonCard>
+                <IonCard >
+                    <IonCardHeader>
+                        <IonCardTitle>Gross Volume:</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        <IonGrid>
+                            <IonRow color="primary"  >
+                                <IonCol size="6"> {cmrData.Marks} </IonCol>
+                                <IonCol size="6">  </IonCol>
+                            </IonRow>
+                        </IonGrid>
+                    </IonCardContent>
+                </IonCard>
+
+            </Box>
         </>
 
     );
