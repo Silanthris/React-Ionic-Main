@@ -5,7 +5,7 @@ import { IonReactRouter } from "@ionic/react-router";
 import Menu from './menu/Menu';
 import File from "../pages/File"
 import List from "../pages/List"
-
+import Dashboard from "../pages/Dashboard";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -31,17 +31,21 @@ const Router: React.FC = () => {
 
         <IonReactRouter>
 
-                <Route path="/cmr">
-                    <Redirect to="/cmr/list" />
-                </Route>
+            <Route path="/cmr">
+                <Redirect to="/cmr/dashboard" />
+            </Route>
 
-                <Route path="/cmr/list">
-                    <List />
-                </Route>
+            <Route path="/cmr/list">
+                <List />
+            </Route>
 
-                <Route path="/cmr/file/:name" >
-                    <File />
-                </Route>
+            <Route path="/cmr/file" >
+                <File />
+            </Route>
+
+            <Route path="/cmr/dashboard">
+                <Dashboard />
+            </Route>
 
         </IonReactRouter>
 

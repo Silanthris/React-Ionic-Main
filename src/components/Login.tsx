@@ -119,11 +119,15 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
         if (enumTask === EnumTask.login) {
 
+          console.log("aaaaaaaaaaaaaaaaaaa")
+          console.log("aaaaaaaaaaaaaaaaaaa")
+          console.log("aaaaaaaaaaaaaaaaaaa")
+
           dispatch(changeId(id))
 
-          history.push({
-            pathname: '/cmr/list'
-          })
+          console.log("bbbbbbbbbbbbbbb")
+
+          history.push({ pathname: '/cmr/dashboard' })
           
 
 
@@ -231,4 +235,3 @@ export default Login;
 function useNavigate() {
   throw new Error("Function not implemented.");
 }
-

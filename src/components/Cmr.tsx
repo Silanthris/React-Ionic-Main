@@ -6,6 +6,7 @@ import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardH
 import { useSelector, useDispatch } from 'react-redux'
 
 import { incrementByAmount } from "../components/redux/slices/counterSlice"
+import { Box } from "@mui/material";
 
 const Cmr: React.FC = () => {
 
@@ -14,370 +15,637 @@ const Cmr: React.FC = () => {
     return (
 
 
-        <IonContent>
 
 
-            <div>
+        <Box>
 
 
 
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
-                {cmrData.parties &&
+                <IonGrid style={{ 'padding': '0px' }} >
 
-                    <>
+                    <IonRow>
 
-                        {cmrData.parties.map((json23: any) => (
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
 
-                            <IonCard >
-                                <IonCardHeader>
-                                    <IonCardTitle>Consignor</IonCardTitle>
-                                </IonCardHeader>
+                        </IonCol>
 
-                                <IonCardContent>
-                                    <IonGrid>
-                                        <IonRow>
-                                            <IonCol size="12"> {json23.entityName}   </IonCol>
-                                        </IonRow>
-                                    </IonGrid>
-                                </IonCardContent>
-                            </IonCard>
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            1.Consignor
+                        </IonCol>
 
-                        ))}
 
+                    </IonRow>
 
-                    </>
 
-                }
+                </IonGrid>
 
+                <IonCardContent style={{ 'padding': '0px' }} >
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Consignee</IonCardTitle>
-                    </IonCardHeader>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
 
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"></IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
+                <IonGrid style={{ 'padding': '0px' }} >
 
+                    <IonRow>
 
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Delivery Place</IonCardTitle>
-                    </IonCardHeader>
+                        </IonCol>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.destination}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Loading Date</IonCardTitle>
-                    </IonCardHeader>
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            2.Consignee
+                        </IonCol>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.deliveryDate}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
 
-                <IonCard >
+                    </IonRow>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="6"> Marks:</IonCol>
-                                <IonCol size="6">
 
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Number of ...:</IonCol>
-                                <IonCol size="6"> </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Method of Packing:</IonCol>
-                                <IonCol size="6">   </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Nature of Goods:</IonCol>
-                                <IonCol size="6">
+                </IonGrid>
 
+                <IonCardContent style={{ 'padding': '0px' }} >
 
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
 
+                </IonCardContent>
+            </IonCard>
 
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Stat Nr:</IonCol>
-                                <IonCol size="6"> {cmrData.deliveryDate}</IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Gross Weight:</IonCol>
-                                <IonCol size="6">
 
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
-
-
-                                </IonCol>
-                            </IonRow>
-
-                            <IonRow>
-                                <IonCol size="6">Gross Volume:</IonCol>
-                                <IonCol size="6">
-
-
-
-
-
-                                </IonCol>
-                            </IonRow>
+                <IonGrid style={{ 'padding': '0px' }} >
 
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                    <IonRow>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Driver's Instruction</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.deliveryDate}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Instruction for payment</IonCardTitle>
-                    </IonCardHeader>
+                        </IonCol>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.deliveryDate}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            3.Delivery Place
+                        </IonCol>
 
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Cash on Delivery</IonCardTitle>
-                    </IonCardHeader>
+                    </IonRow>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.deliveryDate}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Carrier Info</IonCardTitle>
-                    </IonCardHeader>
+                </IonGrid>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                <IonCardContent style={{ 'padding': '0px' }} >
 
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Sucessive Carriers</IonCardTitle>
-                    </IonCardHeader>
+                </IonCardContent>
+            </IonCard>
 
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Carriers Observations</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-
-                <IonCard >
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="6">To be paid by:</IonCol>
-                                <IonCol size="6">
-
-
-
-
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Sender:</IonCol>
-                                <IonCol size="6"> {cmrData.cargo}</IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6"> Currency:</IonCol>
-                                <IonCol size="6">
-
-
-
-
-                                </IonCol>
-                            </IonRow>
-                            <IonRow>
-                                <IonCol size="6">Consignee:</IonCol>
-                                <IonCol size="6">
-
-
-
-
-
-                                </IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Special Agreements</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-
-
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Estabilished in:</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Signature Sender</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Signature Carrier</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-
-
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Goods Received</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Registration</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Type:</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size="12"> {cmrData.drivers}</IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-            </div>
-        </IonContent>
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            4.Loading Date
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            5.Documents Atached
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            6.Cargo
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            13.Sender Instructions
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            14.Instructions as to payment for carriage
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            15.Cash on delivery
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            16.Carrier
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            17.Sucessive Carriers
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            18.Carrier reservations and observations
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            19.To be paid by
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            20.Special Agreements
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            21.Estabilished in
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            22.
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            23.
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            24.Good Received
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            25.Registration
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            26.Type
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+
+        </Box>
+
 
     );
 };

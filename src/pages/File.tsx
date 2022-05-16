@@ -8,10 +8,12 @@ import { useEffect, useState } from 'react';
 import MitmyNidLogo from "../components/images/MMN_V_RGB.png";
 
 import Cargo from "../components/Cmr/Cargo"
+import Documents from '../components/Cmr/Documents';
 import Principal from "../components/Cmr/Principal"
 import Cmr from "../components/Cmr"
 import Instructions from '../components/Cmr/Instructions';
 import Carrier from '../components/Cmr/Carrier';
+import Tobe from '../components/Cmr/Tobe';
 
 import { constructOutline } from 'ionicons/icons';
 
@@ -32,6 +34,7 @@ import { ReactComponent as IconMore } from '../components/images/icon_more.svg';
 
 import { ReactComponent as IconSair } from '../components/images/icon_sair.svg';
 
+import { ReactComponent as IconSwipe } from '../components/images/icon_view_swipe.svg';
 
 import { ReactComponent as IconPdf } from '../components/images/icon_view_pdf.svg';
 
@@ -49,6 +52,8 @@ import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 
 const File: React.FC = () => {
 
+    let history = useHistory();
+
     const cmrData3 = useSelector((state: any) => state.counter.value)
 
     const idUser = useSelector((state: any) => state.id.value)
@@ -57,44 +62,15 @@ const File: React.FC = () => {
 
     const menuChoice = useSelector((state: any) => state.choice.value)
 
-    const [menuUrl, setMenuUrl] = useState<menuChoice>(menuChoice.all);
-
     const { name } = useParams<any>();
 
-    const [cmrData2, setCmrData2] = useState<any>([]);
+    const [TypeCheck, setTypeCheck] = useState(false);
 
-    const location = useLocation<any>();
+    const [cmrData2, setCmrData2] = useState<any>([]);
 
     console.log(name)
 
     const dispatch = useDispatch()
-
-
-    useEffect(() => {
-
-
-
-        switch (name) {
-            case 'principal':
-                setMenuUrl(menuChoice.principal)
-                break;
-            case 'cargo':
-                setMenuUrl(menuChoice.cargo)
-                break;
-            case 'instructions':
-                setMenuUrl(menuChoice.instructions)
-                break;
-            case 'carrier':
-                setMenuUrl(menuChoice.instructions)
-                break;
-            case 'entire':
-                setMenuUrl(menuChoice.all)
-                break;
-            default:
-                setMenuUrl(menuChoice.all)
-        }
-
-    }, [name]);
 
 
     useEffect(() => {
@@ -135,9 +111,39 @@ const File: React.FC = () => {
     }, []);
 
     const slideOpts = {
-        initialSlide: 0,
+        initialSlide: 1,
         speed: 400
     };
+
+    const handleClick1 = () => {
+        return (event: React.MouseEvent) => {
+            history.push({ pathname: '/cmr/dashboard' })
+        }
+    }
+
+    const handleClick2 = () => {
+        return (event: React.MouseEvent) => {
+            history.push({ pathname: '/cmr/file' })
+        }
+    }
+
+    const handleClick3 = () => {
+        return (event: React.MouseEvent) => {
+            history.push({ pathname: '/cmr/list' })
+        }
+    }
+
+    const handleClick4 = () => {
+        return (event: React.MouseEvent) => {
+            history.push({ pathname: '/' })
+        }
+    }
+
+    const handleIcon = (type: boolean) => {
+        return (event: React.MouseEvent) => {
+            setTypeCheck(type)
+        }
+    }
 
 
     return (
@@ -168,22 +174,31 @@ const File: React.FC = () => {
 
 
                     </IonCol>
+                    <IonCol size='2' style={{ height: '50px' }}  >
 
-                    <IonCol size='3' style={{ height: '50px' }}  >
+                        <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
 
-                        <div style={{ background: 'rgb(29,146,191)', height: '50px', width: '50px' }}  >
-
-                            <IconPdf style={{ height: '50px', width: '50px' }} />
+                            <IconPdf style={{ height: '40px', width: '40px' }} />
 
                         </div>
 
                     </IonCol>
 
-                    <IonCol size='3' style={{ height: '50px' }} >
+                    <IonCol size='2' style={{ height: '50px' }} >
 
-                        <div style={{ background: 'rgb(29,146,191)', height: '50px', width: '50px' }}  >
+                        <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
 
-                            <IconScroll style={{ height: '50px', width: '50px' }} />
+                            <IconScroll onClick={handleIcon(true)} style={{ height: '40px', width: '40px' }} />
+
+                        </div>
+
+                    </IonCol>
+
+                    <IonCol size='2' style={{ height: '50px' }} >
+
+                        <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
+
+                            <IconSwipe onClick={handleIcon(false)} style={{ height: '40px', width: '40px' }} />
 
                         </div>
 
@@ -193,28 +208,43 @@ const File: React.FC = () => {
                 </IonRow>
 
 
-                <IonSlides pager={true} options={slideOpts}>
+                {TypeCheck ? (
+                    <Cmr />
+                ) : (
+                    <div>
 
-                    <IonSlide>
-                        <div style={{ display: 'block' }}>
-                            <Cmr />
-                        </div>
+                        <IonSlides pager={true} options={slideOpts}>
 
-                    </IonSlide>
-                    <IonSlide>
-                        <Cargo />
-                    </IonSlide>
-                    <IonSlide>
-                        <Principal />
-                    </IonSlide>
-                    <IonSlide>
-                        <Instructions />
-                    </IonSlide>
-                    <IonSlide>
-                        <Carrier />
-                    </IonSlide>
+                            <IonSlide>
+                                <Principal />
+                            </IonSlide>
 
-                </IonSlides>
+                            <IonSlide>
+                                <Documents />
+                            </IonSlide>
+
+                            <IonSlide>
+                                <Cargo />
+                            </IonSlide>
+
+                            <IonSlide>
+                                <Instructions />
+                            </IonSlide>
+
+                            <IonSlide>
+                                <Carrier />
+                            </IonSlide>
+
+                            <IonSlide>
+                                <Tobe />
+                            </IonSlide>
+
+                        </IonSlides>
+
+                    </div>
+                )}
+
+
 
 
             </IonContent>
@@ -226,13 +256,13 @@ const File: React.FC = () => {
                     style={{ background: 'rgb(229,229,229)' }}
 
                 >
-                    <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
+                    <BottomNavigationAction onClick={handleClick1()} style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
 
-                    <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
+                    <BottomNavigationAction onClick={handleClick2()} style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
 
-                    <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
+                    <BottomNavigationAction onClick={handleClick3()} style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
 
-                    <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
+                    <BottomNavigationAction onClick={handleClick4()} style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
 
 
                 </BottomNavigation>

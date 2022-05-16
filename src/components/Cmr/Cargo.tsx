@@ -23,7 +23,7 @@ const Cargo: React.FC = () => {
 
         <>
 
-            <Box>
+            <Box style={{width: "90%"}}>
 
 
 

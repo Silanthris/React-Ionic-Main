@@ -86,6 +86,7 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
   };
 
   const validateName = (name: any) => {
+    console.log("yasuo")
     return String(name)
       .toLowerCase()
       .match(/^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/);

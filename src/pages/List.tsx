@@ -71,6 +71,30 @@ const List: React.FC = () => {
 
   };
 
+  const handleClick1 = () => {
+    return (event: React.MouseEvent) => {
+      history.push({ pathname: '/cmr/dashboard' })
+    }
+  }
+
+  const handleClick2 = () => {
+    return (event: React.MouseEvent) => {
+      history.push({ pathname: '/cmr/file' })
+    }
+  }
+
+  const handleClick3 = () => {
+    return (event: React.MouseEvent) => {
+      history.push({ pathname: '/cmr/list' })
+    }
+  }
+
+  const handleClick4 = () => {
+    return (event: React.MouseEvent) => {
+      history.push({ pathname: '/' })
+    }
+  }
+
 
   return (
     <IonPage>
@@ -213,13 +237,13 @@ const List: React.FC = () => {
             style={{ background: 'rgb(229,229,229)' }}
 
           >
-            <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
+            <BottomNavigationAction onClick={handleClick1()} style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
 
-            <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
+            <BottomNavigationAction onClick={handleClick2()} style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
 
-            <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
+            <BottomNavigationAction onClick={handleClick3()} style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
 
-            <BottomNavigationAction style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
+            <BottomNavigationAction onClick={handleClick4()} style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
 
 
           </BottomNavigation>

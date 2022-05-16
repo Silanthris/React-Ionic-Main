@@ -5,92 +5,146 @@ import logo from '../pages/blk2.png';
 
 
 import { useSelector, useDispatch } from 'react-redux'
+import { Box } from "@mui/material";
 
 
 
 const Principal: React.FC = () => {
 
     const cmrData = useSelector((state: any) => state.counter.value)
-    
+
     return (
 
-        <>
+        <Box style={{width: "90%"}}>
 
 
 
-            {cmrData.parties &&
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
-                <>
+                <IonGrid style={{ 'padding': '0px' }} >
 
-                    {cmrData.parties.map((json23: any) => (
+                    <IonRow>
 
-                        <IonCard >
-                            <IonCardHeader>
-                                <IonCardTitle>Consignor</IonCardTitle>
-                            </IonCardHeader>
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
 
-                            <IonCardContent>
-                                <IonGrid>
-                                    <IonRow>
-                                        <IonCol size="12"> {json23.entityName}   </IonCol>
-                                    </IonRow>
-                                </IonGrid>
-                            </IonCardContent>
-                        </IonCard>
+                        </IonCol>
 
-                    ))}
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            1.Consignor
+                        </IonCol>
 
 
-                </>
-
-            }
+                    </IonRow>
 
 
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Consignee</IonCardTitle>
-                </IonCardHeader>
+                </IonGrid>
 
+                <IonCardContent style={{ 'padding': '0px' }} >
 
-                <IonCardContent>
                     <IonGrid>
                         <IonRow>
-                            <IonCol size="12"></IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
                         </IonRow>
                     </IonGrid>
+
+                </IonCardContent>
+            </IonCard>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            2.Consignee
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                        </IonRow>
+                    </IonGrid>
+
                 </IonCardContent>
             </IonCard>
 
 
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            3.Delivery Place
+                        </IonCol>
 
 
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Delivery Place</IonCardTitle>
-                </IonCardHeader>
+                    </IonRow>
 
-                <IonCardContent>
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
                     <IonGrid>
                         <IonRow>
-                            <IonCol size="12"> {cmrData.destination}</IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
                         </IonRow>
                     </IonGrid>
+
                 </IonCardContent>
             </IonCard>
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Loading Date</IonCardTitle>
-                </IonCardHeader>
 
-                <IonCardContent>
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            4.Loading Date
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
                     <IonGrid>
                         <IonRow>
-                            <IonCol size="12"> {cmrData.deliveryDate}</IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
                         </IonRow>
                     </IonGrid>
+
                 </IonCardContent>
             </IonCard>
-        </>
+        </Box>
 
 
     );

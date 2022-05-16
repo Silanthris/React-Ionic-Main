@@ -26,6 +26,7 @@ import { initdb } from "./dataservice";
 import Register from "./pages/Register";
 import List from "./pages/List";
 import File from "./pages/File"
+import Dashboard from "./pages/Dashboard";
 
 
 import Router from "./components/Router";
@@ -49,16 +50,16 @@ const App: React.FC = () => {
             <Home />
           </Route>
 
+          <Route  path="/dashboard">
+            <Dashboard />
+          </Route>
+
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
 
           <Route exact path="/register">
             <Register />
-          </Route>
-
-          <Route exact path="/">
-            <Redirect to="/home" />
           </Route>
 
           <Route path="/cmr" component={Router} />

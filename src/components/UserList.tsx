@@ -25,7 +25,7 @@ import Button from '@mui/material/Button';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LoginIcon from '@mui/icons-material/Login';
 
-import bigimage from "../components/images/banner_login.svg"
+import bigimage from "../components/images/banner_login.png"
 
 
 import { add, build, personAdd, trash, wifi } from "ionicons/icons";

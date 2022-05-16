@@ -9,6 +9,7 @@ import logo from '../pages/blk2.png';
 import { useSelector, useDispatch } from 'react-redux'
 
 import { incrementByAmount } from "../redux/slices/counterSlice"
+import { Box } from "@mui/material";
 
 
 const Carrier: React.FC = () => {
@@ -17,52 +18,104 @@ const Carrier: React.FC = () => {
 
     return (
 
-        <>
+        <Box style={{width: "90%"}}>
 
-<IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Carrier Info</IonCardTitle>
-                </IonCardHeader>
 
-                <IonCardContent>
+
+
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
+
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            16.Carrier
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
                     <IonGrid>
                         <IonRow>
-                            <IonCol size="12"> {cmrData.drivers}</IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
                         </IonRow>
                     </IonGrid>
+
                 </IonCardContent>
             </IonCard>
 
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Sucessive Carriers</IonCardTitle>
-                </IonCardHeader>
+                <IonGrid style={{ 'padding': '0px' }} >
 
-                <IonCardContent>
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            17.Sucessive Carriers
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
                     <IonGrid>
                         <IonRow>
-                            <IonCol size="12"> {cmrData.drivers}</IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
                         </IonRow>
                     </IonGrid>
+
                 </IonCardContent>
             </IonCard>
 
-            <IonCard >
-                <IonCardHeader>
-                    <IonCardTitle>Carriers Observations</IonCardTitle>
-                </IonCardHeader>
+            <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
-                <IonCardContent>
+                <IonGrid style={{ 'padding': '0px' }} >
+
+                    <IonRow>
+
+                        <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                        </IonCol>
+
+                        <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                            18.Carrier rese4rvcations and observations
+                        </IonCol>
+
+
+                    </IonRow>
+
+
+                </IonGrid>
+
+                <IonCardContent style={{ 'padding': '0px' }} >
+
                     <IonGrid>
                         <IonRow>
-                            <IonCol size="12"> {cmrData.drivers}</IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
                         </IonRow>
                     </IonGrid>
+
                 </IonCardContent>
             </IonCard>
-
-        </>
+        </Box>
 
     );
 };
