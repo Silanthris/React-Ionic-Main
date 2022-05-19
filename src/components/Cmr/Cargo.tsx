@@ -23,99 +23,62 @@ const Cargo: React.FC = () => {
 
         <>
 
-            <Box style={{width: "90%"}}>
+            <Box style={{ width: "90%" }}>
 
 
 
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Marks</IonCardTitle>
-                    </IonCardHeader>
-                    <IonCardContent>
+                <IonCard className="card" style={{ '--background': 'white', 'height': '230px' }}>
+
+                    <IonGrid style={{ 'padding': '0px' }} >
+
+                        <IonRow>
+
+                            <IonCol size='1' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+
+                            </IonCol>
+
+                            <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
+                                Cargo
+                            </IonCol>
+
+
+                        </IonRow>
+
+
+                    </IonGrid>
+
+                    <IonCardContent style={{ 'padding': '0px' }} >
+
                         <IonGrid>
-                            <IonRow color="primary"  >
-                                <IonCol size="6"> {cmrData.Marks} </IonCol>
-                                <IonCol size="6">  </IonCol>
+
+                            <IonRow style={{ 'border-style': 'solid', 'border-color': 'lightgrey', 'border-width': '1px', 'padding': '5px', 'margin-top': '5px' }}>
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '6px', 'fontFamily': 'arial', }} className="ion-align-self-center" size="2"> Marks and numbers </IonCol>
+
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial', 'text-align': 'center' }} className="ion-align-self-center" size="10"> 2022/05/04 12:00 </IonCol>
                             </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Number of Packages:</IonCardTitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow color="primary"  >
-                                <IonCol size="6"> {cmrData.Marks} </IonCol>
-                                <IonCol size="6">  </IonCol>
+                            <IonRow style={{ 'border-style': 'solid', 'border-color': 'lightgrey', 'border-width': '1px', 'padding': '5px', 'margin-top': '5px' }}>
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '6px', 'fontFamily': 'arial', }} className="ion-align-self-center" size="2"> Method of Packaging </IonCol>
+
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial', 'text-align': 'center' }} className="ion-align-self-center" size="10"> 2022/05/04 12:00 </IonCol>
                             </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Method of Packing:</IonCardTitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow color="primary"  >
-                                <IonCol size="6"> {cmrData.Marks} </IonCol>
-                                <IonCol size="6">  </IonCol>
+                            <IonRow style={{ 'border-style': 'solid', 'border-color': 'lightgrey', 'border-width': '1px', 'padding': '5px', 'margin-top': '5px' }}>
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '6px', 'fontFamily': 'arial', }} className="ion-align-self-center" size="2"> Nature of Goods </IonCol>
+
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial', 'text-align': 'center' }} className="ion-align-self-center" size="10"> 2022/05/04 12:00 </IonCol>
                             </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Nature of Goods:</IonCardTitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow color="primary"  >
-                                <IonCol size="6"> {cmrData.Marks} </IonCol>
-                                <IonCol size="6">  </IonCol>
+                            <IonRow style={{ 'border-style': 'solid', 'border-color': 'lightgrey', 'border-width': '1px', 'padding': '5px', 'margin-top': '5px' }}>
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '6px', 'fontFamily': 'arial', }} className="ion-align-self-center" size="2"> Stat Number </IonCol>
+
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial', 'text-align': 'center' }} className="ion-align-self-center" size="10"> 2022/05/04 12:00 </IonCol>
                             </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Stat Nr:</IonCardTitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow color="primary"  >
-                                <IonCol size="6"> {cmrData.Marks} </IonCol>
-                                <IonCol size="6">  </IonCol>
+                            <IonRow style={{ 'border-style': 'solid', 'border-color': 'lightgrey', 'border-width': '1px', 'padding': '5px', 'margin-top': '5px' }}>
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '6px', 'fontFamily': 'arial', }} className="ion-align-self-center" size="2"> Gross Weight </IonCol>
+
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial', 'text-align': 'center' }} className="ion-align-self-center" size="10"> 2022/05/04 12:00 </IonCol>
                             </IonRow>
+
                         </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Gross Weight:</IonCardTitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow color="primary"  >
-                                <IonCol size="6"> {cmrData.Marks} </IonCol>
-                                <IonCol size="6">  </IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
-                <IonCard >
-                    <IonCardHeader>
-                        <IonCardTitle>Gross Volume:</IonCardTitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow color="primary"  >
-                                <IonCol size="6"> {cmrData.Marks} </IonCol>
-                                <IonCol size="6">  </IonCol>
-                            </IonRow>
-                        </IonGrid>
+
                     </IonCardContent>
                 </IonCard>
 

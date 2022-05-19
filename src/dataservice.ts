@@ -101,6 +101,17 @@ export const updateUserById = async (userId: any, userData: any) => {
 
 /**
  *
+ * @param userId
+ */
+ export const updateTokenById = async (userId: any, token: any, refreshToken: any) => {
+  return await database.query(
+    "UPDATE users SET token=?, refreshToken=? WHERE id = ?;",
+    [token, refreshToken, userId + ""]
+  );
+};
+
+/**
+ *
  * @param userData
  */
 export const createUser = async (userData: any) => {

@@ -26,14 +26,12 @@ import "@ionic/react/css/display.css";
 
 const Router: React.FC = () => {
 
+    console.log("rotuer router router")
+
 
     return (
 
         <IonReactRouter>
-
-            <Route path="/cmr">
-                <Redirect to="/cmr/dashboard" />
-            </Route>
 
             <Route path="/cmr/list">
                 <List />

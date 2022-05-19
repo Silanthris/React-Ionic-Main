@@ -28,7 +28,6 @@ import List from "./pages/List";
 import File from "./pages/File"
 import Dashboard from "./pages/Dashboard";
 
-
 import Router from "./components/Router";
 
 const App: React.FC = () => {
@@ -37,12 +36,7 @@ const App: React.FC = () => {
   return (
     <IonApp>
 
-    <IonReactRouter>
-
-      <IonSplitPane contentId="main">
-
-        <Menu />
-
+      <IonReactRouter>
 
         <IonRouterOutlet id="main">
 
@@ -50,9 +44,7 @@ const App: React.FC = () => {
             <Home />
           </Route>
 
-          <Route  path="/dashboard">
-            <Dashboard />
-          </Route>
+          <Route path="/cmr" component={Router} />
 
           <Route exact path="/">
             <Redirect to="/home" />
@@ -62,16 +54,14 @@ const App: React.FC = () => {
             <Register />
           </Route>
 
-          <Route path="/cmr" component={Router} />
-
         </IonRouterOutlet>
 
-      </IonSplitPane>
+      </IonReactRouter>
 
-    </IonReactRouter>
-
-  </IonApp>
+    </IonApp>
   );
 };
 
 export default App;
+
+//

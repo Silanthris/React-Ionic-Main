@@ -29,7 +29,7 @@ import Register from "../pages/Register";
 import ConfAcesso from "./ConfAcesso";
 import { idText } from "typescript";
 
-
+import { getUserById, updateTokenById } from "../dataservice";
 
 
 
@@ -119,19 +119,50 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
         if (enumTask === EnumTask.login) {
 
-          console.log("aaaaaaaaaaaaaaaaaaa")
-          console.log("aaaaaaaaaaaaaaaaaaa")
-          console.log("aaaaaaaaaaaaaaaaaaa")
-
           dispatch(changeId(id))
 
-          console.log("bbbbbbbbbbbbbbb")
+          getUserById(id).then((c: any) => {
+            const user = c.values[0];
+
+            // setUserToken(user.token);
+
+            console.log(user)
+            console.log("yasoo")
+
+
+            fetch('https://try.bizcargo.com/oauth/token', {
+              headers: { 'Content-type': 'application/x-www-form-urlencoded' },
+              method: 'POST',
+              body: new URLSearchParams({
+                'grant_type': 'refresh_token',
+                'scope': 'read write',
+                'client_secret': 'mySecretOAuthSecret',
+                'client_id': 'lswapp',
+                'refresh_token': user.refreshToken
+              })
+            })
+              .then(r => r.json())
+              .then((response) => {
+                if (response.access_token) {
+                  console.log(response)
+
+                  updateTokenById(id,response.access_token,response.refresh_token)
+
+                }
+              }).catch((err) => {
+                alert('Login Errado');
+              });
+
+
+          });
 
           history.push({ pathname: '/cmr/dashboard' })
-          
 
 
-        //   history.push("/placeholder")
+
+
+
+          //   history.push("/placeholder")
 
         }
 
@@ -223,7 +254,7 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
         <IonModal isOpen={showModal}>
 
           <Register id={id} resetPin={true} />
-          
+
         </IonModal>
 
       </IonContent>

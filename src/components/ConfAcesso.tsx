@@ -46,6 +46,9 @@ type Props = {
 const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, token, refreshToken }: any) => {
 
 
+
+
+
   let history = useHistory();
 
   const [name, setName] = useState<any>("");

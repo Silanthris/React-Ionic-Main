@@ -47,7 +47,9 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { changeId } from "../components/redux/slices/idSlice"
 
-const Dashboard: React.FC = () => {
+const Dashboard: React.FC<any> = () => {
+
+    console.log("dashboardddd")
 
     let history = useHistory();
 
@@ -70,14 +72,12 @@ const Dashboard: React.FC = () => {
 
     return (
 
-        <IonContent>
+        <IonPage>
+
+            <IonContent>
 
 
-            {ConfCheck ? (
 
-                <ConfAcesso id={idUser} setConfCheck={setConfCheck} confType={ConfType.update} />
-
-            ) : (
 
                 <div>
 
@@ -168,7 +168,6 @@ const Dashboard: React.FC = () => {
                     </IonPage>
 
                 </div>
-            )}
 
 
 
@@ -180,7 +179,11 @@ const Dashboard: React.FC = () => {
 
 
 
-        </IonContent>
+
+            </IonContent>
+
+
+        </IonPage>
     );
 };
 
