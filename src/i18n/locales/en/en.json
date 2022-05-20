@@ -5,7 +5,7 @@
       "add": "Add"
     },
     "loginForm":{
-      "login": "LogIn",
+      "login": "User Data",
       "email": "Email Address",
       "password": "Password",
       "fingerPrint": "Use Finger Print",

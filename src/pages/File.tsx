@@ -111,8 +111,8 @@ const File: React.FC = () => {
     }, []);
 
     const slideOpts = {
-        initialSlide: 1,
-        speed: 400
+        initialSlide: 0,
+        speed: 300
     };
 
     const handleClick1 = () => {
@@ -213,7 +213,7 @@ const File: React.FC = () => {
                 ) : (
                     <div>
 
-                        <IonSlides pager={true} options={slideOpts}>
+                        <IonSlides style={{ 'height': '100%'}} options={slideOpts}>
 
                             <IonSlide>
                                 <Principal />
