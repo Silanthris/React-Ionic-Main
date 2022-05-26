@@ -21,7 +21,6 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import EditUser from "./pages/EditUser";
 import { initdb } from "./dataservice";
 import Register from "./pages/Register";
 import List from "./pages/List";

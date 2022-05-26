@@ -46,6 +46,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { incrementByAmount } from "../components/redux/slices/counterSlice"
 
+
 import { menuChoice } from '../Enums/Enums'
 import { changeChoice } from '../components/redux/slices/menuchoiceSlice';
 import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
@@ -53,6 +54,7 @@ import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 const File: React.FC = () => {
 
     let history = useHistory();
+
 
     const cmrData3 = useSelector((state: any) => state.counter.value)
 
@@ -153,9 +155,47 @@ const File: React.FC = () => {
 
                 <IonToolbar style={{ '--background': 'rgb(29,146,191)' }} >
 
+                    <IonRow style={{ 'display': 'flex' }}>
 
-                    <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingTop: "10px" }} />
+                        <IonCol size='6' style={{ height: '50px' }} >
 
+                            <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingTop: "10px" }} />
+
+                        </IonCol>
+
+                        <IonCol size='2' style={{ height: '50px' }}  >
+
+                            <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
+
+                                <IconPdf style={{ height: '40px', width: '40px' }} />
+
+                            </div>
+
+                        </IonCol>
+
+                        <IonCol size='2' style={{ height: '50px' }} >
+
+                            <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
+
+                                <IconScroll onClick={handleIcon(true)} style={{ height: '40px', width: '40px' }} />
+
+                            </div>
+
+                        </IonCol>
+
+                        <IonCol size='2' style={{ height: '50px' }} >
+
+                            <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
+
+                                <IconSwipe onClick={handleIcon(false)} style={{ height: '40px', width: '40px' }} />
+
+                            </div>
+
+                        </IonCol>
+
+
+
+                    </IonRow>
 
                 </IonToolbar>
 
@@ -163,57 +203,12 @@ const File: React.FC = () => {
 
             <IonContent style={{ '--ion-background-color': 'rgb(245,245,246)' }}>
 
-
-                <IonRow style={{ 'display': 'flex' }}>
-
-
-                    <IonCol size='6' style={{ height: '50px' }} >
-
-                        <h5 style={{ 'color': 'grey', 'margin': '5px' }}> CMR  <br />  <i style={{ 'color': 'grey', 'fontSize': '10px', 'top': '0px', 'verticalAlign': 'top' }}> Que a morte me leve </i>  </h5>
-                        <br />
-
-
-                    </IonCol>
-                    <IonCol size='2' style={{ height: '50px' }}  >
-
-                        <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
-
-                            <IconPdf style={{ height: '40px', width: '40px' }} />
-
-                        </div>
-
-                    </IonCol>
-
-                    <IonCol size='2' style={{ height: '50px' }} >
-
-                        <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
-
-                            <IconScroll onClick={handleIcon(true)} style={{ height: '40px', width: '40px' }} />
-
-                        </div>
-
-                    </IonCol>
-
-                    <IonCol size='2' style={{ height: '50px' }} >
-
-                        <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
-
-                            <IconSwipe onClick={handleIcon(false)} style={{ height: '40px', width: '40px' }} />
-
-                        </div>
-
-                    </IonCol>
-
-
-                </IonRow>
-
-
                 {TypeCheck ? (
                     <Cmr />
                 ) : (
                     <div>
 
-                        <IonSlides style={{ 'height': '100%'}} options={slideOpts}>
+                        <IonSlides style={{ 'height': '100%' }} options={slideOpts}>
 
                             <IonSlide>
                                 <Principal />

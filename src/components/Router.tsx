@@ -28,7 +28,6 @@ const Router: React.FC = () => {
 
     console.log("rotuer router router")
 
-
     return (
 
         <IonReactRouter>
@@ -37,12 +36,12 @@ const Router: React.FC = () => {
                 <List />
             </Route>
 
-            <Route path="/cmr/file" >
-                <File />
-            </Route>
-
             <Route path="/cmr/dashboard">
                 <Dashboard />
+            </Route>
+
+            <Route path="/cmr/file" >
+                <File />
             </Route>
 
         </IonReactRouter>

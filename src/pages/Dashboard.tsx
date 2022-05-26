@@ -77,108 +77,106 @@ const Dashboard: React.FC<any> = () => {
             <IonContent>
 
 
+                {ConfCheck ? (
 
 
-                <div>
-
-                    <IonPage style={{ background: 'rgb(245,245,246)' }}>
+                    <ConfAcesso id={idUser} setConfCheck={setConfCheck} confType={ConfType.update} />
 
 
-                        <div>
-                            <img style={{ width: "100%" }} src={bigimage} alt="avatar" />
+                ) : (
 
 
-                            <IonGrid>
+                    <div>
 
-                                <IonRow>
+                        <IonPage style={{ background: 'rgb(245,245,246)' }}>
 
 
+                            <div>
+                                <img style={{ width: "100%" }} src={bigimage} alt="avatar" />
 
-                                    <IonCol size="6">
-                                        <IonCard
-                                            style={{ background: "white", position: "relative" }}
 
-                                        >
+                                <IonGrid>
 
-                                            <div className="ion-text-center ion-margin-top">
-                                                <IonRow>
-                                                    <IonCol>
-                                                        <img style={{ height: "40px", width: "40px" }} src={iconDocument}></img>
-                                                    </IonCol>
-                                                </IonRow>
-                                            </div>
-
-                                            <IonCardContent onClick={handleClick()} className="ion-text-center">
-                                                <div style={{ color: "grey" }}>
-                                                    <b>Documentos</b>
-                                                </div>
-                                            </IonCardContent>
-                                        </IonCard>
-                                    </IonCol>
-
-                                    <IonCol size="6">
-                                        <IonCard
-                                            style={{ background: "white", position: "relative" }}
-
-                                        >
-
-                                            <div className="ion-text-center ion-margin-top">
-                                                <IonRow>
-                                                    <IonCol>
-                                                        <img style={{ height: "40px", width: "40px" }} src={iconTarefas}></img>
-                                                    </IonCol>
-                                                </IonRow>
-                                            </div>
-
-                                            <IonCardContent className="ion-text-center">
-                                                <div style={{ color: "grey" }}>
-                                                    <b>Tarefas</b>
-                                                </div>
-                                            </IonCardContent>
-                                        </IonCard>
-                                    </IonCol>
+                                    <IonRow>
 
 
 
-                                </IonRow>
-
-                                <IonRow>
-                                    <IonCol >
-
-                                        <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0", background: 'grey' }}  >
-                                            <BottomNavigation
-
-                                                style={{ background: 'rgb(229,229,229)' }}
-                                                showLabels
+                                        <IonCol size="6">
+                                            <IonCard
+                                                style={{ background: "white", position: "relative" }}
 
                                             >
-                                                <BottomNavigationAction className="	.Mui-selected" label="Entrar" icon={<HomeIcon />} />
 
-                                                <BottomNavigationAction onClick={handleClick1()} label="Perfis" icon={<AccountBoxIcon />} />
+                                                <div className="ion-text-center ion-margin-top">
+                                                    <IonRow>
+                                                        <IonCol>
+                                                            <img style={{ height: "40px", width: "40px" }} src={iconDocument}></img>
+                                                        </IonCol>
+                                                    </IonRow>
+                                                </div>
 
-                                            </BottomNavigation>
-                                        </Box>
+                                                <IonCardContent onClick={handleClick()} className="ion-text-center">
+                                                    <div style={{ color: "grey" }}>
+                                                        <b>Documentos</b>
+                                                    </div>
+                                                </IonCardContent>
+                                            </IonCard>
+                                        </IonCol>
 
-                                    </IonCol>
+                                        <IonCol size="6">
+                                            <IonCard
+                                                style={{ background: "white", position: "relative" }}
 
-                                </IonRow>
+                                            >
 
-                            </IonGrid>
-                        </div>
-                    </IonPage>
+                                                <div className="ion-text-center ion-margin-top">
+                                                    <IonRow>
+                                                        <IonCol>
+                                                            <img style={{ height: "40px", width: "40px" }} src={iconTarefas}></img>
+                                                        </IonCol>
+                                                    </IonRow>
+                                                </div>
 
-                </div>
+                                                <IonCardContent className="ion-text-center">
+                                                    <div style={{ color: "grey" }}>
+                                                        <b>Tarefas</b>
+                                                    </div>
+                                                </IonCardContent>
+                                            </IonCard>
+                                        </IonCol>
 
 
 
+                                    </IonRow>
 
+                                    <IonRow>
+                                        <IonCol >
 
+                                            <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0", background: 'grey' }}  >
+                                                <BottomNavigation
 
+                                                    style={{ background: 'rgb(229,229,229)' }}
+                                                    showLabels
 
+                                                >
+                                                    <BottomNavigationAction className="	.Mui-selected" label="Entrar" icon={<HomeIcon />} />
 
+                                                    <BottomNavigationAction onClick={handleClick1()} label="Perfis" icon={<AccountBoxIcon />} />
 
+                                                </BottomNavigation>
+                                            </Box>
 
+                                        </IonCol>
 
+                                    </IonRow>
+
+                                </IonGrid>
+                            </div>
+                        </IonPage>
+
+                    </div>
+
+                )}
 
             </IonContent>
 

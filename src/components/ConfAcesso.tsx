@@ -121,7 +121,7 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
             await updateUserById(id, { name, pin });
 
           }
-          window.location.replace("/")
+          setConfCheck(false)
 
         } else {
           setShowToast(true);

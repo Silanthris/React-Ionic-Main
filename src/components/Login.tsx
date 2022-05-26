@@ -32,7 +32,6 @@ import { idText } from "typescript";
 import { getUserById, updateTokenById } from "../dataservice";
 
 
-
 import { useSelector, useDispatch } from 'react-redux'
 
 import { changeId } from "./redux/slices/idSlice"
@@ -50,6 +49,8 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
   let history = useHistory();
 
+  const { t } = useTranslation();
+
   const correctCode = { ...pin };
 
   const dispatch = useDispatch()
@@ -64,8 +65,6 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
   const [showModal, setShowModal] = useState(false);
   const [incorrect, setIncorrect] = useState<any>(false);
   const [correct, setCorrect] = useState<any>(false);
-
-  const { t } = useTranslation();
 
   const handleClick = (index: number, value: string) => {
 
@@ -119,6 +118,11 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
         if (enumTask === EnumTask.login) {
 
+          console.log("login login")
+
+          console.log("login login")
+
+
           dispatch(changeId(id))
 
           getUserById(id).then((c: any) => {
@@ -127,8 +131,10 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
             // setUserToken(user.token);
 
             console.log(user)
+
             console.log("yasoo")
 
+            console.log("yasoo")
 
             fetch('https://try.bizcargo.com/oauth/token', {
               headers: { 'Content-type': 'application/x-www-form-urlencoded' },
@@ -143,14 +149,11 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
             })
               .then(r => r.json())
               .then((response) => {
-                if (response.access_token) {
-                  console.log(response)
 
-                  updateTokenById(id,response.access_token,response.refresh_token)
+                updateTokenById(id, response.access_token, response.refresh_token)
 
-                }
               }).catch((err) => {
-                alert('Login Errado');
+                alert('Sem Resposta');
               });
 
 
@@ -158,9 +161,9 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
           history.push({ pathname: '/cmr/dashboard' })
 
+          //  window.location.replace('/cmr/dashboard')
 
-
-
+          //  history.replace("/cmr/dashboard")
 
           //   history.push("/placeholder")
 
