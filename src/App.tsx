@@ -43,7 +43,7 @@ const App: React.FC = () => {
             <Home />
           </Route>
 
-          <Route path="/cmr" component={Router} />
+          <Route path="/list" component={Router} />
 
           <Route exact path="/">
             <Redirect to="/home" />

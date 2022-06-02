@@ -32,15 +32,15 @@ const Router: React.FC = () => {
 
         <IonReactRouter>
 
-            <Route path="/cmr/list">
+            <Route path="/list">
                 <List />
             </Route>
 
-            <Route path="/cmr/dashboard">
+            <Route path="/list/dashboard">
                 <Dashboard />
             </Route>
 
-            <Route path="/cmr/file" >
+            <Route path="/list/file" >
                 <File />
             </Route>
 

@@ -45,11 +45,9 @@ type Props = {
 
 const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, token, refreshToken }: any) => {
 
-
-
-
-
   let history = useHistory();
+
+  console.log(confType)
 
   const [name, setName] = useState<any>("");
   
@@ -89,7 +87,6 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
   };
 
   const validateName = (name: any) => {
-    console.log("yasuo")
     return String(name)
       .toLowerCase()
       .match(/^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/);
@@ -108,7 +105,8 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
 
       if (confType === ConfType.updatePin) {
         await updatePinById(id, { pin });
-        window.location.replace("/")
+       
+        window.location.replace("/") 
       }
       else {
         if (validateName(name)) {
@@ -116,12 +114,17 @@ const ConfAcesso = ({ email = "", password = "", setConfCheck, confType, id, tok
           if (confType === ConfType.create) {
 
             await createUser({ name, password, email, pin, token, refreshToken });
+
+            window.location.replace("/")
+
           } else {
+
             setConfCheck(false)
+
             await updateUserById(id, { name, pin });
 
           }
-          setConfCheck(false)
+          window.location.replace("/")
 
         } else {
           setShowToast(true);

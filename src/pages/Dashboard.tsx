@@ -32,20 +32,14 @@ import iconDocument from "../components/images/icon_documentos.png"
 
 import iconTarefas from "../components/images/icon_tarefas.png"
 
-
-import { add, build, personAdd, trash, wifi } from "ionicons/icons";
-import { personCircle, settingsOutline } from "ionicons/icons";
-
 import ConfAcesso from '../components/ConfAcesso';
 
-import { Grid, Paper, styled } from '@mui/material';
 
 import { useHistory } from 'react-router';
 import { ConfType } from '../Enums/Enums';
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { changeId } from "../components/redux/slices/idSlice"
 
 const Dashboard: React.FC<any> = () => {
 
@@ -59,7 +53,8 @@ const Dashboard: React.FC<any> = () => {
 
     const handleClick = () => {
         return (event: React.MouseEvent) => {
-            history.push({ pathname: '/cmr/list' })
+            event.preventDefault();
+            history.push({ pathname: '/list' })
         }
     }
 

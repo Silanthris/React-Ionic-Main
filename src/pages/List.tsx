@@ -19,7 +19,8 @@ import { ReactComponent as IconMore } from '../components/images/icon_more.svg';
 
 import { ReactComponent as IconSair } from '../components/images/icon_sair.svg';
 
-import Cmr from "../components/Cmr"
+import Cmr from "../components/Cmr/Cmr"
+import BlList from '../components/BlList';
 import CmrList from '../components/CmrList';
 import { constructOutline } from 'ionicons/icons';
 import { getUserById } from '../dataservice';
@@ -33,39 +34,33 @@ import { BottomNavigation, BottomNavigationAction, Box, Button, Collapse, FormCo
 
 const List: React.FC = () => {
 
-
+  const [SearchTerm, setSearchTerm] = useState<String>("");
 
   const idUser = useSelector((state: any) => state.id.value)
-
-  console.log("id redux")
-  console.log(idUser)
 
   const dispatch = useDispatch()
 
   const location = useLocation<any>();
   let history = useHistory();
 
-  const [cmrCheck, setCmrCheck] = useState(false);
-
-  const [userToken, setUserToken] = useState<any>();
-  const [cmrCode2, setCmrCode2] = useState<any>();
-
   const [SearchCheck, setSearchCheck] = useState(false);
-
-
-  const [cmrData, setCmrData] = useState<Array<Object>>([]);
-
-  const jsonItem = getJson();
-  const bigJsonItem = getBigJson();
 
   const CmrClick = (cmrCode: any) => {
 
-    dispatch(changeCode(cmrCode))
+    history.push({
+
+      pathname: '/list/file',
+      state: { detail: cmrCode, type: "Cmr" }
+
+    })
+
+  };
+  const BlClick = (cmrCode: any) => {
 
     history.push({
 
-      pathname: '/cmr/file/entire',
-      state: { cmrCode: cmrCode }
+      pathname: '/list/file',
+      state: { detail: cmrCode, type: "Bl" }
 
     })
 
@@ -74,19 +69,19 @@ const List: React.FC = () => {
 
   const handleClick1 = () => {
     return (event: React.MouseEvent) => {
-      history.push({ pathname: '/cmr/dashboard' })
+      history.push({ pathname: '/list/dashboard' })
     }
   }
 
   const handleClick2 = () => {
     return (event: React.MouseEvent) => {
-      history.push({ pathname: '/cmr/file' })
+      history.push({ pathname: '/list/file' })
     }
   }
 
   const handleClick3 = () => {
     return (event: React.MouseEvent) => {
-      history.push({ pathname: '/cmr/list' })
+      history.push({ pathname: '/list' })
     }
   }
 
@@ -95,7 +90,6 @@ const List: React.FC = () => {
       history.push({ pathname: '/' })
     }
   }
-
 
   return (
     <IonPage>
@@ -151,7 +145,7 @@ const List: React.FC = () => {
                               <IconSearch style={{ width: "30px", height: "30px" }} />
                             </InputAdornment>
                           ),
-                        }} id="standard-basic" size='small' label="Procurar" variant="outlined" style={{ 'background': 'white' }} />
+                        }} value={SearchTerm} onChange={(e) => setSearchTerm(e.target.value)} id="standard-basic" size='small' label="Procurar" variant="outlined" style={{ 'background': 'white' }} />
 
 
                     </IonCol>
@@ -229,8 +223,14 @@ const List: React.FC = () => {
 
 
         <div>
-          <CmrList CmrClick={CmrClick} />
+          <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} />
         </div>
+
+        <div>
+          <BlList BlClick={BlClick} />
+        </div>
+
+
 
         <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0" }}  >
           <BottomNavigation

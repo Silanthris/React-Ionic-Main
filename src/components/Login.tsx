@@ -150,16 +150,22 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
               .then(r => r.json())
               .then((response) => {
 
+                console.log("refresh")
+
+                console.log(response)
+
                 updateTokenById(id, response.access_token, response.refresh_token)
 
+                history.push({ pathname: '/list/dashboard' })
+
               }).catch((err) => {
-                alert('Sem Resposta');
+                alert('Sem Respostassssssssssss');
               });
 
 
           });
 
-          history.push({ pathname: '/cmr/dashboard' })
+
 
           //  window.location.replace('/cmr/dashboard')
 

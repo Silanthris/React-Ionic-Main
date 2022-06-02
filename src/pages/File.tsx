@@ -2,20 +2,18 @@ import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardH
 
 import '../components/util/css/Page.css';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
-import { getJson, getBigJson } from "../components/util/json"
 import { useEffect, useState } from 'react';
 
-import MitmyNidLogo from "../components/images/MMN_V_RGB.png";
 
 import Cargo from "../components/Cmr/Cargo"
 import Documents from '../components/Cmr/Documents';
 import Principal from "../components/Cmr/Principal"
-import Cmr from "../components/Cmr"
+import Cmr from "../components/Cmr/Cmr"
 import Instructions from '../components/Cmr/Instructions';
 import Carrier from '../components/Cmr/Carrier';
 import Tobe from '../components/Cmr/Tobe';
+import CmrFile from '../components/CmrFile';
 
-import { constructOutline } from 'ionicons/icons';
 
 import { getUserById } from '../dataservice';
 
@@ -24,13 +22,10 @@ import { ReactComponent as BizCargo } from '../components/images/BizCargo.svg';
 
 import { ReactComponent as IconHome } from '../components/images/icon_home.svg';
 
-import { ReactComponent as IconSearch } from '../components/images/icon_search.svg';
-
 import { ReactComponent as IconDocs } from '../components/images/icon_view_docs.svg';
 
 import { ReactComponent as IconDocument } from '../components/images/icon_list_docs.svg';
 
-import { ReactComponent as IconMore } from '../components/images/icon_more.svg';
 
 import { ReactComponent as IconSair } from '../components/images/icon_sair.svg';
 
@@ -46,45 +41,37 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { incrementByAmount } from "../components/redux/slices/counterSlice"
 
-
-import { menuChoice } from '../Enums/Enums'
-import { changeChoice } from '../components/redux/slices/menuchoiceSlice';
 import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 
 const File: React.FC = () => {
 
     let history = useHistory();
 
-
-    const cmrData3 = useSelector((state: any) => state.counter.value)
+    const location = useLocation<any>();
 
     const idUser = useSelector((state: any) => state.id.value)
 
-    const cmrCode = useSelector((state: any) => state.code.value)
-
-    const menuChoice = useSelector((state: any) => state.choice.value)
-
-    const { name } = useParams<any>();
-
     const [TypeCheck, setTypeCheck] = useState(false);
 
-    const [cmrData2, setCmrData2] = useState<any>([]);
 
-    console.log(name)
+
+    const [cmrData, setCmrData] = useState<any>([]);
 
     const dispatch = useDispatch()
 
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+    console.log(location.state.detail);
+    console.log(location.state.type);
+
 
     useEffect(() => {
-
-
-
 
         getUserById(idUser).then((c: any) => {
             const user = c.values[0];
 
 
-            fetch(`https://try.bizcargo.com/api/cmr/cmr-documents/${cmrCode}/1?type=active`, {
+            fetch(`https://try.bizcargo.com/api/cmr/cmr-documents/${location.state.detail}/1?type=active`, {
                 headers: {
                     'Authorization': 'Bearer ' + user.token,
                     'Accept': 'application/json',
@@ -96,19 +83,16 @@ const File: React.FC = () => {
                 .then((response) => {
                     if (response) {
 
-                        const atuamae = response
-                        setCmrData2(atuamae)
-                        dispatch(incrementByAmount(atuamae))
+                        const tempResponse = response
+                        setCmrData(tempResponse)
+                        dispatch(incrementByAmount(tempResponse))
 
                     }
                 }).catch((err) => {
                     alert('Login Errado');
                 });
 
-
-
         });
-
 
     }, []);
 
@@ -119,27 +103,27 @@ const File: React.FC = () => {
 
     const handleClick1 = () => {
         return (event: React.MouseEvent) => {
-            history.push({ pathname: '/cmr/dashboard' })
+          history.push({ pathname: '/list/dashboard' })
         }
-    }
-
-    const handleClick2 = () => {
+      }
+    
+      const handleClick2 = () => {
         return (event: React.MouseEvent) => {
-            history.push({ pathname: '/cmr/file' })
+          history.push({ pathname: '/list/file' })
         }
-    }
-
-    const handleClick3 = () => {
+      }
+    
+      const handleClick3 = () => {
         return (event: React.MouseEvent) => {
-            history.push({ pathname: '/cmr/list' })
+          history.push({ pathname: '/list' })
         }
-    }
-
-    const handleClick4 = () => {
+      }
+    
+      const handleClick4 = () => {
         return (event: React.MouseEvent) => {
-            history.push({ pathname: '/' })
+          history.push({ pathname: '/' })
         }
-    }
+      }
 
     const handleIcon = (type: boolean) => {
         return (event: React.MouseEvent) => {
@@ -159,7 +143,7 @@ const File: React.FC = () => {
 
                         <IonCol size='6' style={{ height: '50px' }} >
 
-                            <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingTop: "10px" }} />
+                            <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingBottom: "3px"  }} />
 
                         </IonCol>
 
@@ -203,43 +187,8 @@ const File: React.FC = () => {
 
             <IonContent style={{ '--ion-background-color': 'rgb(245,245,246)' }}>
 
-                {TypeCheck ? (
-                    <Cmr />
-                ) : (
-                    <div>
 
-                        <IonSlides style={{ 'height': '100%' }} options={slideOpts}>
-
-                            <IonSlide>
-                                <Principal />
-                            </IonSlide>
-
-                            <IonSlide>
-                                <Documents />
-                            </IonSlide>
-
-                            <IonSlide>
-                                <Cargo />
-                            </IonSlide>
-
-                            <IonSlide>
-                                <Instructions />
-                            </IonSlide>
-
-                            <IonSlide>
-                                <Carrier />
-                            </IonSlide>
-
-                            <IonSlide>
-                                <Tobe />
-                            </IonSlide>
-
-                        </IonSlides>
-
-                    </div>
-                )}
-
-
+                <CmrFile TypeCheck={TypeCheck} />
 
 
             </IonContent>

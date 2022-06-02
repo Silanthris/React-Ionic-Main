@@ -14,24 +14,54 @@ import { incrementByAmount } from "../components/redux/slices/counterSlice"
 
 
 type Props = {
-    CmrClick: any
+    CmrClick: any,
+    SearchTerm: any
 }
 
 
-const CmrList: React.FC<Props> = ({ CmrClick }) => {
+const CmrList: React.FC<Props> = ({ CmrClick, SearchTerm }) => {
+
+    console.log(SearchTerm)
 
     const idUser = useSelector((state: any) => state.id.value)
 
 
     const [cmrData2, setCmrData2] = useState<Array<any>>([]);
 
+    const [cmrDataFiltered, setCmrDataFiltered] = useState<Array<any>>([]);
+
+
+    const filterPosts = (posts: any[], query: any) => {
+
+        console.log("test Filter")
+
+        console.log(query)
+
+        console.log(posts)
+
+        if (query !== '') {
+            console.log("Query Existe")
+            const results = posts.filter((post) => {
+                console.log(post)
+                return post.origin.toLowerCase().startsWith(query.toLowerCase());
+                // Use the toLowerCase() method to make it case-insensitive
+            });
+            setCmrDataFiltered(results);
+        } else {
+            console.log("Query Nao Existe")
+            setCmrDataFiltered(posts);
+            // If the text field is empty, show all users
+        }
+
+    };
 
     useEffect(() => {
 
-
-
         getUserById(idUser).then((c: any) => {
             const user = c.values[0];
+
+            console.log(user.token)
+            console.log(user.refreshToken)
 
             // setUserToken(user.token);
 
@@ -47,18 +77,30 @@ const CmrList: React.FC<Props> = ({ CmrClick }) => {
                 .then(response => response.json())
                 .then((response) => {
                     if (response) {
+                        console.log(response)
                         const temp = response.content
                         setCmrData2(temp)
+                        setCmrDataFiltered(temp)
+
                     }
                 }).catch((err) => {
-                    alert('Login Errado');
+                    alert('Login Errado CmrList');
                 });
-
-
 
         });
 
     }, []);
+
+    useEffect(() => {
+
+        console.log("Data Filtered")
+
+        filterPosts(cmrData2, SearchTerm)
+
+        console.log(cmrDataFiltered)
+
+    }, [SearchTerm])
+
 
 
     return (
@@ -66,7 +108,7 @@ const CmrList: React.FC<Props> = ({ CmrClick }) => {
 
         <>
 
-            {cmrData2.map((json2) => (
+            {cmrDataFiltered.map((json2) => (
 
                 <>
 
@@ -115,6 +157,7 @@ const CmrList: React.FC<Props> = ({ CmrClick }) => {
                     </IonCard>
                 </>
             ))}
+
 
         </>
 
