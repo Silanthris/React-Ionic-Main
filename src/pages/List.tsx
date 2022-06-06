@@ -25,9 +25,13 @@ import CmrList from '../components/CmrList';
 import { constructOutline } from 'ionicons/icons';
 import { getUserById } from '../dataservice';
 import { use } from 'i18next';
+
+
 import { useSelector, useDispatch } from 'react-redux'
 
 import { changeCode } from "../components/redux/slices/codeSlice"
+
+import { changeType } from "../components/redux/slices/typeSlice"
 
 import { BottomNavigation, BottomNavigationAction, Box, Button, Collapse, FormControl, InputAdornment, InputLabel, MenuItem, Select, Slide, TextField } from '@mui/material';
 
@@ -47,21 +51,26 @@ const List: React.FC = () => {
 
   const CmrClick = (cmrCode: any) => {
 
+    changeCode(cmrCode)
+
+    changeType("Cmr")
+
+
+
     history.push({
-
-      pathname: '/list/file',
-      state: { detail: cmrCode, type: "Cmr" }
-
+      pathname: '/list/file'
     })
 
   };
-  const BlClick = (cmrCode: any) => {
+
+  const BlClick = (blCode: any) => {
+
+    changeCode(blCode)
+
+    changeType("Bl")
 
     history.push({
-
-      pathname: '/list/file',
-      state: { detail: cmrCode, type: "Bl" }
-
+      pathname: '/list/file'
     })
 
 
@@ -227,7 +236,7 @@ const List: React.FC = () => {
         </div>
 
         <div>
-          <BlList BlClick={BlClick} />
+          <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
         </div>
 
 

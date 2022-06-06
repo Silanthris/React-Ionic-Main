@@ -156,7 +156,9 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
                 updateTokenById(id, response.access_token, response.refresh_token)
 
-                history.push({ pathname: '/list/dashboard' })
+              //  window.location.replace('/list/dashboard')
+
+              history.push({ pathname: '/list/dashboard' })
 
               }).catch((err) => {
                 alert('Sem Respostassssssssssss');

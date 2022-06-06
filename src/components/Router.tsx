@@ -26,8 +26,6 @@ import "@ionic/react/css/display.css";
 
 const Router: React.FC = () => {
 
-    console.log("rotuer router router")
-
     return (
 
         <IonReactRouter>
@@ -47,8 +45,6 @@ const Router: React.FC = () => {
         </IonReactRouter>
 
     );
-
-
 
 };
 

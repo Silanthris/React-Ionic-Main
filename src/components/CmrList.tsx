@@ -10,7 +10,7 @@ import "../components/util/css/List.css"
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { incrementByAmount } from "../components/redux/slices/counterSlice"
+import { fileContent } from "../components/redux/slices/counterSlice"
 
 
 type Props = {
@@ -21,39 +21,30 @@ type Props = {
 
 const CmrList: React.FC<Props> = ({ CmrClick, SearchTerm }) => {
 
-    console.log(SearchTerm)
 
     const idUser = useSelector((state: any) => state.id.value)
-
 
     const [cmrData2, setCmrData2] = useState<Array<any>>([]);
 
     const [cmrDataFiltered, setCmrDataFiltered] = useState<Array<any>>([]);
 
 
-    const filterPosts = (posts: any[], query: any) => {
-
-        console.log("test Filter")
-
-        console.log(query)
-
-        console.log(posts)
-
-        if (query !== '') {
-            console.log("Query Existe")
-            const results = posts.filter((post) => {
-                console.log(post)
-                return post.origin.toLowerCase().startsWith(query.toLowerCase());
-                // Use the toLowerCase() method to make it case-insensitive
-            });
-            setCmrDataFiltered(results);
-        } else {
-            console.log("Query Nao Existe")
-            setCmrDataFiltered(posts);
-            // If the text field is empty, show all users
+    const searchIt = (posts: Array<any>, str: string) => {
+        console.log("entrou")
+        var results: any[] = [];
+        for (var i in posts) {
+            const keys = Object.keys(posts[i]);
+            for (var k in keys) {
+                if (String(posts[i][keys[k]]).toLowerCase().includes(str.toLowerCase())) {
+                    results.push(posts[i]);
+                    break;
+                }
+            }
         }
-
+        return results;
     };
+
+
 
     useEffect(() => {
 
@@ -95,7 +86,7 @@ const CmrList: React.FC<Props> = ({ CmrClick, SearchTerm }) => {
 
         console.log("Data Filtered")
 
-        filterPosts(cmrData2, SearchTerm)
+        setCmrDataFiltered(searchIt(cmrData2, SearchTerm))
 
         console.log(cmrDataFiltered)
 

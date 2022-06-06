@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const counterSlice = createSlice({
-    name: 'counter',
+export const typeSlice = createSlice({
+    name: 'type',
     initialState: {
-        value: [],
+        value: 0,
     },
     reducers: {
-        fileContent: (state, action) => {
+        changeType: (state, action) => {
             state.value = action.payload
         },
     },
@@ -15,6 +15,6 @@ export const counterSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const { fileContent } = counterSlice.actions
+export const { changeType } = typeSlice.actions
 
-export default counterSlice.reducer
+export default typeSlice.reducer

@@ -13,88 +13,35 @@ import Instructions from '../components/Cmr/Instructions';
 import Carrier from '../components/Cmr/Carrier';
 import Tobe from '../components/Cmr/Tobe';
 import CmrFile from '../components/CmrFile';
+import BlFile from '../components/BlFile';
 
 
 import { getUserById } from '../dataservice';
-
-
 import { ReactComponent as BizCargo } from '../components/images/BizCargo.svg';
-
 import { ReactComponent as IconHome } from '../components/images/icon_home.svg';
-
 import { ReactComponent as IconDocs } from '../components/images/icon_view_docs.svg';
-
 import { ReactComponent as IconDocument } from '../components/images/icon_list_docs.svg';
-
-
 import { ReactComponent as IconSair } from '../components/images/icon_sair.svg';
-
 import { ReactComponent as IconSwipe } from '../components/images/icon_view_swipe.svg';
-
 import { ReactComponent as IconPdf } from '../components/images/icon_view_pdf.svg';
-
 import { ReactComponent as IconScroll } from '../components/images/icon_view_scroll.svg';
-
 import { use } from 'i18next';
 
 import { useSelector, useDispatch } from 'react-redux'
-
-import { incrementByAmount } from "../components/redux/slices/counterSlice"
-
+import { fileContent } from "../components/redux/slices/counterSlice"
 import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 
 const File: React.FC = () => {
 
+    const dispatch = useDispatch()
     let history = useHistory();
-
     const location = useLocation<any>();
-
     const idUser = useSelector((state: any) => state.id.value)
-
     const [TypeCheck, setTypeCheck] = useState(false);
 
+    const [type, setType] = useState<String>("");
 
-
-    const [cmrData, setCmrData] = useState<any>([]);
-
-    const dispatch = useDispatch()
-
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-
-    console.log(location.state.detail);
-    console.log(location.state.type);
-
-
-    useEffect(() => {
-
-        getUserById(idUser).then((c: any) => {
-            const user = c.values[0];
-
-
-            fetch(`https://try.bizcargo.com/api/cmr/cmr-documents/${location.state.detail}/1?type=active`, {
-                headers: {
-                    'Authorization': 'Bearer ' + user.token,
-                    'Accept': 'application/json',
-                    'Content-type': 'application/json'
-                },
-                method: 'GET'
-            })
-                .then(response => response.json())
-                .then((response) => {
-                    if (response) {
-
-                        const tempResponse = response
-                        setCmrData(tempResponse)
-                        dispatch(incrementByAmount(tempResponse))
-
-                    }
-                }).catch((err) => {
-                    alert('Login Errado');
-                });
-
-        });
-
-    }, []);
+    setType(useSelector((state: any) => state.type.value))
 
     const slideOpts = {
         initialSlide: 0,
@@ -103,33 +50,35 @@ const File: React.FC = () => {
 
     const handleClick1 = () => {
         return (event: React.MouseEvent) => {
-          history.push({ pathname: '/list/dashboard' })
+            history.push({ pathname: '/list/dashboard' })
         }
-      }
-    
-      const handleClick2 = () => {
+    }
+
+    const handleClick2 = () => {
         return (event: React.MouseEvent) => {
-          history.push({ pathname: '/list/file' })
+            history.push({ pathname: '/list/file' })
         }
-      }
-    
-      const handleClick3 = () => {
+    }
+
+    const handleClick3 = () => {
         return (event: React.MouseEvent) => {
-          history.push({ pathname: '/list' })
+            history.push({ pathname: '/list' })
         }
-      }
-    
-      const handleClick4 = () => {
+    }
+
+    const handleClick4 = () => {
         return (event: React.MouseEvent) => {
-          history.push({ pathname: '/' })
+            history.push({ pathname: '/' })
         }
-      }
+    }
 
     const handleIcon = (type: boolean) => {
         return (event: React.MouseEvent) => {
             setTypeCheck(type)
         }
     }
+
+
 
 
     return (
@@ -143,7 +92,7 @@ const File: React.FC = () => {
 
                         <IonCol size='6' style={{ height: '50px' }} >
 
-                            <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingBottom: "3px"  }} />
+                            <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingBottom: "3px" }} />
 
                         </IonCol>
 
@@ -188,7 +137,17 @@ const File: React.FC = () => {
             <IonContent style={{ '--ion-background-color': 'rgb(245,245,246)' }}>
 
 
-                <CmrFile TypeCheck={TypeCheck} />
+                {type === "Bl" &&
+                    <>
+                        <BlFile TypeCheck={TypeCheck} />
+                    </>
+                }
+
+                {type === "Cmr" &&
+                    <>
+                        <CmrFile TypeCheck={TypeCheck} />
+                    </>
+                }
 
 
             </IonContent>
