@@ -8,13 +8,16 @@ import logo from '../pages/blk2.png';
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { incrementByAmount } from "../redux/slices/counterSlice"
 import { Box } from "@mui/material";
 
+type Props = {
+    cmrData: any
+}
 
-const Documents: React.FC = () => {
 
-    const cmrData = useSelector((state: any) => state.counter.value)
+const Documents: React.FC<Props> = ({ cmrData }) => {
+
+   
 
     return (
 

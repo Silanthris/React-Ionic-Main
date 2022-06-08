@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const typeSlice = createSlice({
     name: 'type',
     initialState: {
-        value: 0,
+        value: "0",
     },
     reducers: {
         changeType: (state, action) => {

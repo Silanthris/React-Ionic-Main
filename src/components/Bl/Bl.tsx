@@ -7,9 +7,12 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { Box } from "@mui/material";
 
-const Bl: React.FC = () => {
 
-    const cmrData = useSelector((state: any) => state.counter.value)
+type Props = {
+    blData: any
+}
+
+const Bl: React.FC<Props> = ({ blData }) => {
 
 
     return (
@@ -227,6 +230,9 @@ const Bl: React.FC = () => {
 
                 </IonCardContent>
             </IonCard>
+
+
+          
 
 
             <IonCard className="card" style={{ '--background': 'white', 'height': '260px' }}>
@@ -512,6 +518,15 @@ const Bl: React.FC = () => {
 
                 </IonCardContent>
             </IonCard>
+
+
+
+
+
+
+
+
+            
 
 
             <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>

@@ -25,6 +25,7 @@ import "@ionic/react/css/display.css";
 
 
 const Router: React.FC = () => {
+    console.log("routerrotuer")
 
     return (
 

@@ -40,22 +40,29 @@ const List: React.FC = () => {
 
   const [SearchTerm, setSearchTerm] = useState<String>("");
 
+  const [TypeCmr, setTypeCmr] = useState<String>("Cmr");
+
+  const [TypeBl, setTypeBl] = useState<String>("Bl");
+
   const idUser = useSelector((state: any) => state.id.value)
 
   const dispatch = useDispatch()
 
   const location = useLocation<any>();
+
+
+
   let history = useHistory();
 
   const [SearchCheck, setSearchCheck] = useState(false);
 
   const CmrClick = (cmrCode: any) => {
 
-    changeCode(cmrCode)
+    dispatch(changeCode(cmrCode))
 
-    changeType("Cmr")
+    dispatch(changeType(TypeCmr))
 
-
+    console.log("cmrCMRCMRCMR")
 
     history.push({
       pathname: '/list/file'
@@ -65,9 +72,9 @@ const List: React.FC = () => {
 
   const BlClick = (blCode: any) => {
 
-    changeCode(blCode)
+    dispatch(changeCode(blCode))
 
-    changeType("Bl")
+    dispatch(changeType(TypeBl))
 
     history.push({
       pathname: '/list/file'

@@ -9,10 +9,14 @@ import { Box } from "@mui/material";
 
 
 
-const Principal: React.FC = () => {
+type Props = {
+    cmrData: any
+}
 
-    const cmrData = useSelector((state: any) => state.counter.value)
 
+const Principal: React.FC<Props> = ({ cmrData }) => {
+
+   
     return (
 
         <Box style={{width: "90%"}}>

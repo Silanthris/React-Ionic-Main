@@ -8,14 +8,17 @@ import logo from '../pages/blk2.png';
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { incrementByAmount } from "../redux/slices/counterSlice"
 import { Box } from "@mui/material";
 
 
-const Tobe: React.FC = () => {
+type Props = {
+    cmrData: any
+}
 
-    const cmrData = useSelector((state: any) => state.counter.value)
 
+const Tobe: React.FC<Props> = ({ cmrData }) => {
+
+   
 
     console.log(cmrData)
 

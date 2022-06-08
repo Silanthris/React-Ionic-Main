@@ -5,13 +5,17 @@ import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardH
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { incrementByAmount } from "../redux/slices/counterSlice"
+import { fileContent } from "../redux/slices/counterSlice"
 import { Box } from "@mui/material";
 
-const Cmr: React.FC = () => {
+type Props = {
+    cmrData: any
+}
 
-    const cmrData = useSelector((state: any) => state.counter.value)
 
+const Cmr: React.FC<Props> = ({ cmrData }) => {
+
+   
     return (
 
 

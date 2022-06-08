@@ -33,20 +33,22 @@ import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 
 const File: React.FC = () => {
 
+    console.log("FILEFILEFILE")
+
     const dispatch = useDispatch()
+
     let history = useHistory();
+
     const location = useLocation<any>();
-    const idUser = useSelector((state: any) => state.id.value)
+
+
     const [TypeCheck, setTypeCheck] = useState(false);
 
-    const [type, setType] = useState<String>("");
 
-    setType(useSelector((state: any) => state.type.value))
+    const idUser = useSelector((state: any) => state.id.value)
 
-    const slideOpts = {
-        initialSlide: 0,
-        speed: 300
-    };
+    const type = useSelector((state: any) => state.type.value)
+
 
     const handleClick1 = () => {
         return (event: React.MouseEvent) => {
@@ -137,6 +139,7 @@ const File: React.FC = () => {
             <IonContent style={{ '--ion-background-color': 'rgb(245,245,246)' }}>
 
 
+
                 {type === "Bl" &&
                     <>
                         <BlFile TypeCheck={TypeCheck} />
@@ -148,6 +151,7 @@ const File: React.FC = () => {
                         <CmrFile TypeCheck={TypeCheck} />
                     </>
                 }
+
 
 
             </IonContent>
