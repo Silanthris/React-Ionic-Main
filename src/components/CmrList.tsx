@@ -51,9 +51,6 @@ const CmrList: React.FC<Props> = ({ CmrClick, SearchTerm }) => {
         getUserById(idUser).then((c: any) => {
             const user = c.values[0];
 
-            console.log(user.token)
-            console.log(user.refreshToken)
-
             // setUserToken(user.token);
 
 
@@ -84,11 +81,8 @@ const CmrList: React.FC<Props> = ({ CmrClick, SearchTerm }) => {
 
     useEffect(() => {
 
-        console.log("Data Filtered")
-
         setCmrDataFiltered(searchIt(cmrData2, SearchTerm))
 
-        console.log(cmrDataFiltered)
 
     }, [SearchTerm])
 

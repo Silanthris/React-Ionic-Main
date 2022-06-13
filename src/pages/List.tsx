@@ -114,7 +114,7 @@ const List: React.FC = () => {
 
         <IonToolbar style={{ '--background': 'rgb(29,146,191)' }} >
 
-          <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingTop: "10px" }} />
+          <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px"}} />
 
           <IonButtons slot="end">
 

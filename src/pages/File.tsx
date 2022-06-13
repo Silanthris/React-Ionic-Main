@@ -92,9 +92,9 @@ const File: React.FC = () => {
 
                     <IonRow style={{ 'display': 'flex' }}>
 
-                        <IonCol size='6' style={{ height: '50px' }} >
+                        <IonCol size='6' style={{ height: '50px', padding: '0px' }} >
 
-                            <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingBottom: "3px" }} />
+                            <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingBottom: "0px" }} />
 
                         </IonCol>
 
