@@ -50,6 +50,7 @@ const List: React.FC = () => {
 
   const location = useLocation<any>();
 
+  const [selectedOption, setSelectedOption] = useState("")
 
 
   let history = useHistory();
@@ -107,6 +108,14 @@ const List: React.FC = () => {
     }
   }
 
+  const handleSelect = (value: any) => {
+
+    setSelectedOption(value)
+
+    console.log(selectedOption)
+
+  }
+
   return (
     <IonPage>
 
@@ -114,7 +123,7 @@ const List: React.FC = () => {
 
         <IonToolbar style={{ '--background': 'rgb(29,146,191)' }} >
 
-          <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px"}} />
+          <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px" }} />
 
           <IonButtons slot="end">
 
@@ -161,7 +170,7 @@ const List: React.FC = () => {
                               <IconSearch style={{ width: "30px", height: "30px" }} />
                             </InputAdornment>
                           ),
-                        }} value={SearchTerm} onChange={(e) => setSearchTerm(e.target.value)} id="standard-basic" size='small' label="Procurar" variant="outlined" style={{ 'background': 'white' }} />
+                        }} value={SearchTerm} onChange={(e) => handleSelect(e.target.value)} id="standard-basic" size='small' label="Procurar" variant="outlined" style={{ 'background': 'white' }} />
 
 
                     </IonCol>
@@ -185,14 +194,14 @@ const List: React.FC = () => {
                       <FormControl fullWidth size="small" >
                         <InputLabel id="demo-simple-select-label">Type</InputLabel>
                         <Select
+                          onChange={e => handleSelect(e.target.value)}
                           labelId="demo-simple-select-label"
                           id="demo-simple-select"
                           label="Type"
                           style={{ 'background': 'white' }}
                         >
                           <MenuItem value={"CMR"}>CMR</MenuItem>
-                          <MenuItem value={"CRM"}>CRM</MenuItem>
-                          <MenuItem value={"RCM"}>RCM</MenuItem>
+                          <MenuItem value={"BL"}>Bl</MenuItem>
                         </Select>
                       </FormControl>
 
@@ -237,16 +246,29 @@ const List: React.FC = () => {
 
         </Collapse>
 
+        {selectedOption === "BL" &&
+          <>
+            <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
+          </>
+        }
 
-        <div>
-          <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} />
-        </div>
+        {selectedOption === "CMR" &&
+          <>
+            <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} />
+          </>
+        }
 
-        <div>
-          <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
-        </div>
+        {selectedOption === "" &&
+          <>
+            <div>
+              <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} />
+            </div>
 
-
+            <div>
+              <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
+            </div>
+          </>
+        }
 
         <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0" }}  >
           <BottomNavigation
