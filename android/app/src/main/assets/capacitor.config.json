@@ -1,12 +1,12 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "react-ionic-sqlite",
+	"appId": "io.ionic.digitaldocs",
+	"appName": "digitaldocs",
 	"bundledWebRuntime": false,
 	"npmClient": "npm",
 	"webDir": "build",
 	"plugins": {
 		"SplashScreen": {
-			"launchShowDuration": 0
+			"launchShowDuration": 1
 		}
 	},
 	"cordova": {}
