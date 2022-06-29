@@ -54,6 +54,7 @@ const CmrList: React.FC<Props> = ({ CmrClick, SearchTerm }) => {
 
             // setUserToken(user.token);
 
+            console.log(user)
 
             fetch('https://try.bizcargo.com/api/cmr/cmr-documents?active=true&completed=false&daysFilter=0&page=0&size=10&sort=created_date,DESC&template=false', {
                 headers: {
@@ -73,7 +74,8 @@ const CmrList: React.FC<Props> = ({ CmrClick, SearchTerm }) => {
 
                     }
                 }).catch((err) => {
-                    alert('Login Errado CmrList');
+                    console.log(err)
+                    alert('Problemas a listar');
                 });
 
         });

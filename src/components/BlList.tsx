@@ -68,6 +68,7 @@ const BlList: React.FC<Props> = ({ BlClick, SearchTerm }) => {
             })
                 .then(response => response.json())
                 .then((response) => {
+                    
                     if (response) {
                         setFilterCheck(false)
                         const temp = response.content
@@ -76,7 +77,8 @@ const BlList: React.FC<Props> = ({ BlClick, SearchTerm }) => {
                         console.log(response)
                     }
                 }).catch((err) => {
-                    alert('Sem Resposta BlList');
+                    console.log(err)
+                    alert('Problemas a listar');
                 });
 
 
