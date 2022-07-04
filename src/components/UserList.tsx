@@ -21,6 +21,7 @@ import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Button from '@mui/material/Button';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LoginIcon from '@mui/icons-material/Login';
@@ -43,10 +44,7 @@ export const UserList: React.FC<any> = ({ users, userClicked, onDelete, onEdit }
     onEdit(id);
   };
 
-
-
   const { t } = useTranslation();
-
 
   const deleteUser = (id: any, event: any) => {
     event.stopPropagation();
@@ -134,23 +132,22 @@ export const UserList: React.FC<any> = ({ users, userClicked, onDelete, onEdit }
           ) : null}
         </IonRow>
 
-        
+
 
         <IonRow>
           <IonCol >
 
-            <Box  style={{ position: "fixed", width: "100%", bottom: "0", right: "0", background: 'grey' }}  >
+            <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0", background: 'blue' }}  >
               <BottomNavigation
 
-              style={{ background: 'rgb(229,229,229)' }}
+                style={{ background: 'rgb(29,146,191)' }}
                 showLabels
                 onChange={() => {
                   setShowOptions(!showOptions);
                 }}
               >
-                <BottomNavigationAction className="	.Mui-selected" label="Entrar" icon={<LoginIcon />} />
-                
-                <BottomNavigationAction label="Perfis" icon={<AccountBoxIcon />} />
+
+                <BottomNavigationAction className="	.Mui-selected" icon={<SettingsOutlinedIcon fontSize="large"  sx={{color: 'white'}} />} />
 
               </BottomNavigation>
             </Box>

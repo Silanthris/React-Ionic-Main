@@ -84,30 +84,6 @@ const List: React.FC = () => {
 
   };
 
-  const handleClick1 = () => {
-    return (event: React.MouseEvent) => {
-      history.push({ pathname: '/list/dashboard' })
-    }
-  }
-
-  const handleClick2 = () => {
-    return (event: React.MouseEvent) => {
-      history.push({ pathname: '/list/file' })
-    }
-  }
-
-  const handleClick3 = () => {
-    return (event: React.MouseEvent) => {
-      history.push({ pathname: '/list' })
-    }
-  }
-
-  const handleClick4 = () => {
-    return (event: React.MouseEvent) => {
-      history.push({ pathname: '/' })
-    }
-  }
-
   const handleSelect = (value: any) => {
 
     setSelectedOption(value)
@@ -276,13 +252,14 @@ const List: React.FC = () => {
             style={{ background: 'rgb(229,229,229)' }}
 
           >
-            <BottomNavigationAction onClick={handleClick1()} style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
 
-            <BottomNavigationAction onClick={handleClick2()} style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
+            <BottomNavigationAction href='/list/dashboard' style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
 
-            <BottomNavigationAction onClick={handleClick3()} style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
+            <BottomNavigationAction href='/list/file' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
 
-            <BottomNavigationAction onClick={handleClick4()} style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
+            <BottomNavigationAction href='/list' style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
+
+            <BottomNavigationAction href='/' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
 
 
           </BottomNavigation>

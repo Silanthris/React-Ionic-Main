@@ -2,10 +2,11 @@
   "translation": {
     "principal":{
       "ola": "Hello",
-      "add": "Add"
+      "add": "Add",
+      "opt": "Options"
     },
     "loginForm":{
-      "login": "User Data",
+      "login": "Login",
       "email": "Email Address",
       "password": "Password",
       "fingerPrint": "Use Finger Print",

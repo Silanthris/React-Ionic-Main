@@ -9,7 +9,7 @@ const KeypadInput = (props: { handleChange?: any; value?: any; isActive?: any; i
 
     <IonCol size="2">
       <div className={ `${ styles.keypadInput } ${ isActive && styles.active } ${ isFilled && styles.filled } ${ incorrect && styles.incorrect } ${ correct && styles.correct }` } onClick={ props.handleChange }>
-        { value }
+      {value && <>*</>}
         { !isFilled && "0" }
       </div>
     </IonCol>

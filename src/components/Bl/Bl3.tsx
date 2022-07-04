@@ -17,7 +17,7 @@ const Bl3: React.FC<Props> = ({ blData }) => {
 
     return (
 
-        <Box>
+        <Box style={{ width: "90%" }}>
 
 
 

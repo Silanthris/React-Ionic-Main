@@ -17,7 +17,7 @@ const Bl6: React.FC<Props> = ({ blData }) => {
 
     return (
 
-        <Box>
+        <Box style={{ width: "90%" }}>
 
 
             <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>

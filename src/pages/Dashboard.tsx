@@ -17,6 +17,14 @@ import {
 
 
 import React, { useEffect, useState } from "react";
+import { ReactComponent as BizCargo } from '../components/images/BizCargo.svg';
+import { ReactComponent as IconHome } from '../components/images/icon_home.svg';
+import { ReactComponent as IconDocs } from '../components/images/icon_view_docs.svg';
+import { ReactComponent as IconDocument } from '../components/images/icon_list_docs.svg';
+import { ReactComponent as IconSair } from '../components/images/icon_sair.svg';
+import { ReactComponent as IconSwipe } from '../components/images/icon_view_swipe.svg';
+import { ReactComponent as IconPdf } from '../components/images/icon_view_pdf.svg';
+import { ReactComponent as IconScroll } from '../components/images/icon_view_scroll.svg';
 
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -58,8 +66,9 @@ const Dashboard: React.FC<any> = () => {
         }
     }
 
-    const handleClick1 = () => {
+    const handleClick2 = () => {
         return (event: React.MouseEvent) => {
+            event.preventDefault();
             setConfCheck(true)
         }
     }
@@ -121,7 +130,7 @@ const Dashboard: React.FC<any> = () => {
                                         <IonCol size="6">
                                             <IonCard
                                                 style={{ background: "white", position: "relative" }}
-
+                                                onClick={handleClick2()}
                                             >
 
                                                 <div className="ion-text-center ion-margin-top">
@@ -134,7 +143,7 @@ const Dashboard: React.FC<any> = () => {
 
                                                 <IonCardContent className="ion-text-center">
                                                     <div style={{ color: "grey" }}>
-                                                        <b>Tarefas</b>
+                                                        <b>Perfil</b>
                                                     </div>
                                                 </IonCardContent>
                                             </IonCard>
@@ -146,20 +155,6 @@ const Dashboard: React.FC<any> = () => {
 
                                     <IonRow>
                                         <IonCol >
-
-                                            <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0", background: 'grey' }}  >
-                                                <BottomNavigation
-
-                                                    style={{ background: 'rgb(229,229,229)' }}
-                                                    showLabels
-
-                                                >
-                                                    <BottomNavigationAction className="	.Mui-selected" label="Entrar" icon={<HomeIcon />} />
-
-                                                    <BottomNavigationAction onClick={handleClick1()} label="Perfis" icon={<AccountBoxIcon />} />
-
-                                                </BottomNavigation>
-                                            </Box>
 
                                         </IonCol>
 
@@ -181,3 +176,23 @@ const Dashboard: React.FC<any> = () => {
 };
 
 export default Dashboard;
+
+/*             <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0", background: 'grey' }}  >
+                                                <BottomNavigation
+
+                                                    style={{ background: 'rgb(229,229,229)' }}
+                                                    showLabels
+
+                                                >
+                                                    <BottomNavigationAction href='/list/dashboard' style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
+
+                                                    <BottomNavigationAction href='/list/file' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
+
+                                                    <BottomNavigationAction href='/list' style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
+
+                                                    <BottomNavigationAction href='/' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
+
+                                                </BottomNavigation>
+                                            </Box>
+
+                                            */

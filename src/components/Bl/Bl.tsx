@@ -415,7 +415,7 @@ const Bl: React.FC<Props> = ({ blData }) => {
 
 
 
-            <IonCard className="card" style={{ '--background': 'white', 'height': '660px' }}>
+            <IonCard className="card" style={{ '--background': 'white', 'height': '350px' }}>
 
                 <IonGrid style={{ 'padding': '0px' }} >
 

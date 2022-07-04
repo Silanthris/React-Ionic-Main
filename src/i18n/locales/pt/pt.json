@@ -2,7 +2,8 @@
     "translation": {
       "principal":{
         "ola": "Ola",
-        "add": "Adicionar"
+        "add": "Adicionar",
+        "opt": "Opções"
       },
       "loginForm":{
         "login": "Entrar",

@@ -68,7 +68,7 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
 
         }
       }).catch((err) => {
-        alert('Login Errado');
+        alert('Servidor não responde');
       });
 
   };
@@ -127,9 +127,9 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
                 alignItems: "center",
               }}
             >
-              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
+              <Avatar sx={{ l: 1, bgcolor: "secondary.main" }}></Avatar>
               <Typography component="h1" variant="h5">
-                {t<string>('loginForm.login')}
+              
               </Typography>
               <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                 <TextField
@@ -152,10 +152,7 @@ const Register: React.FC<any> = ({ resetPin = false, id }) => {
                   id="password"
                   autoComplete="current-password"
                 />
-                <FormControlLabel
-                  control={<Checkbox value="fingerprint" color="primary" />}
-                  label={t<string>('loginForm.fingerPrint')}
-                />
+
                 <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
                   {t<string>('loginForm.login')}
                 </Button>

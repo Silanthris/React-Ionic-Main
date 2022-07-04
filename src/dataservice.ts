@@ -21,6 +21,7 @@ export const initdb = async () => {
     );
 
 
+    
     await createTables();
 
     return database;
