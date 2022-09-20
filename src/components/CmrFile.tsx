@@ -34,12 +34,19 @@ const CmrFile = ({ TypeCheck }: any) => {
         speed: 300
     };
 
+
+    
     
 
     useEffect(() => {
 
+
+
         getUserById(idUser).then((c: any) => {
             const user = c.values[0];
+            console.log(idUser)
+            console.log("aqui cmrfile")
+            console.log(user)
 
 
             fetch(`https://try.bizcargo.com/api/cmr/cmr-documents/${CmrCodeRedux}/1?type=active`, {
@@ -61,7 +68,7 @@ const CmrFile = ({ TypeCheck }: any) => {
 
                     }
                 }).catch((err) => {
-                    alert('Login Errado');
+                    alert('Problemas ficheiro Cmr');
                 });
 
         });

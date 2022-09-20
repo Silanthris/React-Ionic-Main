@@ -2,10 +2,10 @@ import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, Io
 
 import '../components/util/css/Page.css';
 import { useEffect, useState } from 'react';
-import { getUserById } from '../dataservice';
+import { getUserById, getUtility } from '../dataservice';
 
 import "../components/util/css/List.css"
-
+import StarIcon from '@mui/icons-material/Star';
 import { useSelector, useDispatch } from 'react-redux'
 
 
@@ -18,12 +18,10 @@ type Props = {
 
 const BlList: React.FC<Props> = ({ BlClick, SearchTerm }) => {
 
-    
-
-    const idUser = useSelector((state: any) => state.id.value)
 
     const [blData, setBlData] = useState<Array<any>>([]);
 
+    const [idUser, setIdUser] = useState<String>("");
 
     const [blDataFiltered, setBlDataFiltered] = useState<Array<any>>([]);
 
@@ -45,45 +43,52 @@ const BlList: React.FC<Props> = ({ BlClick, SearchTerm }) => {
 
     };
 
-    console.log(filterCheck)
-
     useEffect(() => {
 
+        getUtility().then((c: any) => {
+            const utility = c;
+            console.log("databse id uytility")
+            console.log(utility.values[0].idUser)
+            setIdUser(utility.values[0].idUser)
+
+            getUserById(utility.values[0].idUser).then((c: any) => {
+                console.log(idUser)
+                const user = c.values[0];
+                console.log("aqui bllist")
+                console.log(user)
+                // setUserToken(user.token);
 
 
-        getUserById(idUser).then((c: any) => {
-            const user = c.values[0];
-            console.log(user)
+                fetch('https://try.bizcargo.com/api/bl/bl-documents?active=true&completed=false&daysFilter=0&page=0&size=10&sort=created_date,DESC&template=false', {
+                    headers: {
+                        'Authorization': 'Bearer ' + user.token,
+                        'Accept': 'application/json',
+                        'Content-type': 'application/json'
+                    },
+                    method: 'GET'
+                })
+                    .then(response => response.json())
+                    .then((response) => {
 
-            // setUserToken(user.token);
-
-
-            fetch('https://try.bizcargo.com/api/bl/bl-documents?active=true&completed=false&daysFilter=0&page=0&size=10&sort=created_date,DESC&template=false', {
-                headers: {
-                    'Authorization': 'Bearer ' + user.token,
-                    'Accept': 'application/json',
-                    'Content-type': 'application/json'
-                },
-                method: 'GET'
-            })
-                .then(response => response.json())
-                .then((response) => {
-                    
-                    if (response) {
-                        setFilterCheck(false)
-                        const temp = response.content
-                        setBlData(temp)
-                        console.log("responsessssssssssssssssssssssssssssssssssssssssssssssssssss")
-                        console.log(response)
-                    }
-                }).catch((err) => {
-                    console.log(err)
-                    alert('Problemas a listar');
-                });
+                        if (response) {
+                            setFilterCheck(false)
+                            const temp = response.content
+                            setBlData(temp)
+                            console.log("responsessssssssssssssssssssssssssssssssssssssssssssssssssss")
+                            console.log(response)
+                        }
+                    }).catch((err) => {
+                        console.log(err)
+                        alert('Problemas a listar BL');
+                    });
 
 
+
+            });
 
         });
+
+
 
     }, []);
 
@@ -114,12 +119,16 @@ const BlList: React.FC<Props> = ({ BlClick, SearchTerm }) => {
 
                                     <IonRow>
 
-                                        <IonCol size='4' style={{ 'background': 'rgb(14,14,156)', 'color': 'white', 'text-align': 'center' }}>
+                                        <IonCol size='4' style={{ 'background': 'rgb(14,14,156)', 'color': 'white', 'text-align': 'center', 'vertical-align': 'middle','display': 'flex' }}>
                                             Bl {json2.journey}
                                         </IonCol>
 
-                                        <IonCol size='8'>
+                                        <IonCol size='6'>
 
+                                        </IonCol>
+
+                                        <IonCol size='2'>
+                                            <StarIcon />
                                         </IonCol>
 
                                     </IonRow>
@@ -167,12 +176,16 @@ const BlList: React.FC<Props> = ({ BlClick, SearchTerm }) => {
 
                                     <IonRow>
 
-                                        <IonCol size='4' style={{ 'background': 'rgb(14,14,156)', 'color': 'white', 'text-align': 'center' }}>
+                                        <IonCol size='4' style={{ 'background': 'rgb(14,14,156)', 'color': 'white', 'text-align': 'center', 'vertical-align': 'middle','display': 'flex' }}>
                                             Bl {json2.journey}
                                         </IonCol>
 
-                                        <IonCol size='8'>
+                                        <IonCol size='6'>
 
+                                        </IonCol>
+
+                                        <IonCol size='2'>
+                                            <StarIcon />
                                         </IonCol>
 
                                     </IonRow>

@@ -17,11 +17,11 @@ type Props = {
 
 const Documents: React.FC<Props> = ({ cmrData }) => {
 
-   
+
 
     return (
 
-        <Box style={{width: "90%"}}>
+        <Box style={{ width: "90%" }}>
             <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
                 <IonGrid style={{ 'padding': '0px' }} >
@@ -46,12 +46,13 @@ const Documents: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> </IonCol>
                         </IonRow>
                     </IonGrid>
 
                 </IonCardContent>
             </IonCard>
+
 
         </Box>
 

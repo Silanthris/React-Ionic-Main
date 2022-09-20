@@ -18,12 +18,10 @@ type Props = {
 
 const Carrier: React.FC<Props> = ({ cmrData }) => {
 
-   
+
     return (
 
-        <Box style={{width: "90%"}}>
-
-
+        <Box style={{ width: "90%" }}>
 
 
             <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
@@ -50,7 +48,7 @@ const Carrier: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> Sky Trading </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -81,7 +79,7 @@ const Carrier: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> No </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -99,7 +97,7 @@ const Carrier: React.FC<Props> = ({ cmrData }) => {
                         </IonCol>
 
                         <IonCol size='11' style={{ 'background': 'rgb(29,146,191)', 'color': 'white', 'text-align': 'left' }}>
-                            18.Carrier rese4rvcations and observations
+                            18.Carrier reservations and observations
                         </IonCol>
 
 
@@ -112,7 +110,7 @@ const Carrier: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> CARGO IS FRAGILE </IonCol>
                         </IonRow>
                     </IonGrid>
 

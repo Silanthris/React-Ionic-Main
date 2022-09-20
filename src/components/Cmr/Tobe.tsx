@@ -18,7 +18,7 @@ type Props = {
 
 const Tobe: React.FC<Props> = ({ cmrData }) => {
 
-   
+
 
     console.log(cmrData)
 
@@ -27,7 +27,6 @@ const Tobe: React.FC<Props> = ({ cmrData }) => {
         <>
 
             <Box style={{ width: "90%" }}>
-
 
 
 
@@ -55,7 +54,7 @@ const Tobe: React.FC<Props> = ({ cmrData }) => {
 
                         <IonGrid>
                             <IonRow>
-                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> Sender </IonCol>
                             </IonRow>
                         </IonGrid>
 
@@ -86,7 +85,7 @@ const Tobe: React.FC<Props> = ({ cmrData }) => {
 
                         <IonGrid>
                             <IonRow>
-                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                                <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> No Special Agreements </IonCol>
                             </IonRow>
                         </IonGrid>
 
@@ -123,7 +122,6 @@ const Tobe: React.FC<Props> = ({ cmrData }) => {
 
                     </IonCardContent>
                 </IonCard>
-
 
             </Box>
         </>

@@ -37,7 +37,10 @@ const BlFile = ({ TypeCheck }: any) => {
     useEffect(() => {
 
         getUserById(idUser).then((c: any) => {
+            console.log(idUser)
             const user = c.values[0];
+            console.log("aqui blfile")
+            console.log(user)
 
             fetch(`https://try.bizcargo.com/api/bl/bl-documents/${BlCodeRedux}/6?type=active`, {
                 headers: {
@@ -50,13 +53,13 @@ const BlFile = ({ TypeCheck }: any) => {
                 .then(response => response.json())
                 .then((response) => {
                     if (response) {
-                        console.log("API CMR FILE")
+                        console.log("API Bl FILE")
                         console.log(response)
                         const tempResponse = response
                         setBlData(tempResponse)
                     }
                 }).catch((err) => {
-                    alert('Login Errado');
+                    alert('Problemas Ficheiro Bl');
                 });
 
         });

@@ -23,7 +23,7 @@ import Cmr from "../components/Cmr/Cmr"
 import BlList from '../components/BlList';
 import CmrList from '../components/CmrList';
 import { constructOutline } from 'ionicons/icons';
-import { getUserById } from '../dataservice';
+import { getUserById, getUtility } from '../dataservice';
 import { use } from 'i18next';
 
 
@@ -35,8 +35,11 @@ import { changeType } from "../components/redux/slices/typeSlice"
 
 import { BottomNavigation, BottomNavigationAction, Box, Button, Collapse, FormControl, InputAdornment, InputLabel, MenuItem, Select, Slide, TextField } from '@mui/material';
 
+import { changeId } from "../components/redux/slices/idSlice"
 
 const List: React.FC = () => {
+
+  const dispatch = useDispatch()
 
   const [SearchTerm, setSearchTerm] = useState<String>("");
 
@@ -44,14 +47,27 @@ const List: React.FC = () => {
 
   const [TypeBl, setTypeBl] = useState<String>("Bl");
 
-  const idUser = useSelector((state: any) => state.id.value)
+  const [idUser, setIdUser] = useState<String>("");
 
-  const dispatch = useDispatch()
 
-  const location = useLocation<any>();
+
+  useEffect(() => {
+
+    getUtility().then((c: any) => {
+      const utility = c;
+      console.log("databse id uytility")
+      console.log(utility.values[0].idUser)
+      setIdUser(utility.values[0].idUser)
+
+    });
+
+  }, []);
+
+  console.log(idUser)
+
+  console.log("LIST ID")
 
   const [selectedOption, setSelectedOption] = useState("")
-
 
   let history = useHistory();
 
@@ -62,8 +78,6 @@ const List: React.FC = () => {
     dispatch(changeCode(cmrCode))
 
     dispatch(changeType(TypeCmr))
-
-    console.log("cmrCMRCMRCMR")
 
     history.push({
       pathname: '/list/file'
@@ -222,12 +236,7 @@ const List: React.FC = () => {
 
         </Collapse>
 
-        {selectedOption === "BL" &&
-          <>
-            <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
-          </>
-        }
-
+     
         {selectedOption === "CMR" &&
           <>
             <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} />
@@ -240,9 +249,7 @@ const List: React.FC = () => {
               <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} />
             </div>
 
-            <div>
-              <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
-            </div>
+           
           </>
         }
 
@@ -274,3 +281,17 @@ const List: React.FC = () => {
 export default List;
 
 
+/*
+
+   {selectedOption === "BL" &&
+          <>
+            <BlList SearchTerm={SearchTerm} BlClick={BlClick} /> 
+          </>
+        }
+
+
+         <div>
+              <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
+            </div>
+
+            */

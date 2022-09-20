@@ -16,10 +16,10 @@ type Props = {
 
 const Principal: React.FC<Props> = ({ cmrData }) => {
 
-   
+
     return (
 
-        <Box style={{width: "90%"}}>
+        <Box style={{ width: "90%" }}>
 
 
 
@@ -47,7 +47,7 @@ const Principal: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> John Cleese </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -78,7 +78,7 @@ const Principal: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> Brian Lewisnky </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -110,7 +110,7 @@ const Principal: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> Porto </IonCol>
                         </IonRow>
                     </IonGrid>
 

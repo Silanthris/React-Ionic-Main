@@ -43,7 +43,7 @@ const Bl5: React.FC<Props> = ({ blData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8">  </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -77,7 +77,7 @@ const Bl5: React.FC<Props> = ({ blData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> Yes </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -111,7 +111,7 @@ const Bl5: React.FC<Props> = ({ blData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8">  </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -144,7 +144,7 @@ const Bl5: React.FC<Props> = ({ blData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8">{blData.requestedDateIssue} </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -177,7 +177,7 @@ const Bl5: React.FC<Props> = ({ blData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> {blData.requestedDateIssue} </IonCol>
                         </IonRow>
                     </IonGrid>
 

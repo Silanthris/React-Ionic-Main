@@ -18,10 +18,10 @@ type Props = {
 
 const Instructions: React.FC<Props> = ({ cmrData }) => {
 
-   
+
     return (
 
-        <Box style={{width: "90%"}}>
+        <Box style={{ width: "90%" }}>
 
             <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
@@ -47,7 +47,7 @@ const Instructions: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> Be Careful </IonCol>
                         </IonRow>
                     </IonGrid>
 
@@ -78,13 +78,12 @@ const Instructions: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> No Instructions </IonCol>
                         </IonRow>
                     </IonGrid>
 
                 </IonCardContent>
             </IonCard>
-
 
             <IonCard className="card" style={{ '--background': 'white', 'height': '75px' }}>
 
@@ -110,7 +109,7 @@ const Instructions: React.FC<Props> = ({ cmrData }) => {
 
                     <IonGrid>
                         <IonRow>
-                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> 2022/05/04 12:00 </IonCol>
+                            <IonCol style={{ 'color': 'black', 'padding': '0px', 'fontSize': '14px', 'fontFamily': 'arial' }} className="ion-align-self-center" size="8"> No </IonCol>
                         </IonRow>
                     </IonGrid>
 

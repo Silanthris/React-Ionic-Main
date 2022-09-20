@@ -29,7 +29,7 @@ import Register from "../pages/Register";
 import ConfAcesso from "./ConfAcesso";
 import { idText } from "typescript";
 
-import { getUserById, updateTokenById } from "../dataservice";
+import { createUtility, deleteUtility, getUserById, updateTokenById } from "../dataservice";
 
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -65,6 +65,8 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
   const [showModal, setShowModal] = useState(false);
   const [incorrect, setIncorrect] = useState<any>(false);
   const [correct, setCorrect] = useState<any>(false);
+
+  const [code, setCode] = useState<string>("false");
 
   const handleClick = (index: number, value: string) => {
 
@@ -118,23 +120,28 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
         if (enumTask === EnumTask.login) {
 
-          console.log("login login")
-
-          console.log("login login")
-
-
           dispatch(changeId(id))
 
+    
           getUserById(id).then((c: any) => {
             const user = c.values[0];
+
+            const idUser = user.id;
+
+            const idUser2 = user.id;
+
+            console.log(idUser)
+            console.log("id user")
+
+            deleteUtility();
+
+            createUtility({idUser, idUser2});
 
             // setUserToken(user.token);
 
             console.log(user)
 
-            console.log("yasoo")
-
-            console.log("yasoo")
+            console.log("Login User")
 
             fetch('https://try.bizcargo.com/oauth/token', {
               headers: { 'Content-type': 'application/x-www-form-urlencoded' },
@@ -156,9 +163,9 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
                 updateTokenById(id, response.access_token, response.refresh_token)
 
-              //  window.location.replace('/list/dashboard')
+                //  window.location.replace('/list/dashboard')
 
-              history.push({ pathname: '/list/dashboard' })
+                history.push({ pathname: '/list/dashboard' })
 
               }).catch((err) => {
                 alert('Sem Respostassssssssssss');
@@ -167,13 +174,6 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
 
           });
 
-
-
-          //  window.location.replace('/cmr/dashboard')
-
-          //  history.replace("/cmr/dashboard")
-
-          //   history.push("/placeholder")
 
         }
 
@@ -214,37 +214,46 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
   return (
     <IonPage>
       <IonContent>
+
         {validado ? (
+
           <ConfAcesso confType={ConfType.updatePin} />
-        ) : (
-          <div>
-            <IonGrid className="ion-text-center ">
-              <IonRow style={{ paddingTop: "32%" }}>
-                <IonCol size="12">
-                  <div
-                    onClick={() => {
-                      //   loginWithFinger();
-                    }}
-                  >
-                    <IonImg src="/assets/impDig.png" className={styles.logo} />
-                  </div>
-                  <h1>{t<string>('pinPage.verification')}</h1>
-                  <p></p>
-                </IonCol>
-              </IonRow>
-              <KeypadInputs incorrect={incorrect} correct={correct} values={keypadValues} activeIndex={activeIndex} />
-              {incorrect && <p className={styles.incorrect}>{t<string>('pinPage.wrong')}</p>}
-              <Keypad
-                handleRemove={handleRemove}
-                handleClick={handleClick}
-                handleAlert={handleAlert}
-                activeIndex={activeIndex}
-                amount={keypadValues.length}
-                correct={correct}
-              />
-            </IonGrid>
-          </div>
-        )}
+
+
+        ) : <> {!showModal ? <> <div>
+          <IonGrid className="ion-text-center ">
+            <IonRow style={{ paddingTop: "32%" }}>
+              <IonCol size="12">
+                <div
+                  onClick={() => {
+                    //   loginWithFinger();
+                  }}
+                >
+                  <IonImg src="/assets/impDig.png" className={styles.logo} />
+                </div>
+                <h1>{t<string>('pinPage.verification')}</h1>
+                <p></p>
+              </IonCol>
+            </IonRow>
+            <KeypadInputs incorrect={incorrect} correct={correct} values={keypadValues} activeIndex={activeIndex} />
+            {incorrect && <p className={styles.incorrect}>{t<string>('pinPage.wrong')}</p>}
+            <Keypad
+              handleRemove={handleRemove}
+              handleClick={handleClick}
+              handleAlert={handleAlert}
+              activeIndex={activeIndex}
+              amount={keypadValues.length}
+              correct={correct}
+            />
+          </IonGrid>
+        </div> </> : <Register id={id} resetPin={true} />} </>
+
+
+
+        }
+
+
+
         <IonToast
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
@@ -262,11 +271,7 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
           ]}
         />
 
-        <IonModal isOpen={showModal}>
 
-          <Register id={id} resetPin={true} />
-
-        </IonModal>
 
       </IonContent>
     </IonPage>
@@ -277,3 +282,11 @@ export default Login;
 function useNavigate() {
   throw new Error("Function not implemented.");
 }
+
+/*
+<IonModal isOpen={showModal}>
+
+<Register id={id} resetPin={true} />
+
+</IonModal>
+*/

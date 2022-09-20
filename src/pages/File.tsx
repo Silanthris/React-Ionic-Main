@@ -16,7 +16,7 @@ import CmrFile from '../components/CmrFile';
 import BlFile from '../components/BlFile';
 
 
-import { getUserById } from '../dataservice';
+import { getUserById, getUtility } from '../dataservice';
 import { ReactComponent as BizCargo } from '../components/images/BizCargo.svg';
 import { ReactComponent as IconHome } from '../components/images/icon_home.svg';
 import { ReactComponent as IconDocs } from '../components/images/icon_view_docs.svg';
@@ -30,10 +30,9 @@ import { use } from 'i18next';
 import { useSelector, useDispatch } from 'react-redux'
 import { fileContent } from "../components/redux/slices/counterSlice"
 import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
+import { changeId } from '../components/redux/slices/idSlice';
 
 const File: React.FC = () => {
-
-    console.log("FILEFILEFILE")
 
     const dispatch = useDispatch()
 
@@ -41,12 +40,27 @@ const File: React.FC = () => {
 
     const location = useLocation<any>();
 
+    const [idUser, setIdUser] = useState<string>("");
 
     const [TypeCheck, setTypeCheck] = useState(false);
 
+    useEffect(() => {
 
-    const idUser = useSelector((state: any) => state.id.value)
+        getUtility().then((c: any) => {
+            const utility = c;
+            console.log("databse id uytility")
+            console.log(utility.values[0].idUser)
+            setIdUser(utility.values[0].idUser)
+    
+        });
 
+    }, []);
+
+
+    console.log(idUser)
+
+    console.log("id user File")
+    
     const type = useSelector((state: any) => state.type.value)
 
 
@@ -118,7 +132,7 @@ const File: React.FC = () => {
 
                 {type === "Bl" &&
                     <>
-                        <BlFile TypeCheck={TypeCheck} />
+                        <BlFile  TypeCheck={TypeCheck} />
                     </>
                 }
 
