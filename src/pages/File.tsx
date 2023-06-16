@@ -16,12 +16,13 @@ import CmrFile from '../components/CmrFile';
 import BlFile from '../components/BlFile';
 
 
-import { getUserById, getUtility } from '../dataservice';
+import { createCmr, getUserById, getUtility } from '../dataservice';
 import { ReactComponent as BizCargo } from '../components/images/BizCargo.svg';
 import { ReactComponent as IconHome } from '../components/images/icon_home.svg';
 import { ReactComponent as IconDocs } from '../components/images/icon_view_docs.svg';
 import { ReactComponent as IconDocument } from '../components/images/icon_list_docs.svg';
 import { ReactComponent as IconSair } from '../components/images/icon_sair.svg';
+import { ReactComponent as IconFav } from '../components/images/favourite.svg';
 import { ReactComponent as IconSwipe } from '../components/images/icon_view_swipe.svg';
 import { ReactComponent as IconPdf } from '../components/images/icon_view_pdf.svg';
 import { ReactComponent as IconScroll } from '../components/images/icon_view_scroll.svg';
@@ -56,13 +57,7 @@ const File: React.FC = () => {
 
     }, []);
 
-
-    console.log(idUser)
-
-    console.log("id user File")
-    
     const type = useSelector((state: any) => state.type.value)
-
 
     const handleIcon = (type: boolean) => {
         return (event: React.MouseEvent) => {
@@ -71,60 +66,10 @@ const File: React.FC = () => {
     }
 
 
-
-
     return (
         <IonPage>
 
-            <IonHeader >
 
-                <IonToolbar style={{ '--background': 'rgb(29,146,191)' }} >
-
-                    <IonRow style={{ 'display': 'flex' }}>
-
-                        <IonCol size='6' style={{ height: '50px', padding: '0px' }} >
-
-                            <BizCargo style={{ width: "100px", height: "45px", paddingLeft: "15px", paddingBottom: "0px" }} />
-
-                        </IonCol>
-
-                        <IonCol size='2' style={{ height: '50px' }}  >
-
-                            <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
-
-                                <IconPdf style={{ height: '40px', width: '40px' }} />
-
-                            </div>
-
-                        </IonCol>
-
-                        <IonCol size='2' style={{ height: '50px' }} >
-
-                            <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
-
-                                <IconScroll onClick={handleIcon(true)} style={{ height: '40px', width: '40px' }} />
-
-                            </div>
-
-                        </IonCol>
-
-                        <IonCol size='2' style={{ height: '50px' }} >
-
-                            <div style={{ background: 'rgb(29,146,191)', height: '40px', width: '40px' }}  >
-
-                                <IconSwipe onClick={handleIcon(false)} style={{ height: '40px', width: '40px' }} />
-
-                            </div>
-
-                        </IonCol>
-
-
-
-                    </IonRow>
-
-                </IonToolbar>
-
-            </IonHeader>
 
             <IonContent style={{ '--ion-background-color': 'rgb(245,245,246)' }}>
 
@@ -146,22 +91,17 @@ const File: React.FC = () => {
 
             </IonContent>
 
-
             <Box style={{ position: "fixed", width: "100%", bottom: "0", right: "0" }}  >
                 <BottomNavigation
 
                     style={{ background: 'rgb(229,229,229)' }}
 
                 >
-
                     <BottomNavigationAction href='/list/dashboard'  style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
-
-                    <BottomNavigationAction href='/list/file' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
-
+               
                     <BottomNavigationAction href='/list' style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
 
                     <BottomNavigationAction href='/' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
-
 
                 </BottomNavigation>
             </Box>
@@ -173,3 +113,7 @@ const File: React.FC = () => {
 };
 
 export default File;
+
+
+
+ //    <BottomNavigationAction href='/list/file' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />

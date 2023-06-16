@@ -6,6 +6,7 @@ import Menu from './menu/Menu';
 import File from "../pages/File"
 import List from "../pages/List"
 import Dashboard from "../pages/Dashboard";
+import Favorite from "../pages/Favorite"
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -32,6 +33,10 @@ const Router: React.FC = () => {
 
             <Route path="/list">
                 <List />
+            </Route>
+
+            <Route path="/list/fav">
+                <Favorite />
             </Route>
 
             <Route path="/list/dashboard">

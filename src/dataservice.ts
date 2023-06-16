@@ -25,7 +25,7 @@ export const initdb = async () => {
     await createTables();
     await createSecondaryTable();
     await createCMRTable();
-
+    await createBlTable();
 
     return database;
   } catch (e) {
@@ -64,7 +64,18 @@ export const createSecondaryTable = async () => {
   await database.open();
 
   // query to create tables on database
-  return database.query("CREATE TABLE IF NOT EXISTS cmr ( idCmr INTEGER PRIMARY KEY NOT NULL, idUser INTEGER, code TEXT, file TEXT, fav INTEGER) ");
+  return database.query("CREATE TABLE IF NOT EXISTS cmr ( idCmr INTEGER PRIMARY KEY NOT NULL, idUser INTEGER, code TEXT, file TEXT, fav TEXT, loading TEXT, origin TEXT, delivery TEXT, destination TEXT, carrierBookingReference TEXT ) ");
+};
+
+/**
+ * create table CMR
+ */
+ export const createBlTable = async () => {
+  // open database
+  await database.open();
+
+  // query to create tables on database
+  return database.query("CREATE TABLE IF NOT EXISTS bl ( idBl INTEGER PRIMARY KEY NOT NULL, idUser INTEGER, code TEXT, file TEXT, fav TEXT, portOfLoading TEXT, portOfDischarge TEXT, journey TEXT, voyage TEXT) ");
 };
 
 /**
@@ -107,6 +118,37 @@ export const getUtility = async () => {
   ]);
 };
 
+/**
+ *
+ * @param userId
+ */
+ export const getBlbyId = async (Iduser: any) => {
+  return await database.query("SELECT * FROM bl WHERE Iduser = ?;", [
+    Iduser + "",
+  ]);
+};
+
+/**
+ *
+ * @param userId
+ */
+ export const getCmrbyCode = async (code: any) => {
+  return await database.query("SELECT * FROM cmr WHERE code = ?;", [
+    code + "",
+  ]);
+};
+
+/**
+ *
+ * @param userId
+ */
+ export const getBlbyCode = async (code: any) => {
+  return await database.query("SELECT * FROM bl WHERE code = ?;", [
+    code + "",
+  ]);
+};
+
+
 
 /**
  *
@@ -141,9 +183,19 @@ export const deleteUserById = async (userId: any) => {
  *
  * @param userId
  */
- export const deleteCmrnotFav = async () => {
+ export const deleteCmrnotFav = async (fav: any) => {
   return await database.query("DELETE FROM cmr WHERE fav = ?;", [
-     0
+     fav + "",
+  ]);
+};
+
+/**
+ *
+ * @param userId
+ */
+ export const deleteBlnotFav = async (fav: any) => {
+  return await database.query("DELETE FROM bl WHERE fav = ?;", [
+     fav + "",
   ]);
 };
 
@@ -194,23 +246,128 @@ export const updateTokenById = async (userId: any, token: any, refreshToken: any
 
 /**
  *
- * @param userId
+ * @param fileData
  */
- export const updateCmrByCodeaddFav = async (Code: any) => {
-  return await database.query(
-    "UPDATE cmr SET fav=? WHERE code = ?;",
-    [ 1 , Code]
+ export const updateCmrbyCode = async (code: any, file: any, loading: any, origin: any, delivery: any, destination: any, carrierBookingReference: any) => {
+  return await database.run(
+    "UPDATE cmr SET file=?, loading=?, origin=?, delivery=?, destination=?, carrierBookingReference=? WHERE code = ?",
+    [file, loading, origin, delivery, destination, carrierBookingReference, code]
   );
 };
 
 /**
  *
- * @param userId
+ * @param fileData
  */
- export const updateCmrByCodedelFav = async (Code: any) => {
+ export const updateBlbyCode = async (file: any, portOfLoading: any, portOfDischarge: any, journey: any, voyage: any, code: any) => {
+  return await database.run(
+    "UPDATE bl SET file=?, portOfLoading=?, portOfDischarge=?, journey=?, voyage=? WHERE code = ?",
+    [file, portOfLoading, portOfDischarge, journey, voyage, code]
+  );
+};
+
+
+/**
+ *
+ * @param idCmr
+ */
+ export const updateCmrByCodeaddFav = async (idCmr2: any) => {
+  const fav = "1";
+
+  console.log("idCmr wtf man")
+  console.log(idCmr2)
+  const idcmrr = JSON.stringify(idCmr2)
+  console.log(idcmrr)
+
+  var partsArray = idcmrr.split(':');
+  console.log(partsArray[2])
+  console.log(partsArray)
+
+  var partsArray2 = partsArray[1].split('}');
+  console.log(partsArray2)
+
+  const idCmr = partsArray2[0]
+
   return await database.query(
-    "UPDATE cmr SET fav=? WHERE code = ?;",
-    [ 0 , Code]
+    "UPDATE cmr SET fav=? WHERE idCmr = ?;",
+    [ fav, idCmr]
+  );
+};
+
+/**
+ *
+ * @param idCmr
+ */
+ export const updateCmrByCodedelFav = async (idCmr2: any) => {
+  const fav = "0";
+
+  const idcmrr = JSON.stringify(idCmr2)
+  console.log(idcmrr)
+
+  var partsArray = idcmrr.split(':');
+  console.log(partsArray[2])
+  console.log(partsArray)
+
+  var partsArray2 = partsArray[1].split('}');
+  console.log(partsArray2)
+
+  const idCmr = partsArray2[0]
+
+  return await database.query(
+    "UPDATE cmr SET fav=? WHERE idCmr = ?;",
+    [ fav, idCmr]
+  );
+};
+
+/**
+ *
+ * @param idCmr
+ */
+ export const updateBlByCodeaddFav = async (idBl2: any) => {
+  const fav = "1";
+
+  console.log("idBl wtf man")
+  console.log(idBl2)
+  const idbll = JSON.stringify(idBl2)
+  console.log(idbll)
+
+  var partsArray = idbll.split(':');
+  console.log(partsArray[2])
+  console.log(partsArray)
+
+  var partsArray2 = partsArray[1].split('}');
+  console.log(partsArray2)
+
+  const idBl = partsArray2[0]
+
+  return await database.query(
+    "UPDATE bl SET fav=? WHERE idBl = ?;",
+    [ fav, idBl]
+  );
+};
+
+/**
+ *
+ * @param idCmr
+ */
+ export const updateBlByCodedelFav = async (idBl2: any) => {
+  const fav = "0";
+
+  const idbll = JSON.stringify(idBl2)
+  console.log(idbll)
+
+  var partsArray = idbll.split(':');
+  console.log(partsArray[2])
+  console.log(partsArray)
+
+  var partsArray2 = partsArray[1].split('}');
+  console.log(partsArray2)
+
+  const idBl = partsArray2[0]
+
+  return await database.query(
+    "UPDATE bl SET fav=? WHERE idBl = ?;",
+    [ fav, idBl]
   );
 };
 
@@ -246,10 +403,21 @@ export const createUtility = async (userData: any) => {
  * @param fileData
  */
  export const createCmr = async (fileData: any) => {
-  const { idUser, code, file, fav } = fileData;
+  const { idUser, code, file, fav, loading, origin, delivery, destination, carrierBookingReference } = fileData;
   return await database.run(
-    "INSERT INTO cmr (idUser,code,file,fav) VALUES(?,?,?,?)",
-    [idUser, code, file, fav]
+    "INSERT INTO cmr (idUser,code,file,fav,loading,origin,delivery,destination,carrierBookingReference) VALUES(?,?,?,?,?,?,?,?,?)",
+    [idUser, code, file, fav, loading, origin, delivery, destination, carrierBookingReference]
   );
 };
 
+/**
+ *
+ * @param fileData
+ */
+ export const createBl = async (fileData: any) => {
+  const { idUser, code, file, fav, portOfLoading, portOfDischarge, journey, voyage} = fileData;
+  return await database.run(
+    "INSERT INTO bl (idUser,code,file,fav,portOfLoading,portOfDischarge,journey,voyage) VALUES(?,?,?,?,?,?,?,?)",
+    [idUser, code, file, fav, portOfLoading, portOfDischarge, journey, voyage]
+  );
+};

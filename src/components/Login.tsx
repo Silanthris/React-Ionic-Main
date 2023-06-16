@@ -168,7 +168,9 @@ const Login: React.FC<Props> = ({ pin, id, setLoginCheck, setConfCheck, deleteUs
                 history.push({ pathname: '/list/dashboard' })
 
               }).catch((err) => {
-                alert('Sem Respostassssssssssss');
+                alert('Sem Conexão á Internet');
+
+                history.push({ pathname: '/list/dashboard' })
               });
 
 

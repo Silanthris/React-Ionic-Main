@@ -19,6 +19,7 @@ import { ReactComponent as IconMore } from '../components/images/icon_more.svg';
 
 import { ReactComponent as IconSair } from '../components/images/icon_sair.svg';
 
+
 import Cmr from "../components/Cmr/Cmr"
 import BlList from '../components/BlList';
 import CmrList from '../components/CmrList';
@@ -73,17 +74,6 @@ const List: React.FC = () => {
 
   const [SearchCheck, setSearchCheck] = useState(false);
 
-  const CmrClick = (cmrCode: any) => {
-
-    dispatch(changeCode(cmrCode))
-
-    dispatch(changeType(TypeCmr))
-
-    history.push({
-      pathname: '/list/file'
-    })
-
-  };
 
   const BlClick = (blCode: any) => {
 
@@ -95,6 +85,18 @@ const List: React.FC = () => {
       pathname: '/list/file'
     })
 
+
+  };
+
+  const CmrClick = (cmrCode: any) => {
+
+    dispatch(changeCode(cmrCode))
+
+    dispatch(changeType(TypeCmr))
+
+    history.push({
+      pathname: '/list/file'
+    })
 
   };
 
@@ -236,20 +238,28 @@ const List: React.FC = () => {
 
         </Collapse>
 
-     
+
         {selectedOption === "CMR" &&
           <>
-            <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} />
+            <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} setSearchTerm={setSearchTerm} />
           </>
         }
 
         {selectedOption === "" &&
           <>
             <div>
-              <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} />
+              <CmrList SearchTerm={SearchTerm} CmrClick={CmrClick} setSearchTerm={setSearchTerm} />
             </div>
 
-           
+            <div>
+              <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
+            </div>
+          </>
+        }
+
+        {selectedOption === "BL" &&
+          <>
+            <BlList SearchTerm={SearchTerm} BlClick={BlClick} />
           </>
         }
 
@@ -262,8 +272,7 @@ const List: React.FC = () => {
 
             <BottomNavigationAction href='/list/dashboard' style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconHome />} />
 
-            <BottomNavigationAction href='/list/file' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />
-
+         
             <BottomNavigationAction href='/list' style={{ paddingLeft: "0px", paddingRight: "0px" }} className="	.Mui-selected" label="Entrar" icon={<IconDocument />} />
 
             <BottomNavigationAction href='/' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconSair />} />
@@ -295,3 +304,5 @@ export default List;
             </div>
 
             */
+
+         //   <BottomNavigationAction href='/list/file' style={{ paddingLeft: "0px", paddingRight: "0px" }} label="Perfis" icon={<IconDocs />} />

@@ -66,6 +66,13 @@ const Dashboard: React.FC<any> = () => {
         }
     }
 
+    const handleClickFav = () => {
+        return (event: React.MouseEvent) => {
+            event.preventDefault();
+            history.push({ pathname: '/list/fav' })
+        }
+    }
+
     const handleClick2 = () => {
         return (event: React.MouseEvent) => {
             event.preventDefault();
@@ -152,6 +159,7 @@ const Dashboard: React.FC<any> = () => {
 
 
                                     </IonRow>
+
 
                                     <IonRow>
                                         <IonCol >

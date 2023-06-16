@@ -1,0 +1,16 @@
+.keypadButton {
+  --background: none;
+  --color: var(--ion-color-contrast);
+  font-size: 2rem;
+  font-weight: 700;
+  --outline: none;
+  --border: none;
+  --box-shadow: none;
+  --background-hover: rgb(245, 245, 245) !important;
+  --background-focused: rgb(245, 245, 245) !important;
+  --background-activated: rgb(245, 245, 245) !important;
+}
+
+.smallKeypadButton {
+  font-size: 1.2rem;
+}

@@ -13,6 +13,22 @@ type Props = {
 
 const Bl5: React.FC<Props> = ({ blData }) => {
 
+    
+    console.log("BL5 DATE TEST")
+    console.log(blData)
+    console.log(blData.requestedDateIssue)
+
+    const dateRequested = Date.parse(blData.requestedDateIssue);
+
+    const dateRequested2 = new Date(blData.requestedDateIssue)
+
+    console.log(dateRequested)
+    console.log(dateRequested2)
+
+    const requestedDateIssue23 = dateRequested2.toLocaleString();
+
+    console.log(requestedDateIssue23)
+
 
     return (
 
